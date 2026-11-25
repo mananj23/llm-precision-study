@@ -1,0 +1,19 @@
+# Checkpoints are tens of GB. Never commit them; record their provenance in
+# notes/ and results/checkpoints/*.json instead.
+results/checkpoints/*
+!results/checkpoints/.gitkeep
+!results/checkpoints/*.json
+
+# Raw per-sample JSONL from lm-eval can be large. Keep the derived tidy parquet
+# (which IS committed) and compress the raw files if they exceed ~50 MB.
+results/quality/**/*.jsonl
+*.safetensors
+*.bin
+
+.venv*/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+hf_cache/
+*.lock

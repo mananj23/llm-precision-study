@@ -1,0 +1,21 @@
+# Environment B: building quantized checkpoints.
+#
+#   python -m venv .venv-compressor
+#   . .venv-compressor/bin/activate
+#   pip install -r requirements-compressor.txt
+#
+# Keep separate from the vLLM environment (vLLM docs: "Please use separate
+# environments for vLLM and llm-compressor as they might not work together").
+# Pin with `pip freeze > requirements-compressor.lock.txt` once it works.
+
+llmcompressor
+transformers
+torch
+datasets
+accelerate
+huggingface_hub[cli]
+pyyaml
+
+# AutoAWQ is only needed if you fall back from llm-compressor's AWQ recipe.
+# Uncomment only if you actually use it, and say so in the report.
+# autoawq

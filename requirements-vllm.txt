@@ -1,0 +1,32 @@
+# Environment A: serving + evaluation.
+#
+# The vLLM docs are explicit that vLLM and llm-compressor should live in
+# SEPARATE virtual environments because they can conflict. Do not merge this
+# with requirements-compressor.txt.
+#
+#   python -m venv .venv-vllm
+#   . .venv-vllm/bin/activate
+#   pip install -r requirements-vllm.txt
+#
+# PIN THESE the moment the environment works. Replace every >= with == and the
+# exact version you got, then commit. vLLM changes quickly and an unpinned
+# requirements file will not reproduce your numbers in February.
+#   pip freeze > requirements-vllm.lock.txt
+
+vllm>=0.29
+# The [vllm] extra, not [api]: this project runs `--model vllm`, which loads
+# the model in-process. [api] is for evaluating against a running server.
+lm-eval[vllm]>=0.4.12
+transformers
+huggingface_hub[cli]
+datasets
+accelerate
+
+# analysis (safe to install here too; no GPU needed)
+numpy
+pandas
+pyarrow
+scipy
+scikit-learn
+matplotlib
+pyyaml

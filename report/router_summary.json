@@ -1,0 +1,25 @@
+{
+  "cheap": "llama31-8b__w-int4gptq__kv-bf16",
+  "expensive": "llama31-8b__w-bf16__kv-bf16",
+  "task_flag_used": true,
+  "confidence_cost_share": 0.0,
+  "n_prompts": 1300,
+  "results": [
+    {
+      "label": "logistic \u00b7 split by prompt",
+      "auc": 0.5701957106652823,
+      "summary": "At the reference operating point (threshold chosen in advance to route about half the prompts cheap, not tuned on the outcome), the router sends 59% of prompts to the cheap configuration, reaching 69.0% accuracy at $0.509 per 1M prompts (23% below always-expensive, which scores 70.8%). A random mix at the SAME average cost reaches 68.2%, so the router beats random mixing by +0.8 points. An oracle at that cost would reach 71.9%, leaving 2.9 points of headroom that no router built from these features captured. The best threshold found anywhere on the sweep gains +0.8 points at 59% routed cheap, but that threshold was selected on the data it is scored on and is optimistic. This is an OFFLINE simulation replayed over logged benchmark outputs; it does not show that the router would work on real traffic or in a live serving system.",
+      "per_task_auc": null
+    },
+    {
+      "label": "logistic \u00b7 held-out task",
+      "auc": 0.4517198646883478,
+      "summary": "At the reference operating point (threshold chosen in advance to route about half the prompts cheap, not tuned on the outcome), the router sends 49% of prompts to the cheap configuration, reaching 68.5% accuracy at $0.534 per 1M prompts (19% below always-expensive, which scores 70.8%). A random mix at the SAME average cost reaches 68.6%, so the router does NOT beat random mixing (-0.2 points). An oracle at that cost would reach 71.9%, leaving 3.5 points of headroom that no router built from these features captured. The best threshold found anywhere on the sweep gains +0.1 points at 98% routed cheap, but that threshold was selected on the data it is scored on and is optimistic. This is an OFFLINE simulation replayed over logged benchmark outputs; it does not show that the router would work on real traffic or in a live serving system.",
+      "per_task_auc": {
+        "gsm8k": 0.44312312312312313,
+        "longbench": 0.5283505154639175,
+        "mmlu": 0.5143590718904527
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+# Calibration set. FIXED ONCE, used for EVERY calibrated method.
+#
+# Why this file exists: INT8 (SmoothQuant+GPTQ), INT4-GPTQ and INT4-AWQ all need
+# calibration data. If each method saw a different calibration set, a difference
+# between them would not be attributable to the quantization method. Everything
+# below is frozen on 2026-11-16. Do not change it without rebuilding every
+# calibrated checkpoint and rerunning every eval that used them.
+
+dataset: HuggingFaceH4/ultrachat_200k
+split: train_sft
+num_samples: 512
+max_seq_length: 2048
+shuffle_seed: 42
+
+# Preprocessing: apply the model's own chat template, then tokenize with
+# add_special_tokens=False (the template already supplies the BOS token).
+# This matches the llm-compressor reference examples; see scripts/quantize_common.py.
+apply_chat_template: true
+add_special_tokens: false
+
+# Recorded so the report can state it:
+frozen_on: 2026-11-16
+frozen_by: manan
+rationale: >
+  A general-purpose instruct calibration set, not drawn from any evaluation
+  task. Using GSM8K or MMLU text here would leak the test distribution into the
+  quantized weights and inflate the measured accuracy of calibrated methods.

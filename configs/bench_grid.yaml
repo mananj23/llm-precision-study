@@ -1,0 +1,60 @@
+# System benchmark grid (Step 5).
+#
+# One server per configuration, benchmarked alone on the GPU. Never run a
+# quality eval at the same time as a benchmark.
+
+version: 1
+frozen_on: 2026-11-16
+
+grid:
+  concurrency: [1, 8, 32, 64]
+  shapes:
+    # input/output token counts. Skip the last if the KV cache will not hold it
+    # at that concurrency -- and RECORD that you skipped it, that is a result.
+    - {input_len: 512,   output_len: 128, label: short}
+    - {input_len: 4096,  output_len: 256, label: medium}
+    - {input_len: 16384, output_len: 256, label: long}
+
+repeats: 3          # keep all three, report the median
+warmup_passes: 1    # discard
+
+dataset:
+  name: random      # synthetic fixed-length prompts, so only precision changes
+  ignore_eos: true  # force exactly output_len tokens, else TPOT is not comparable
+
+# vLLM reuses prompts left in the prefix cache between runs against the same
+# server, which inflates throughput. Two defences, both applied:
+#   1. serve with --no-enable-prefix-caching for benchmark servers
+#   2. vary --seed per repeat
+# If you ever benchmark WITH prefix caching on, say so in the report; it is a
+# different experiment.
+disable_prefix_caching: true
+seeds: [0, 1, 2]
+
+# ------------------------------------------------------------------- cost ---
+cost:
+  # Fill in the price you actually paid, and the date. Do not use a list price
+  # from memory. cost_per_million_output_tokens =
+  #     gpu_price_per_hour / (output_tokens_per_second * 3600) * 1e6
+  gpu_name: TODO            # e.g. "1x H100 80GB SXM"
+  gpu_price_per_hour: null  # e.g. 2.49
+  price_source: TODO        # provider + URL
+  price_date: TODO          # YYYY-MM-DD
+
+# Which concurrency the headline cost number is quoted at. Quoting a single
+# number without saying the concurrency is meaningless, since throughput per
+# dollar changes by an order of magnitude across the grid.
+reference_concurrency: 32
+
+# ---------------------------------------------------------------- memory ---
+# Record BOTH, they answer different questions:
+#   weights_gb      -- size of the checkpoint on disk / in VRAM
+#   kv_cache_tokens -- from vLLM's startup log line ("GPU KV cache size: N tokens")
+# The second explains throughput differences: a smaller KV cache lets more
+# requests run concurrently.
+record:
+  - weights_gb
+  - kv_cache_tokens
+  - gpu_memory_total_gb
+  - vllm_version
+  - gpu_name

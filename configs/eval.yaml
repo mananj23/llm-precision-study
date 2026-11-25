@@ -1,0 +1,110 @@
+# Frozen evaluation setup (Step 2.6 of the plan).
+#
+# Every number in the report comes from this file. Changing anything here
+# invalidates the BF16 baseline and therefore every "change from BF16" interval.
+# If you must change it, bump `version`, rerun the BF16 baseline first, and note
+# the reason in notes/.
+
+version: 1
+frozen_on: 2026-11-16
+
+# ---------------------------------------------------------------- decoding ---
+# Greedy everywhere. Temperature 0 removes sampling noise so that a rerun
+# difference is attributable to kernels/batching, not to sampling.
+decoding:
+  temperature: 0.0
+  top_p: 1.0
+  seed: 1234
+
+# ------------------------------------------------------------------- tasks ---
+# `harness_task` must be checked against YOUR installed lm-eval version with
+#   lm_eval --tasks list | grep <name>
+# Task names move between harness releases. Verify before the first real run.
+tasks:
+  gsm8k:
+    harness_task: gsm8k
+    num_fewshot: 5
+    max_tokens: 512
+    primary_metric: exact_match,strict-match
+    note: Multi-step arithmetic. Small, widely reported, precision-sensitive. Run first.
+
+  mmlu:
+    harness_task: mmlu
+    num_fewshot: 5
+    max_tokens: 32
+    primary_metric: acc,none
+    subjects_subset:
+      - abstract_algebra
+      - college_computer_science
+      - college_mathematics
+      - econometrics
+      - electrical_engineering
+      - formal_logic
+      - high_school_physics
+      - machine_learning
+      - professional_law
+      - professional_medicine
+    note: >
+      Broad knowledge. Use the 10-subject subset above if time is short; it is
+      fixed so that it is the same subset for every configuration.
+
+  humaneval:
+    harness_task: humaneval
+    num_fewshot: 0
+    max_tokens: 512
+    primary_metric: pass@1,create_test
+    requires_code_execution: true
+    note: >
+      EXECUTES MODEL-GENERATED CODE. Only run inside a container or a throwaway
+      VM, never on a machine you care about. The harness needs
+      HF_ALLOW_CODE_EVAL=1 to run it at all.
+
+  ifeval:
+    harness_task: ifeval
+    num_fewshot: 0
+    max_tokens: 1280
+    primary_metric: prompt_level_strict_acc,none
+    note: Instruction following. Confirm your harness version ships this task.
+
+  longbench:
+    harness_task: longbench
+    num_fewshot: 0
+    max_tokens: 512
+    primary_metric: acc,none
+    needs_long_context: true
+    subsets:
+      - narrativeqa
+      - qasper
+      - hotpotqa
+      - gov_report
+    note: >
+      The KV-cache question lives here. Check how your harness version exposes
+      LongBench; if it does not, write a small custom task rather than skipping
+      long context entirely.
+
+# ------------------------------------------------------------------ running ---
+run:
+  # --log_samples is non-negotiable: it writes per-prompt outputs and
+  # correctness flags, which are the input to BOTH the bootstrap intervals and
+  # the router. Without it, Step 7 is impossible.
+  log_samples: true
+  batch_size: auto
+  # Quantized models are sensitive to the BOS token and lm_eval does not add one
+  # by default. The llm-compressor docs set add_bos_token=True for every
+  # evaluation. We set it for BF16 too, so that the baseline and the quantized
+  # runs differ ONLY in precision.
+  add_bos_token: true
+  output_root: results/quality
+
+# ------------------------------------------------------------- bootstrap ---
+bootstrap:
+  n_resamples: 10000
+  ci: 0.95
+  seed: 20261116
+  method: paired
+  note: >
+    Paired over per-prompt correctness: resample prompt ids, then recompute the
+    DIFFERENCE between the configuration and BF16 on the same resampled prompts.
+    Do not subtract two accuracies and compare their separate standard errors;
+    pairing removes the prompt-difficulty variance and gives a much tighter,
+    correct interval.
