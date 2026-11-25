@@ -1,0 +1,75 @@
+
+================ PHASE 0  environment ================
+
+--- disk ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/rbd3       184G   43G  141G  24% /home/jovyan
+need >= 200 GB free: each 8B model is ~16 GB in BF16 and you keep several copies
+
+--- python / libs ---
+python 3.12.3
+  vllm: 0.32.0
+  lm_eval: 0.4.13
+  llmcompressor: NOT INSTALLED in this env
+  torch: 2.13.0+cu129
+  transformers: 5.19.0
+
+reminder: vLLM and llm-compressor belong in SEPARATE venvs.
+  .venv-vllm       -> requirements-vllm.txt       (serve + lm_eval)
+  .venv-compressor -> requirements-compressor.txt (build checkpoints)
+
+--- huggingface ---
+HF_HOME=/home/jovyan/hf_cache
+  logged in as: mananj2303
+
+--- tmux ---
+  tmux present. Run every long job inside it.
+
+=== paste all of the above into notes/2026-11-25.md ===
+[20:25:39] env_check -> done
+GPUs visible: 1   TP=1
+
+================ PHASE 1  build checkpoints ================
+
+[20:25:39] building llama31-8b__w-fp8__kv-bf16 via scripts/quantize_fp8.py
+/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/torch/cuda/__init__.py:228: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12090). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /__w/pytorch/pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+[hardware] cc 8.9 supports FP8 W8A8
+[plan] meta-llama/Llama-3.1-8B-Instruct -> /home/jovyan/checkpoints/llama31-8b__w-fp8
+[plan] weights=fp8 calibration=False
+2026-11-25T20:25:42.5057 | get_main_device | WARNING - No accelerator available! Compressing model on CPU instead
+[load] meta-llama/Llama-3.1-8B-Instruct
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights: 100%|██████████| 291/291 [00:00<00:00, 14172.74it/s]
+[oneshot] running...
+2026-11-25T20:25:45.1249 | __init__ | WARNING - Disabling tokenizer parallelism due to threading conflict between FastTokenizer and Datasets. Set TOKENIZERS_PARALLELISM=false to suppress this warning.
+2026-11-25T20:25:47.2732 | reset | INFO - Compression lifecycle reset
+2026-11-25T20:25:47.2759 | from_modifiers | INFO - Creating recipe from modifiers
+2026-11-25T20:25:47.2767 | get_main_device | WARNING - No accelerator available! Compressing model on CPU instead
+2026-11-25T20:25:47.2819 | get_main_device | WARNING - No accelerator available! Compressing model on CPU instead
+Applying quantization config:   0%|          | 0/224 [00:00<?, ?it/s]Applying quantization config: 100%|██████████| 224/224 [00:00<00:00, 17600.68it/s]
+2026-11-25T20:25:47.3022 | initialize | INFO - Compression lifecycle initialized for 1 modifiers
+2026-11-25T20:25:47.3023 | IndependentPipeline | INFO - Inferred `DataFreePipeline` for `QuantizationModifier`
+2026-11-25T20:25:47.3023 | get_main_device | WARNING - No accelerator available! Compressing model on CPU instead
+2026-11-25T20:25:47.7400 | finalize | INFO - Compression lifecycle finalized for 1 modifiers
+Compressing model:   0%|          | 0/224 [00:00<?, ?it/s]Compressing model:   2%|▏         | 5/224 [00:00<00:06, 33.72it/s]Compressing model:   4%|▍         | 9/224 [00:00<00:06, 33.64it/s]Compressing model:   6%|▌         | 13/224 [00:00<00:06, 31.22it/s]Compressing model:   8%|▊         | 19/224 [00:00<00:06, 33.17it/s]Compressing model:  10%|█         | 23/224 [00:00<00:06, 29.87it/s]Compressing model:  12%|█▏        | 27/224 [00:00<00:06, 29.78it/s]Compressing model:  14%|█▍        | 31/224 [00:00<00:05, 32.28it/s]Compressing model:  16%|█▌        | 35/224 [00:01<00:06, 27.20it/s]Compressing model:  18%|█▊        | 40/224 [00:01<00:05, 32.25it/s]Compressing model:  20%|█▉        | 44/224 [00:01<00:06, 29.70it/s]Compressing model:  21%|██▏       | 48/224 [00:01<00:05, 30.15it/s]Compressing model:  24%|██▍       | 54/224 [00:01<00:04, 35.02it/s]Compressing model:  26%|██▌       | 58/224 [00:01<00:05, 31.15it/s]Compressing model:  28%|██▊       | 62/224 [00:01<00:05, 30.65it/s]Compressing model:  30%|██▉       | 67/224 [00:02<00:04, 35.05it/s]Compressing model:  32%|███▏      | 71/224 [00:02<00:05, 29.46it/s]Compressing model:  34%|███▍      | 76/224 [00:02<00:05, 28.81it/s]Compressing model:  37%|███▋      | 82/224 [00:02<00:04, 34.37it/s]Compressing model:  38%|███▊      | 86/224 [00:02<00:04, 31.38it/s]Compressing model:  40%|████      | 90/224 [00:02<00:04, 31.52it/s]Compressing model:  42%|████▏     | 95/224 [00:02<00:03, 35.76it/s]Compressing model:  44%|████▍     | 99/224 [00:03<00:04, 29.70it/s]Compressing model:  46%|████▌     | 103/224 [00:03<00:03, 31.98it/s]Compressing model:  48%|████▊     | 107/224 [00:03<00:03, 32.57it/s]Compressing model:  50%|████▉     | 111/224 [00:03<00:03, 32.46it/s]Compressing model:  52%|█████▏    | 116/224 [00:03<00:03, 34.17it/s]Compressing model:  54%|█████▎    | 120/224 [00:03<00:03, 31.16it/s]Compressing model:  56%|█████▌    | 125/224 [00:03<00:03, 30.17it/s]Compressing model:  58%|█████▊    | 131/224 [00:04<00:02, 31.73it/s]Compressing model:  60%|██████    | 135/224 [00:04<00:02, 32.14it/s]Compressing model:  62%|██████▏   | 139/224 [00:04<00:02, 31.61it/s]Compressing model:  65%|██████▍   | 145/224 [00:04<00:02, 32.58it/s]Compressing model:  67%|██████▋   | 149/224 [00:04<00:02, 29.86it/s]Compressing model:  68%|██████▊   | 153/224 [00:04<00:02, 30.41it/s]Compressing model:  71%|███████   | 159/224 [00:04<00:01, 34.82it/s]Compressing model:  73%|███████▎  | 163/224 [00:05<00:01, 31.18it/s]Compressing model:  75%|███████▍  | 167/224 [00:05<00:01, 31.51it/s]Compressing model:  77%|███████▋  | 173/224 [00:05<00:01, 32.36it/s]Compressing model:  79%|███████▉  | 177/224 [00:05<00:01, 32.99it/s]Compressing model:  81%|████████  | 181/224 [00:05<00:01, 29.67it/s]Compressing model:  83%|████████▎ | 187/224 [00:05<00:01, 34.02it/s]Compressing model:  85%|████████▌ | 191/224 [00:06<00:01, 31.03it/s]Compressing model:  87%|████████▋ | 195/224 [00:06<00:00, 31.40it/s]Compressing model:  90%|████████▉ | 201/224 [00:06<00:00, 35.43it/s]Compressing model:  92%|█████████▏| 205/224 [00:06<00:00, 31.54it/s]Compressing model:  93%|█████████▎| 209/224 [00:06<00:00, 31.62it/s]Compressing model:  96%|█████████▌| 215/224 [00:06<00:00, 32.52it/s]Compressing model:  98%|█████████▊| 219/224 [00:06<00:00, 32.14it/s]Compressing model: 100%|█████████▉| 223/224 [00:07<00:00, 29.55it/s]Compressing model: 100%|██████████| 224/224 [00:07<00:00, 31.58it/s]
+/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/transformers/modeling_utils.py:3430: UserWarning: Attempting to save a model with offloaded modules. Ensure that unallocated cpu memory exceeds the `shard_size` (50GB default)
+  warnings.warn(
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:03<00:00,  3.13s/it]Writing model shards: 100%|██████████| 1/1 [00:03<00:00,  3.13s/it]
+2026-11-25T20:25:58.4624 | resave_config | INFO - Resaved original config with patched fields to /home/jovyan/checkpoints/llama31-8b__w-fp8/config.json
+Dispatching model:   0%|          | 0/423 [00:00<?, ?it/s]Dispatching model: 100%|██████████| 423/423 [00:00<00:00, 56888.79it/s]
+[provenance] /home/jovyan/llm-precision-study/results/checkpoints/llama31-8b__w-fp8__kv-bf16.build.json
+{
+  "config": "llama31-8b__w-fp8__kv-bf16",
+  "base_model": "meta-llama/Llama-3.1-8B-Instruct",
+  "weights": "fp8",
+  "output_dir": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+  "build_seconds": 17.0,
+  "size_gb": 9.1,
+  "recipe_repr": "QuantizationModifier(config_groups=None, targets=['Linear'], ignore=['lm_head'], scheme='FP8_DYNAMIC', kv_cache_scheme=None, weight_observer=None, input_observer=None, output_observer=None, observer=None, bypass_divisibility_checks=False, requires_calibration_data=False, index=None, group=None, start=None, end=None, update=None, initialized_=True, finalized_=True, started_=True, ended_=True)",
+  "calibration": null
+}
+
+[done] /home/jovyan/checkpoints/llama31-8b__w-fp8  (9.1 GB, 0.3 min)
+[next] VERIFY IT BEFORE USING IT:
+       python scripts/verify_checkpoint.py llama31-8b__w-fp8__kv-bf16
+[20:26:01] build:llama31-8b__w-fp8__kv-bf16 -> ok

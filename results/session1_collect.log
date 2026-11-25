@@ -1,0 +1,16 @@
+scanning /home/jovyan/llm-precision-study/results/quality
+  llama31-8b__w-bf16__kv-bf16 / gsm8k / 20261125T202226: 1 sample file(s)
+
+--- integrity ---
+config  llama31-8b__w-bf16__kv-bf16
+task                               
+gsm8k                            20
+  WARNING: 20 duplicate (config, task, doc_id, run_id) rows
+  The paired bootstrap pairs on doc_id, so duplicates would
+  double-count prompts. Usually a task GROUP collapsed into one
+  task label; check the '-> task=' lines above.
+
+wrote 40 rows -> /home/jovyan/llm-precision-study/results/logs/per_prompt.parquet
+       count  mean
+task              
+gsm8k     40   0.7

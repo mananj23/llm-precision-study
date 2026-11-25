@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-25T20:25:59.555649+00:00",
+  "git_commit": "4a5606fd6dd3716a2179bc1b788c82435d25cca9",
+  "git_dirty": true,
+  "hostname": "n-a39549ff-e397-4b93-8dc2-060edf88e94c-0",
+  "python": "3.12.3",
+  "gpu": "NVIDIA L40S, 8.9, 46068 MiB, 550.127.08",
+  "vllm_version": null,
+  "lm_eval_version": null,
+  "llmcompressor_version": "0.15.0",
+  "torch_version": "2.14.1+cu130",
+  "transformers_version": "5.21.0",
+  "config": "llama31-8b__w-fp8__kv-bf16",
+  "base_model": "meta-llama/Llama-3.1-8B-Instruct",
+  "weights": "fp8",
+  "output_dir": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+  "build_seconds": 17.0,
+  "size_gb": 9.1,
+  "recipe_repr": "QuantizationModifier(config_groups=None, targets=['Linear'], ignore=['lm_head'], scheme='FP8_DYNAMIC', kv_cache_scheme=None, weight_observer=None, input_observer=None, output_observer=None, observer=None, bypass_divisibility_checks=False, requires_calibration_data=False, index=None, group=None, start=None, end=None, update=None, initialized_=True, finalized_=True, started_=True, ended_=True)",
+  "calibration": null
+}
