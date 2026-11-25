@@ -118,6 +118,12 @@ fi
 # Build every checkpoint first. They are the long pole and they are what you
 # lose if the node dies, so get them onto disk (and to Hugging Face, if you
 # set HF_PUSH_REPO) before spending hours on evaluations.
+COMPRESSOR_PY="$PWD/.venv-compressor/bin/python"
+if [ ! -x "$COMPRESSOR_PY" ]; then
+  COMPRESSOR_PY="$(command -v python3)"
+  echo "[$(ts)] WARNING: no .venv-compressor; building checkpoints with $COMPRESSOR_PY"
+fi
+
 banner "PHASE 1  build checkpoints"
 for cfg in "${CONFIGS[@]}"; do
   needs_checkpoint "$cfg" || continue          # bf16 weights: nothing to build
@@ -135,7 +141,7 @@ print(q['script'] if q else '')
   [ -z "$script" ] && continue
 
   echo "[$(ts)] building $cfg via $script"
-  if (cd scripts && python3 "$(basename "$script")" "$cfg"); then
+  if (cd scripts && "$COMPRESSOR_PY" "$(basename "$script")" "$cfg"); then
     note "build:$cfg" "ok"
     push "built $cfg"
   else
