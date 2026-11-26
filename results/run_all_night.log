@@ -106,3 +106,16 @@ ValueError: QuantizationModifier requires that quantization fields be specified
 [19:27:11] verify:llama31-8b__w-int8__kv-bf16 -> ok
 [19:28:01] verify:llama31-8b__w-int4gptq__kv-bf16 -> ok
 [19:28:01] verify:llama31-8b__w-int4awq__kv-bf16 -> skip (no checkpoint)
+[19:28:08] pushed: checkpoint verification
+
+================ PHASE 3  quality evaluations ================
+
+
+[19:28:08] ===== task pass: gsm8k  (7 configs) =====
+[19:28:08] eval:llama31-8b__w-bf16__kv-bf16:gsm8k -> skip (done)
+[19:28:08] eval:llama31-8b__w-fp8__kv-bf16:gsm8k -> skip (done)
+[19:28:08] eval:llama31-8b__w-bf16__kv-fp8:gsm8k -> skip (done)
+[19:28:08] eval:llama31-8b__w-fp8__kv-fp8:gsm8k -> skip (done)
+[19:28:08] eval:llama31-8b__w-int8__kv-bf16:gsm8k -> skip (done)
+[19:28:08] eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k -> skip (done)
+[19:28:08] eval:llama31-8b__w-int4awq__kv-bf16:gsm8k -> skip (no checkpoint)
