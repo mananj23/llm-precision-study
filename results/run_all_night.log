@@ -153,3 +153,518 @@ ValueError: QuantizationModifier requires that quantization fields be specified
 [20:01:39] eval:llama31-8b__w-fp8__kv-bf16:longbench -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
 [20:01:39] eval llama31-8b__w-fp8__kv-fp8 / longbench
 [20:01:41] eval:llama31-8b__w-fp8__kv-fp8:longbench -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+[20:01:47] pushed: quality: longbench across all configs
+
+================ PHASE 4  system benchmarks ================
+
+[20:01:47] bench:llama31-8b__w-bf16__kv-bf16 -> skip (done)
+[20:01:47] bench:llama31-8b__w-fp8__kv-bf16 -> skip (done)
+[20:01:47] bench:llama31-8b__w-bf16__kv-fp8 -> skip (done)
+[20:01:47] bench:llama31-8b__w-fp8__kv-fp8 -> skip (done)
+[20:01:47] bench:llama31-8b__w-int8__kv-bf16 -> skip (done)
+[20:01:47] bench:llama31-8b__w-int4gptq__kv-bf16 -> skip (done)
+[20:01:47] bench:llama31-8b__w-int4awq__kv-bf16 -> skip (no checkpoint)
+
+================ PHASE 5  collect ================
+
+scanning /home/jovyan/llm-precision-study/results/quality
+  llama31-8b__w-bf16__kv-bf16 / gsm8k / 20261125T202226: 1 sample file(s)
+  llama31-8b__w-bf16__kv-bf16 / gsm8k / 20261125T211450: 1 sample file(s)
+  llama31-8b__w-bf16__kv-bf16 / gsm8k / 20261126T143602: 1 sample file(s)
+  llama31-8b__w-bf16__kv-bf16 / ifeval / 20261126T192823: 1 sample file(s)
+  llama31-8b__w-bf16__kv-bf16 / mmlu / 20261125T211831: 57 sample file(s)
+      samples_mmlu_abstract_algebra_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_abstract_algebra
+      samples_mmlu_anatomy_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_anatomy
+      samples_mmlu_astronomy_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_astronomy
+      samples_mmlu_business_ethics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_business_ethics
+      samples_mmlu_clinical_knowledge_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_clinical_knowledge
+      samples_mmlu_college_biology_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_college_biology
+      samples_mmlu_college_chemistry_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_college_chemistry
+      samples_mmlu_college_computer_science_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_college_computer_science
+      samples_mmlu_college_mathematics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_college_mathematics
+      samples_mmlu_college_medicine_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_college_medicine
+      samples_mmlu_college_physics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_college_physics
+      samples_mmlu_computer_security_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_computer_security
+      samples_mmlu_conceptual_physics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_conceptual_physics
+      samples_mmlu_econometrics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_econometrics
+      samples_mmlu_electrical_engineering_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_electrical_engineering
+      samples_mmlu_elementary_mathematics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_elementary_mathematics
+      samples_mmlu_formal_logic_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_formal_logic
+      samples_mmlu_global_facts_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_global_facts
+      samples_mmlu_high_school_biology_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_biology
+      samples_mmlu_high_school_chemistry_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_chemistry
+      samples_mmlu_high_school_computer_science_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_computer_science
+      samples_mmlu_high_school_european_history_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_european_history
+      samples_mmlu_high_school_geography_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_geography
+      samples_mmlu_high_school_government_and_politics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_government_and_politics
+      samples_mmlu_high_school_macroeconomics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_macroeconomics
+      samples_mmlu_high_school_mathematics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_mathematics
+      samples_mmlu_high_school_microeconomics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_microeconomics
+      samples_mmlu_high_school_physics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_physics
+      samples_mmlu_high_school_psychology_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_psychology
+      samples_mmlu_high_school_statistics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_statistics
+      samples_mmlu_high_school_us_history_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_us_history
+      samples_mmlu_high_school_world_history_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_high_school_world_history
+      samples_mmlu_human_aging_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_human_aging
+      samples_mmlu_human_sexuality_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_human_sexuality
+      samples_mmlu_international_law_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_international_law
+      samples_mmlu_jurisprudence_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_jurisprudence
+      samples_mmlu_logical_fallacies_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_logical_fallacies
+      samples_mmlu_machine_learning_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_machine_learning
+      samples_mmlu_management_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_management
+      samples_mmlu_marketing_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_marketing
+      samples_mmlu_medical_genetics_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_medical_genetics
+      samples_mmlu_miscellaneous_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_miscellaneous
+      samples_mmlu_moral_disputes_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_moral_disputes
+      samples_mmlu_moral_scenarios_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_moral_scenarios
+      samples_mmlu_nutrition_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_nutrition
+      samples_mmlu_philosophy_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_philosophy
+      samples_mmlu_prehistory_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_prehistory
+      samples_mmlu_professional_accounting_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_professional_accounting
+      samples_mmlu_professional_law_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_professional_law
+      samples_mmlu_professional_medicine_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_professional_medicine
+      samples_mmlu_professional_psychology_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_professional_psychology
+      samples_mmlu_public_relations_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_public_relations
+      samples_mmlu_security_studies_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_security_studies
+      samples_mmlu_sociology_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_sociology
+      samples_mmlu_us_foreign_policy_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_us_foreign_policy
+      samples_mmlu_virology_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_virology
+      samples_mmlu_world_religions_2026-11-25T22-28-50.668018.jsonl -> task=mmlu_world_religions
+  llama31-8b__w-bf16__kv-fp8 / gsm8k / 20261125T210243: 1 sample file(s)
+  llama31-8b__w-bf16__kv-fp8 / ifeval / 20261126T193555: 1 sample file(s)
+  llama31-8b__w-bf16__kv-fp8 / mmlu / 20261125T231654: 57 sample file(s)
+      samples_mmlu_abstract_algebra_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_abstract_algebra
+      samples_mmlu_anatomy_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_anatomy
+      samples_mmlu_astronomy_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_astronomy
+      samples_mmlu_business_ethics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_business_ethics
+      samples_mmlu_clinical_knowledge_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_clinical_knowledge
+      samples_mmlu_college_biology_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_college_biology
+      samples_mmlu_college_chemistry_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_college_chemistry
+      samples_mmlu_college_computer_science_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_college_computer_science
+      samples_mmlu_college_mathematics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_college_mathematics
+      samples_mmlu_college_medicine_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_college_medicine
+      samples_mmlu_college_physics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_college_physics
+      samples_mmlu_computer_security_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_computer_security
+      samples_mmlu_conceptual_physics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_conceptual_physics
+      samples_mmlu_econometrics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_econometrics
+      samples_mmlu_electrical_engineering_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_electrical_engineering
+      samples_mmlu_elementary_mathematics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_elementary_mathematics
+      samples_mmlu_formal_logic_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_formal_logic
+      samples_mmlu_global_facts_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_global_facts
+      samples_mmlu_high_school_biology_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_biology
+      samples_mmlu_high_school_chemistry_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_chemistry
+      samples_mmlu_high_school_computer_science_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_computer_science
+      samples_mmlu_high_school_european_history_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_european_history
+      samples_mmlu_high_school_geography_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_geography
+      samples_mmlu_high_school_government_and_politics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_government_and_politics
+      samples_mmlu_high_school_macroeconomics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_macroeconomics
+      samples_mmlu_high_school_mathematics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_mathematics
+      samples_mmlu_high_school_microeconomics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_microeconomics
+      samples_mmlu_high_school_physics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_physics
+      samples_mmlu_high_school_psychology_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_psychology
+      samples_mmlu_high_school_statistics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_statistics
+      samples_mmlu_high_school_us_history_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_us_history
+      samples_mmlu_high_school_world_history_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_high_school_world_history
+      samples_mmlu_human_aging_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_human_aging
+      samples_mmlu_human_sexuality_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_human_sexuality
+      samples_mmlu_international_law_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_international_law
+      samples_mmlu_jurisprudence_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_jurisprudence
+      samples_mmlu_logical_fallacies_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_logical_fallacies
+      samples_mmlu_machine_learning_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_machine_learning
+      samples_mmlu_management_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_management
+      samples_mmlu_marketing_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_marketing
+      samples_mmlu_medical_genetics_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_medical_genetics
+      samples_mmlu_miscellaneous_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_miscellaneous
+      samples_mmlu_moral_disputes_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_moral_disputes
+      samples_mmlu_moral_scenarios_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_moral_scenarios
+      samples_mmlu_nutrition_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_nutrition
+      samples_mmlu_philosophy_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_philosophy
+      samples_mmlu_prehistory_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_prehistory
+      samples_mmlu_professional_accounting_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_professional_accounting
+      samples_mmlu_professional_law_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_professional_law
+      samples_mmlu_professional_medicine_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_professional_medicine
+      samples_mmlu_professional_psychology_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_professional_psychology
+      samples_mmlu_public_relations_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_public_relations
+      samples_mmlu_security_studies_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_security_studies
+      samples_mmlu_sociology_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_sociology
+      samples_mmlu_us_foreign_policy_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_us_foreign_policy
+      samples_mmlu_virology_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_virology
+      samples_mmlu_world_religions_2026-11-26T00-21-11.609808.jsonl -> task=mmlu_world_religions
+  llama31-8b__w-fp8__kv-bf16 / gsm8k / 20261125T205929: 1 sample file(s)
+  llama31-8b__w-fp8__kv-bf16 / ifeval / 20261126T193235: 1 sample file(s)
+  llama31-8b__w-fp8__kv-bf16 / mmlu / 20261125T222855: 57 sample file(s)
+      samples_mmlu_abstract_algebra_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_abstract_algebra
+      samples_mmlu_anatomy_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_anatomy
+      samples_mmlu_astronomy_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_astronomy
+      samples_mmlu_business_ethics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_business_ethics
+      samples_mmlu_clinical_knowledge_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_clinical_knowledge
+      samples_mmlu_college_biology_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_college_biology
+      samples_mmlu_college_chemistry_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_college_chemistry
+      samples_mmlu_college_computer_science_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_college_computer_science
+      samples_mmlu_college_mathematics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_college_mathematics
+      samples_mmlu_college_medicine_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_college_medicine
+      samples_mmlu_college_physics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_college_physics
+      samples_mmlu_computer_security_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_computer_security
+      samples_mmlu_conceptual_physics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_conceptual_physics
+      samples_mmlu_econometrics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_econometrics
+      samples_mmlu_electrical_engineering_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_electrical_engineering
+      samples_mmlu_elementary_mathematics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_elementary_mathematics
+      samples_mmlu_formal_logic_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_formal_logic
+      samples_mmlu_global_facts_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_global_facts
+      samples_mmlu_high_school_biology_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_biology
+      samples_mmlu_high_school_chemistry_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_chemistry
+      samples_mmlu_high_school_computer_science_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_computer_science
+      samples_mmlu_high_school_european_history_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_european_history
+      samples_mmlu_high_school_geography_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_geography
+      samples_mmlu_high_school_government_and_politics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_government_and_politics
+      samples_mmlu_high_school_macroeconomics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_macroeconomics
+      samples_mmlu_high_school_mathematics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_mathematics
+      samples_mmlu_high_school_microeconomics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_microeconomics
+      samples_mmlu_high_school_physics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_physics
+      samples_mmlu_high_school_psychology_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_psychology
+      samples_mmlu_high_school_statistics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_statistics
+      samples_mmlu_high_school_us_history_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_us_history
+      samples_mmlu_high_school_world_history_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_high_school_world_history
+      samples_mmlu_human_aging_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_human_aging
+      samples_mmlu_human_sexuality_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_human_sexuality
+      samples_mmlu_international_law_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_international_law
+      samples_mmlu_jurisprudence_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_jurisprudence
+      samples_mmlu_logical_fallacies_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_logical_fallacies
+      samples_mmlu_machine_learning_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_machine_learning
+      samples_mmlu_management_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_management
+      samples_mmlu_marketing_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_marketing
+      samples_mmlu_medical_genetics_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_medical_genetics
+      samples_mmlu_miscellaneous_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_miscellaneous
+      samples_mmlu_moral_disputes_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_moral_disputes
+      samples_mmlu_moral_scenarios_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_moral_scenarios
+      samples_mmlu_nutrition_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_nutrition
+      samples_mmlu_philosophy_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_philosophy
+      samples_mmlu_prehistory_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_prehistory
+      samples_mmlu_professional_accounting_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_professional_accounting
+      samples_mmlu_professional_law_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_professional_law
+      samples_mmlu_professional_medicine_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_professional_medicine
+      samples_mmlu_professional_psychology_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_professional_psychology
+      samples_mmlu_public_relations_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_public_relations
+      samples_mmlu_security_studies_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_security_studies
+      samples_mmlu_sociology_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_sociology
+      samples_mmlu_us_foreign_policy_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_us_foreign_policy
+      samples_mmlu_virology_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_virology
+      samples_mmlu_world_religions_2026-11-25T23-16-49.006106.jsonl -> task=mmlu_world_religions
+  llama31-8b__w-fp8__kv-fp8 / gsm8k / 20261125T210547: 1 sample file(s)
+  llama31-8b__w-fp8__kv-fp8 / ifeval / 20261126T193849: 1 sample file(s)
+  llama31-8b__w-fp8__kv-fp8 / mmlu / 20261126T002117: 57 sample file(s)
+      samples_mmlu_abstract_algebra_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_abstract_algebra
+      samples_mmlu_anatomy_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_anatomy
+      samples_mmlu_astronomy_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_astronomy
+      samples_mmlu_business_ethics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_business_ethics
+      samples_mmlu_clinical_knowledge_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_clinical_knowledge
+      samples_mmlu_college_biology_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_college_biology
+      samples_mmlu_college_chemistry_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_college_chemistry
+      samples_mmlu_college_computer_science_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_college_computer_science
+      samples_mmlu_college_mathematics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_college_mathematics
+      samples_mmlu_college_medicine_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_college_medicine
+      samples_mmlu_college_physics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_college_physics
+      samples_mmlu_computer_security_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_computer_security
+      samples_mmlu_conceptual_physics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_conceptual_physics
+      samples_mmlu_econometrics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_econometrics
+      samples_mmlu_electrical_engineering_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_electrical_engineering
+      samples_mmlu_elementary_mathematics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_elementary_mathematics
+      samples_mmlu_formal_logic_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_formal_logic
+      samples_mmlu_global_facts_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_global_facts
+      samples_mmlu_high_school_biology_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_biology
+      samples_mmlu_high_school_chemistry_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_chemistry
+      samples_mmlu_high_school_computer_science_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_computer_science
+      samples_mmlu_high_school_european_history_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_european_history
+      samples_mmlu_high_school_geography_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_geography
+      samples_mmlu_high_school_government_and_politics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_government_and_politics
+      samples_mmlu_high_school_macroeconomics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_macroeconomics
+      samples_mmlu_high_school_mathematics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_mathematics
+      samples_mmlu_high_school_microeconomics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_microeconomics
+      samples_mmlu_high_school_physics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_physics
+      samples_mmlu_high_school_psychology_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_psychology
+      samples_mmlu_high_school_statistics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_statistics
+      samples_mmlu_high_school_us_history_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_us_history
+      samples_mmlu_high_school_world_history_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_high_school_world_history
+      samples_mmlu_human_aging_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_human_aging
+      samples_mmlu_human_sexuality_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_human_sexuality
+      samples_mmlu_international_law_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_international_law
+      samples_mmlu_jurisprudence_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_jurisprudence
+      samples_mmlu_logical_fallacies_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_logical_fallacies
+      samples_mmlu_machine_learning_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_machine_learning
+      samples_mmlu_management_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_management
+      samples_mmlu_marketing_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_marketing
+      samples_mmlu_medical_genetics_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_medical_genetics
+      samples_mmlu_miscellaneous_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_miscellaneous
+      samples_mmlu_moral_disputes_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_moral_disputes
+      samples_mmlu_moral_scenarios_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_moral_scenarios
+      samples_mmlu_nutrition_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_nutrition
+      samples_mmlu_philosophy_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_philosophy
+      samples_mmlu_prehistory_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_prehistory
+      samples_mmlu_professional_accounting_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_professional_accounting
+      samples_mmlu_professional_law_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_professional_law
+      samples_mmlu_professional_medicine_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_professional_medicine
+      samples_mmlu_professional_psychology_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_professional_psychology
+      samples_mmlu_public_relations_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_public_relations
+      samples_mmlu_security_studies_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_security_studies
+      samples_mmlu_sociology_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_sociology
+      samples_mmlu_us_foreign_policy_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_us_foreign_policy
+      samples_mmlu_virology_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_virology
+      samples_mmlu_world_religions_2026-11-26T01-08-42.407529.jsonl -> task=mmlu_world_religions
+  llama31-8b__w-int4gptq__kv-bf16 / gsm8k / 20261125T211118: 1 sample file(s)
+  llama31-8b__w-int4gptq__kv-bf16 / ifeval / 20261126T194439: 1 sample file(s)
+  llama31-8b__w-int4gptq__kv-bf16 / mmlu / 20261126T015409: 57 sample file(s)
+      samples_mmlu_abstract_algebra_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_abstract_algebra
+      samples_mmlu_anatomy_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_anatomy
+      samples_mmlu_astronomy_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_astronomy
+      samples_mmlu_business_ethics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_business_ethics
+      samples_mmlu_clinical_knowledge_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_clinical_knowledge
+      samples_mmlu_college_biology_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_college_biology
+      samples_mmlu_college_chemistry_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_college_chemistry
+      samples_mmlu_college_computer_science_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_college_computer_science
+      samples_mmlu_college_mathematics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_college_mathematics
+      samples_mmlu_college_medicine_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_college_medicine
+      samples_mmlu_college_physics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_college_physics
+      samples_mmlu_computer_security_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_computer_security
+      samples_mmlu_conceptual_physics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_conceptual_physics
+      samples_mmlu_econometrics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_econometrics
+      samples_mmlu_electrical_engineering_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_electrical_engineering
+      samples_mmlu_elementary_mathematics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_elementary_mathematics
+      samples_mmlu_formal_logic_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_formal_logic
+      samples_mmlu_global_facts_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_global_facts
+      samples_mmlu_high_school_biology_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_biology
+      samples_mmlu_high_school_chemistry_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_chemistry
+      samples_mmlu_high_school_computer_science_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_computer_science
+      samples_mmlu_high_school_european_history_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_european_history
+      samples_mmlu_high_school_geography_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_geography
+      samples_mmlu_high_school_government_and_politics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_government_and_politics
+      samples_mmlu_high_school_macroeconomics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_macroeconomics
+      samples_mmlu_high_school_mathematics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_mathematics
+      samples_mmlu_high_school_microeconomics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_microeconomics
+      samples_mmlu_high_school_physics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_physics
+      samples_mmlu_high_school_psychology_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_psychology
+      samples_mmlu_high_school_statistics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_statistics
+      samples_mmlu_high_school_us_history_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_us_history
+      samples_mmlu_high_school_world_history_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_high_school_world_history
+      samples_mmlu_human_aging_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_human_aging
+      samples_mmlu_human_sexuality_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_human_sexuality
+      samples_mmlu_international_law_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_international_law
+      samples_mmlu_jurisprudence_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_jurisprudence
+      samples_mmlu_logical_fallacies_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_logical_fallacies
+      samples_mmlu_machine_learning_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_machine_learning
+      samples_mmlu_management_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_management
+      samples_mmlu_marketing_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_marketing
+      samples_mmlu_medical_genetics_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_medical_genetics
+      samples_mmlu_miscellaneous_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_miscellaneous
+      samples_mmlu_moral_disputes_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_moral_disputes
+      samples_mmlu_moral_scenarios_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_moral_scenarios
+      samples_mmlu_nutrition_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_nutrition
+      samples_mmlu_philosophy_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_philosophy
+      samples_mmlu_prehistory_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_prehistory
+      samples_mmlu_professional_accounting_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_professional_accounting
+      samples_mmlu_professional_law_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_professional_law
+      samples_mmlu_professional_medicine_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_professional_medicine
+      samples_mmlu_professional_psychology_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_professional_psychology
+      samples_mmlu_public_relations_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_public_relations
+      samples_mmlu_security_studies_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_security_studies
+      samples_mmlu_sociology_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_sociology
+      samples_mmlu_us_foreign_policy_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_us_foreign_policy
+      samples_mmlu_virology_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_virology
+      samples_mmlu_world_religions_2026-11-26T02-53-47.972251.jsonl -> task=mmlu_world_religions
+  llama31-8b__w-int8__kv-bf16 / gsm8k / 20261125T210803: 1 sample file(s)
+  llama31-8b__w-int8__kv-bf16 / ifeval / 20261126T194117: 1 sample file(s)
+  llama31-8b__w-int8__kv-bf16 / mmlu / 20261126T010847: 57 sample file(s)
+      samples_mmlu_abstract_algebra_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_abstract_algebra
+      samples_mmlu_anatomy_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_anatomy
+      samples_mmlu_astronomy_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_astronomy
+      samples_mmlu_business_ethics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_business_ethics
+      samples_mmlu_clinical_knowledge_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_clinical_knowledge
+      samples_mmlu_college_biology_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_college_biology
+      samples_mmlu_college_chemistry_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_college_chemistry
+      samples_mmlu_college_computer_science_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_college_computer_science
+      samples_mmlu_college_mathematics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_college_mathematics
+      samples_mmlu_college_medicine_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_college_medicine
+      samples_mmlu_college_physics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_college_physics
+      samples_mmlu_computer_security_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_computer_security
+      samples_mmlu_conceptual_physics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_conceptual_physics
+      samples_mmlu_econometrics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_econometrics
+      samples_mmlu_electrical_engineering_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_electrical_engineering
+      samples_mmlu_elementary_mathematics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_elementary_mathematics
+      samples_mmlu_formal_logic_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_formal_logic
+      samples_mmlu_global_facts_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_global_facts
+      samples_mmlu_high_school_biology_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_biology
+      samples_mmlu_high_school_chemistry_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_chemistry
+      samples_mmlu_high_school_computer_science_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_computer_science
+      samples_mmlu_high_school_european_history_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_european_history
+      samples_mmlu_high_school_geography_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_geography
+      samples_mmlu_high_school_government_and_politics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_government_and_politics
+      samples_mmlu_high_school_macroeconomics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_macroeconomics
+      samples_mmlu_high_school_mathematics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_mathematics
+      samples_mmlu_high_school_microeconomics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_microeconomics
+      samples_mmlu_high_school_physics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_physics
+      samples_mmlu_high_school_psychology_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_psychology
+      samples_mmlu_high_school_statistics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_statistics
+      samples_mmlu_high_school_us_history_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_us_history
+      samples_mmlu_high_school_world_history_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_high_school_world_history
+      samples_mmlu_human_aging_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_human_aging
+      samples_mmlu_human_sexuality_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_human_sexuality
+      samples_mmlu_international_law_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_international_law
+      samples_mmlu_jurisprudence_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_jurisprudence
+      samples_mmlu_logical_fallacies_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_logical_fallacies
+      samples_mmlu_machine_learning_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_machine_learning
+      samples_mmlu_management_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_management
+      samples_mmlu_marketing_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_marketing
+      samples_mmlu_medical_genetics_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_medical_genetics
+      samples_mmlu_miscellaneous_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_miscellaneous
+      samples_mmlu_moral_disputes_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_moral_disputes
+      samples_mmlu_moral_scenarios_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_moral_scenarios
+      samples_mmlu_nutrition_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_nutrition
+      samples_mmlu_philosophy_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_philosophy
+      samples_mmlu_prehistory_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_prehistory
+      samples_mmlu_professional_accounting_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_professional_accounting
+      samples_mmlu_professional_law_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_professional_law
+      samples_mmlu_professional_medicine_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_professional_medicine
+      samples_mmlu_professional_psychology_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_professional_psychology
+      samples_mmlu_public_relations_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_public_relations
+      samples_mmlu_security_studies_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_security_studies
+      samples_mmlu_sociology_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_sociology
+      samples_mmlu_us_foreign_policy_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_us_foreign_policy
+      samples_mmlu_virology_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_virology
+      samples_mmlu_world_religions_2026-11-26T01-54-03.665693.jsonl -> task=mmlu_world_religions
+
+--- integrity ---
+config                                    llama31-8b__w-bf16__kv-bf16  llama31-8b__w-bf16__kv-fp8  llama31-8b__w-fp8__kv-bf16  llama31-8b__w-fp8__kv-fp8  llama31-8b__w-int4gptq__kv-bf16  llama31-8b__w-int8__kv-bf16
+task                                                                                                                                                                                                                  
+gsm8k                                                            1319                        1319                        1319                       1319                             1319                         1319
+ifeval                                                            541                         541                         541                        541                              541                          541
+mmlu_abstract_algebra                                             100                         100                         100                        100                              100                          100
+mmlu_anatomy                                                      135                         135                         135                        135                              135                          135
+mmlu_astronomy                                                    152                         152                         152                        152                              152                          152
+mmlu_business_ethics                                              100                         100                         100                        100                              100                          100
+mmlu_clinical_knowledge                                           265                         265                         265                        265                              265                          265
+mmlu_college_biology                                              144                         144                         144                        144                              144                          144
+mmlu_college_chemistry                                            100                         100                         100                        100                              100                          100
+mmlu_college_computer_science                                     100                         100                         100                        100                              100                          100
+mmlu_college_mathematics                                          100                         100                         100                        100                              100                          100
+mmlu_college_medicine                                             173                         173                         173                        173                              173                          173
+mmlu_college_physics                                              102                         102                         102                        102                              102                          102
+mmlu_computer_security                                            100                         100                         100                        100                              100                          100
+mmlu_conceptual_physics                                           235                         235                         235                        235                              235                          235
+mmlu_econometrics                                                 114                         114                         114                        114                              114                          114
+mmlu_electrical_engineering                                       145                         145                         145                        145                              145                          145
+mmlu_elementary_mathematics                                       378                         378                         378                        378                              378                          378
+mmlu_formal_logic                                                 126                         126                         126                        126                              126                          126
+mmlu_global_facts                                                 100                         100                         100                        100                              100                          100
+mmlu_high_school_biology                                          310                         310                         310                        310                              310                          310
+mmlu_high_school_chemistry                                        203                         203                         203                        203                              203                          203
+mmlu_high_school_computer_science                                 100                         100                         100                        100                              100                          100
+mmlu_high_school_european_history                                 165                         165                         165                        165                              165                          165
+mmlu_high_school_geography                                        198                         198                         198                        198                              198                          198
+mmlu_high_school_government_and_politics                          193                         193                         193                        193                              193                          193
+mmlu_high_school_macroeconomics                                   390                         390                         390                        390                              390                          390
+mmlu_high_school_mathematics                                      270                         270                         270                        270                              270                          270
+mmlu_high_school_microeconomics                                   238                         238                         238                        238                              238                          238
+mmlu_high_school_physics                                          151                         151                         151                        151                              151                          151
+mmlu_high_school_psychology                                       545                         545                         545                        545                              545                          545
+mmlu_high_school_statistics                                       216                         216                         216                        216                              216                          216
+mmlu_high_school_us_history                                       204                         204                         204                        204                              204                          204
+mmlu_high_school_world_history                                    237                         237                         237                        237                              237                          237
+mmlu_human_aging                                                  223                         223                         223                        223                              223                          223
+mmlu_human_sexuality                                              131                         131                         131                        131                              131                          131
+mmlu_international_law                                            121                         121                         121                        121                              121                          121
+mmlu_jurisprudence                                                108                         108                         108                        108                              108                          108
+mmlu_logical_fallacies                                            163                         163                         163                        163                              163                          163
+mmlu_machine_learning                                             112                         112                         112                        112                              112                          112
+mmlu_management                                                   103                         103                         103                        103                              103                          103
+mmlu_marketing                                                    234                         234                         234                        234                              234                          234
+mmlu_medical_genetics                                             100                         100                         100                        100                              100                          100
+mmlu_miscellaneous                                                783                         783                         783                        783                              783                          783
+mmlu_moral_disputes                                               346                         346                         346                        346                              346                          346
+mmlu_moral_scenarios                                              895                         895                         895                        895                              895                          895
+mmlu_nutrition                                                    306                         306                         306                        306                              306                          306
+mmlu_philosophy                                                   311                         311                         311                        311                              311                          311
+mmlu_prehistory                                                   324                         324                         324                        324                              324                          324
+mmlu_professional_accounting                                      282                         282                         282                        282                              282                          282
+mmlu_professional_law                                            1534                        1534                        1534                       1534                             1534                         1534
+mmlu_professional_medicine                                        272                         272                         272                        272                              272                          272
+mmlu_professional_psychology                                      612                         612                         612                        612                              612                          612
+mmlu_public_relations                                             110                         110                         110                        110                              110                          110
+mmlu_security_studies                                             245                         245                         245                        245                              245                          245
+mmlu_sociology                                                    201                         201                         201                        201                              201                          201
+mmlu_us_foreign_policy                                            100                         100                         100                        100                              100                          100
+mmlu_virology                                                     166                         166                         166                        166                              166                          166
+mmlu_world_religions                                              171                         171                         171                        171                              171                          171
+  WARNING: 9253 duplicate (config, task, doc_id, run_id) rows
+  The paired bootstrap pairs on doc_id, so duplicates would
+  double-count prompts. Usually a task GROUP collapsed into one
+  task label; check the '-> task=' lines above.
+
+wrote 106,004 rows -> /home/jovyan/llm-precision-study/results/logs/per_prompt.parquet
+                                          count    mean
+task                                                   
+gsm8k                                     18506  0.7368
+ifeval                                     3246  0.4618
+mmlu_abstract_algebra                       600  0.3317
+mmlu_anatomy                                810  0.6765
+mmlu_astronomy                              912  0.7610
+mmlu_business_ethics                        600  0.7417
+mmlu_clinical_knowledge                    1590  0.7472
+mmlu_college_biology                        864  0.8009
+mmlu_college_chemistry                      600  0.4917
+mmlu_college_computer_science               600  0.5550
+mmlu_college_mathematics                    600  0.4067
+mmlu_college_medicine                      1038  0.6686
+mmlu_college_physics                        612  0.4265
+mmlu_computer_security                      600  0.7967
+mmlu_conceptual_physics                    1410  0.6106
+mmlu_econometrics                           684  0.5292
+mmlu_electrical_engineering                 870  0.6908
+mmlu_elementary_mathematics                2268  0.4705
+mmlu_formal_logic                           756  0.5489
+mmlu_global_facts                           600  0.3667
+mmlu_high_school_biology                   1860  0.8075
+mmlu_high_school_chemistry                 1218  0.6059
+mmlu_high_school_computer_science           600  0.7683
+mmlu_high_school_european_history           990  0.7515
+mmlu_high_school_geography                 1188  0.8350
+mmlu_high_school_government_and_politics   1158  0.9007
+mmlu_high_school_macroeconomics            2340  0.6786
+mmlu_high_school_mathematics               1620  0.4309
+mmlu_high_school_microeconomics            1428  0.7710
+mmlu_high_school_physics                    906  0.4647
+mmlu_high_school_psychology                3270  0.8612
+mmlu_high_school_statistics                1296  0.5802
+mmlu_high_school_us_history                1224  0.8309
+mmlu_high_school_world_history             1422  0.8425
+mmlu_human_aging                           1338  0.6913
+mmlu_human_sexuality                        786  0.7939
+mmlu_international_law                      726  0.8251
+mmlu_jurisprudence                          648  0.7593
+mmlu_logical_fallacies                      978  0.7945
+mmlu_machine_learning                       672  0.5699
+mmlu_management                             618  0.8172
+mmlu_marketing                             1404  0.8811
+mmlu_medical_genetics                       600  0.8183
+mmlu_miscellaneous                         4698  0.8280
+mmlu_moral_disputes                        2076  0.7567
+mmlu_moral_scenarios                       5370  0.5259
+mmlu_nutrition                             1836  0.7707
+mmlu_philosophy                            1866  0.7176
+mmlu_prehistory                            1944  0.7485
+mmlu_professional_accounting               1692  0.5100
+mmlu_professional_law                      9204  0.5085
+mmlu_professional_medicine                 1632  0.7426
+mmlu_professional_psychology               3672  0.7198
+mmlu_public_relations                       660  0.6894
+mmlu_security_studies                      1470  0.7299
+mmlu_sociology                             1206  0.8483
+mmlu_us_foreign_policy                      600  0.8700
+mmlu_virology                               996  0.5080
+mmlu_world_religions                       1026  0.8285
+  llama31-8b__w-bf16__kv-bf16: 36 runs, kv_cache_tokens=191264
+  llama31-8b__w-bf16__kv-fp8: 36 runs, kv_cache_tokens=389824
+  llama31-8b__w-fp8__kv-bf16: 36 runs, kv_cache_tokens=248832
+  llama31-8b__w-fp8__kv-fp8: 36 runs, kv_cache_tokens=491904
+  llama31-8b__w-int4gptq__kv-bf16: 36 runs, kv_cache_tokens=269584
+  llama31-8b__w-int8__kv-bf16: 36 runs, kv_cache_tokens=242336
+
+wrote 216 rows -> /home/jovyan/llm-precision-study/results/logs/system.parquet

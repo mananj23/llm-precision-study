@@ -194,3 +194,10 @@
 2026-11-26T20:01:37+00:00	eval:llama31-8b__w-bf16__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
 2026-11-26T20:01:39+00:00	eval:llama31-8b__w-fp8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
 2026-11-26T20:01:41+00:00	eval:llama31-8b__w-fp8__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-bf16__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-fp8__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-bf16__kv-fp8	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-fp8__kv-fp8	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-int8__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-int4gptq__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
