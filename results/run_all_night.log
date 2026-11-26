@@ -131,3 +131,13 @@ ValueError: QuantizationModifier requires that quantization fields be specified
 [20:01:21] eval:llama31-8b__w-int8__kv-bf16:mmlu -> skip (done)
 [20:01:22] eval:llama31-8b__w-int4gptq__kv-bf16:mmlu -> skip (done)
 [20:01:22] eval:llama31-8b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
+[20:01:28] pushed: quality: mmlu across all configs
+
+[20:01:28] ===== task pass: ifeval  (7 configs) =====
+[20:01:28] eval:llama31-8b__w-bf16__kv-bf16:ifeval -> skip (done)
+[20:01:28] eval:llama31-8b__w-fp8__kv-bf16:ifeval -> skip (done)
+[20:01:28] eval:llama31-8b__w-bf16__kv-fp8:ifeval -> skip (done)
+[20:01:28] eval:llama31-8b__w-fp8__kv-fp8:ifeval -> skip (done)
+[20:01:28] eval:llama31-8b__w-int8__kv-bf16:ifeval -> skip (done)
+[20:01:28] eval:llama31-8b__w-int4gptq__kv-bf16:ifeval -> skip (done)
+[20:01:28] eval:llama31-8b__w-int4awq__kv-bf16:ifeval -> skip (no checkpoint)

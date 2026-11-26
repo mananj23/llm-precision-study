@@ -754,3 +754,4 @@ command  : lm-eval --model vllm --model_args pretrained=meta-llama/Llama-3.1-8B-
 Processed prompts:   5%|▌         | 255/4750 [10:52<3:13:35,  2.58s/it, est. speed input: 7942.90 toks/s, output: 36.64 toks/s][A
 Processed prompts:   5%|▌         | 256/4750 [10:56<3:49:13,  3.06s/it, est. speed input: 7921.64 toks/s, output: 36.41 toks/s][A
 Processed prompts:   5%|▌         | 257/4750 [10:59<3:46:55,  3.03s/it, est. speed input: 7916.45 toks/s, output: 37.03 toks/s][A
+Processed prompts:   6%|▌         | 262/4750 [11:07<2:33:27,  2.05s/it, est. speed input: 7976.41 toks/s, output: 37.22 toks/s][A
