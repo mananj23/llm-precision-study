@@ -34,3 +34,10 @@
 2026-11-26T02:57:23+00:00	eval:llama31-8b__w-int8__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_ifeval.log
 2026-11-26T02:58:01+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_ifeval.log
 2026-11-26T02:58:01+00:00	eval:llama31-8b__w-int4awq__kv-bf16:ifeval	skip (no checkpoint)
+2026-11-26T02:58:49+00:00	eval:llama31-8b__w-bf16__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_longbench.log
+2026-11-26T02:59:28+00:00	eval:llama31-8b__w-fp8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
+2026-11-26T03:00:10+00:00	eval:llama31-8b__w-bf16__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
+2026-11-26T03:00:49+00:00	eval:llama31-8b__w-fp8__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+2026-11-26T03:01:28+00:00	eval:llama31-8b__w-int8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_longbench.log
+2026-11-26T03:02:06+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_longbench.log
+2026-11-26T03:02:06+00:00	eval:llama31-8b__w-int4awq__kv-bf16:longbench	skip (no checkpoint)

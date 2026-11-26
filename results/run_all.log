@@ -2093,3 +2093,19 @@ AttributeError: 'function' object has no attribute '__mro__'
 [02:57:24] eval llama31-8b__w-int4gptq__kv-bf16 / ifeval
 [02:58:01] eval:llama31-8b__w-int4gptq__kv-bf16:ifeval -> FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_ifeval.log
 [02:58:01] eval:llama31-8b__w-int4awq__kv-bf16:ifeval -> skip (no checkpoint)
+[02:58:07] pushed: quality: ifeval across all configs
+
+[02:58:07] ===== task pass: longbench =====
+[02:58:07] eval llama31-8b__w-bf16__kv-bf16 / longbench
+[02:58:49] eval:llama31-8b__w-bf16__kv-bf16:longbench -> FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_longbench.log
+[02:58:49] eval llama31-8b__w-fp8__kv-bf16 / longbench
+[02:59:28] eval:llama31-8b__w-fp8__kv-bf16:longbench -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
+[02:59:28] eval llama31-8b__w-bf16__kv-fp8 / longbench
+[03:00:10] eval:llama31-8b__w-bf16__kv-fp8:longbench -> FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
+[03:00:10] eval llama31-8b__w-fp8__kv-fp8 / longbench
+[03:00:49] eval:llama31-8b__w-fp8__kv-fp8:longbench -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+[03:00:49] eval llama31-8b__w-int8__kv-bf16 / longbench
+[03:01:28] eval:llama31-8b__w-int8__kv-bf16:longbench -> FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_longbench.log
+[03:01:28] eval llama31-8b__w-int4gptq__kv-bf16 / longbench
+[03:02:06] eval:llama31-8b__w-int4gptq__kv-bf16:longbench -> FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_longbench.log
+[03:02:06] eval:llama31-8b__w-int4awq__kv-bf16:longbench -> skip (no checkpoint)
