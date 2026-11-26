@@ -123,3 +123,4 @@
 2026-11-26T08:29:33+00:00	bench:llama31-8b__w-fp8__kv-bf16	ok
 2026-11-26T09:52:49+00:00	bench:llama31-8b__w-bf16__kv-fp8	ok
 2026-11-26T10:57:38+00:00	bench:llama31-8b__w-fp8__kv-fp8	ok
+2026-11-26T12:15:02+00:00	bench:llama31-8b__w-int8__kv-bf16	ok
