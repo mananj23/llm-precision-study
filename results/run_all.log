@@ -2120,8 +2120,8 @@ AttributeError: 'function' object has no attribute '__mro__'
 [06:00:42] bench:llama31-8b__w-fp8__kv-bf16 -> ok
 [06:01:02] pushed: benchmarks for llama31-8b__w-fp8__kv-bf16
 [06:01:02] starting benchmark server for llama31-8b__w-bf16__kv-fp8
-
-================ PHASE 0  environment ================
+[07:06:27] bench:llama31-8b__w-bf16__kv-fp8 -> ok
+=====
 
 --- disk ---
 Filesystem      Size  Used Avail Use% Mounted on
@@ -2201,3 +2201,13 @@ AttributeError: 'function' object has no attribute '__mro__'
 [07:02:01] eval:llama31-8b__w-int8__kv-bf16:gsm8k -> skip (done)
 [07:02:01] eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k -> skip (done)
 [07:02:01] eval:llama31-8b__w-int4awq__kv-bf16:gsm8k -> skip (no checkpoint)
+[07:02:06] pushed: quality: gsm8k across all configs
+
+[07:02:06] ===== task pass: mmlu  (7 configs) =====
+[07:02:06] eval:llama31-8b__w-bf16__kv-bf16:mmlu -> skip (done)
+[07:02:07] eval:llama31-8b__w-fp8__kv-bf16:mmlu -> skip (done)
+[07:02:07] eval:llama31-8b__w-bf16__kv-fp8:mmlu -> skip (done)
+[07:02:07] eval:llama31-8b__w-fp8__kv-fp8:mmlu -> skip (done)
+[07:02:07] eval:llama31-8b__w-int8__kv-bf16:mmlu -> skip (done)
+[07:02:07] eval:llama31-8b__w-int4gptq__kv-bf16:mmlu -> skip (done)
+[07:02:07] eval:llama31-8b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
