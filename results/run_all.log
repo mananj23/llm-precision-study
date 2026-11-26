@@ -2077,3 +2077,19 @@ AttributeError: 'function' object has no attribute '__mro__'
 [01:54:09] eval llama31-8b__w-int4gptq__kv-bf16 / mmlu
 [02:53:53] eval:llama31-8b__w-int4gptq__kv-bf16:mmlu -> ok
 [02:53:53] eval:llama31-8b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
+[02:54:03] pushed: quality: mmlu across all configs
+
+[02:54:03] ===== task pass: ifeval =====
+[02:54:03] eval llama31-8b__w-bf16__kv-bf16 / ifeval
+[02:54:45] eval:llama31-8b__w-bf16__kv-bf16:ifeval -> FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_ifeval.log
+[02:54:46] eval llama31-8b__w-fp8__kv-bf16 / ifeval
+[02:55:25] eval:llama31-8b__w-fp8__kv-bf16:ifeval -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_ifeval.log
+[02:55:25] eval llama31-8b__w-bf16__kv-fp8 / ifeval
+[02:56:06] eval:llama31-8b__w-bf16__kv-fp8:ifeval -> FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_ifeval.log
+[02:56:06] eval llama31-8b__w-fp8__kv-fp8 / ifeval
+[02:56:45] eval:llama31-8b__w-fp8__kv-fp8:ifeval -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_ifeval.log
+[02:56:45] eval llama31-8b__w-int8__kv-bf16 / ifeval
+[02:57:23] eval:llama31-8b__w-int8__kv-bf16:ifeval -> FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_ifeval.log
+[02:57:24] eval llama31-8b__w-int4gptq__kv-bf16 / ifeval
+[02:58:01] eval:llama31-8b__w-int4gptq__kv-bf16:ifeval -> FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_ifeval.log
+[02:58:01] eval:llama31-8b__w-int4awq__kv-bf16:ifeval -> skip (no checkpoint)
