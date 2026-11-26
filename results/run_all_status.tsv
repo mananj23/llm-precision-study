@@ -126,3 +126,14 @@
 2026-11-26T12:15:02+00:00	bench:llama31-8b__w-int8__kv-bf16	ok
 2026-11-26T13:30:17+00:00	bench:llama31-8b__w-int4gptq__kv-bf16	ok
 2026-11-26T13:30:41+00:00	bench:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T19:24:30+00:00	env_check	done
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-26T19:24:41+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T19:25:32+00:00	verify:llama31-8b__w-fp8__kv-bf16	ok
+2026-11-26T19:26:21+00:00	verify:llama31-8b__w-fp8__kv-fp8	ok
+2026-11-26T19:27:11+00:00	verify:llama31-8b__w-int8__kv-bf16	ok
+2026-11-26T19:28:01+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	ok
+2026-11-26T19:28:01+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
