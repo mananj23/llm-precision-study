@@ -151,3 +151,10 @@
 2026-11-26T19:28:18+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	skip (done)
 2026-11-26T19:28:18+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	skip (done)
 2026-11-26T19:28:18+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T19:32:35+00:00	eval:llama31-8b__w-bf16__kv-bf16:ifeval	ok
+2026-11-26T19:35:55+00:00	eval:llama31-8b__w-fp8__kv-bf16:ifeval	ok
+2026-11-26T19:38:49+00:00	eval:llama31-8b__w-bf16__kv-fp8:ifeval	ok
+2026-11-26T19:41:17+00:00	eval:llama31-8b__w-fp8__kv-fp8:ifeval	ok
+2026-11-26T19:44:39+00:00	eval:llama31-8b__w-int8__kv-bf16:ifeval	ok
+2026-11-26T19:48:06+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:ifeval	ok
+2026-11-26T19:48:06+00:00	eval:llama31-8b__w-int4awq__kv-bf16:ifeval	skip (no checkpoint)

@@ -129,3 +129,19 @@ ValueError: QuantizationModifier requires that quantization fields be specified
 [19:28:18] eval:llama31-8b__w-int8__kv-bf16:mmlu -> skip (done)
 [19:28:18] eval:llama31-8b__w-int4gptq__kv-bf16:mmlu -> skip (done)
 [19:28:18] eval:llama31-8b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
+[19:28:23] pushed: quality: mmlu across all configs
+
+[19:28:23] ===== task pass: ifeval  (7 configs) =====
+[19:28:23] eval llama31-8b__w-bf16__kv-bf16 / ifeval
+[19:32:35] eval:llama31-8b__w-bf16__kv-bf16:ifeval -> ok
+[19:32:35] eval llama31-8b__w-fp8__kv-bf16 / ifeval
+[19:35:55] eval:llama31-8b__w-fp8__kv-bf16:ifeval -> ok
+[19:35:55] eval llama31-8b__w-bf16__kv-fp8 / ifeval
+[19:38:49] eval:llama31-8b__w-bf16__kv-fp8:ifeval -> ok
+[19:38:49] eval llama31-8b__w-fp8__kv-fp8 / ifeval
+[19:41:17] eval:llama31-8b__w-fp8__kv-fp8:ifeval -> ok
+[19:41:17] eval llama31-8b__w-int8__kv-bf16 / ifeval
+[19:44:39] eval:llama31-8b__w-int8__kv-bf16:ifeval -> ok
+[19:44:39] eval llama31-8b__w-int4gptq__kv-bf16 / ifeval
+[19:48:06] eval:llama31-8b__w-int4gptq__kv-bf16:ifeval -> ok
+[19:48:06] eval:llama31-8b__w-int4awq__kv-bf16:ifeval -> skip (no checkpoint)
