@@ -2061,3 +2061,19 @@ AttributeError: 'function' object has no attribute '__mro__'
 [21:14:50] eval:llama31-8b__w-int4awq__kv-bf16:gsm8k -> skip (no checkpoint)
 [21:14:50] baseline GSM8K rerun (noise floor)
 [21:18:27] eval:llama31-8b__w-bf16__kv-bf16:gsm8k:rerun -> ok
+[21:18:31] pushed: quality: gsm8k across all configs
+
+[21:18:31] ===== task pass: mmlu =====
+[21:18:31] eval llama31-8b__w-bf16__kv-bf16 / mmlu
+[22:28:55] eval:llama31-8b__w-bf16__kv-bf16:mmlu -> ok
+[22:28:55] eval llama31-8b__w-fp8__kv-bf16 / mmlu
+[23:16:54] eval:llama31-8b__w-fp8__kv-bf16:mmlu -> ok
+[23:16:54] eval llama31-8b__w-bf16__kv-fp8 / mmlu
+[00:21:17] eval:llama31-8b__w-bf16__kv-fp8:mmlu -> ok
+[00:21:17] eval llama31-8b__w-fp8__kv-fp8 / mmlu
+[01:08:47] eval:llama31-8b__w-fp8__kv-fp8:mmlu -> ok
+[01:08:47] eval llama31-8b__w-int8__kv-bf16 / mmlu
+[01:54:09] eval:llama31-8b__w-int8__kv-bf16:mmlu -> ok
+[01:54:09] eval llama31-8b__w-int4gptq__kv-bf16 / mmlu
+[02:53:53] eval:llama31-8b__w-int4gptq__kv-bf16:mmlu -> ok
+[02:53:53] eval:llama31-8b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
