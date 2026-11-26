@@ -2118,3 +2118,73 @@ AttributeError: 'function' object has no attribute '__mro__'
 [04:41:17] pushed: benchmarks for llama31-8b__w-bf16__kv-bf16
 [04:41:17] starting benchmark server for llama31-8b__w-fp8__kv-bf16
 [06:00:42] bench:llama31-8b__w-fp8__kv-bf16 -> ok
+[06:01:02] pushed: benchmarks for llama31-8b__w-fp8__kv-bf16
+[06:01:02] starting benchmark server for llama31-8b__w-bf16__kv-fp8
+
+================ PHASE 0  environment ================
+
+--- disk ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/rbd3       184G   66G  118G  36% /home/jovyan
+need >= 200 GB free: each 8B model is ~16 GB in BF16 and you keep several copies
+
+--- python / libs ---
+python 3.12.3
+  vllm: 0.32.0
+  lm_eval: 0.4.13
+  llmcompressor: NOT INSTALLED in this env
+  torch: 2.13.0+cu129
+  transformers: 5.19.0
+
+reminder: vLLM and llm-compressor belong in SEPARATE venvs.
+  .venv-vllm       -> requirements-vllm.txt       (serve + lm_eval)
+  .venv-compressor -> requirements-compressor.txt (build checkpoints)
+
+--- huggingface ---
+HF_HOME=/home/jovyan/hf_cache
+  logged in as: mananj2303
+
+--- tmux ---
+  tmux present. Run every long job inside it.
+
+=== paste all of the above into notes/2026-11-26.md ===
+[07:00:48] env_check -> done
+GPUs visible: 1   TP=1
+
+================ PHASE 1  build checkpoints ================
+
+[07:00:48] build:llama31-8b__w-fp8__kv-bf16 -> skip (exists)
+[07:00:48] build:llama31-8b__w-fp8__kv-fp8 -> skip (exists)
+[07:00:48] build:llama31-8b__w-int8__kv-bf16 -> skip (exists)
+[07:00:48] build:llama31-8b__w-int4gptq__kv-bf16 -> skip (exists)
+[07:00:48] building llama31-8b__w-int4awq__kv-bf16 via scripts/quantize_int4_awq.py
+[scheme] W4A16, group size 128, symmetric, lm_head excluded
+[hardware] cc 8.9 supports 4-bit weight-only with Marlin kernels
+[plan] meta-llama/Llama-3.1-8B-Instruct -> /home/jovyan/checkpoints/llama31-8b__w-int4awq
+[plan] weights=int4awq calibration=True
+[load] meta-llama/Llama-3.1-8B-Instruct
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   8%|▊         | 23/291 [00:00<00:01, 217.77it/s]Loading weights: 100%|██████████| 291/291 [00:00<00:00, 2263.71it/s]
+Some parameters are on the meta device because they were offloaded to the cpu.
+Traceback (most recent call last):
+  File "/home/jovyan/llm-precision-study/scripts/quantize_int4_awq.py", line 88, in <module>
+    quantize_common.run_recipe(
+  File "/home/jovyan/llm-precision-study/scripts/quantize_common.py", line 91, in run_recipe
+    recipe, extra = recipe_builder(tokenizer)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/llm-precision-study/scripts/quantize_int4_awq.py", line 50, in build
+    if awq_is_transform_only():
+       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/llm-precision-study/scripts/quantize_int4_awq.py", line 40, in awq_is_transform_only
+    names = {c.__name__ for c in AWQModifier.__mro__}
+                                 ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute '__mro__'
+[07:00:53] build:llama31-8b__w-int4awq__kv-bf16 -> FAILED
+  continuing; this configuration will be skipped in later phases
+
+================ PHASE 2  verify checkpoints ================
+
+[07:01:09] verify:llama31-8b__w-fp8__kv-bf16 -> FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+[07:01:24] verify:llama31-8b__w-fp8__kv-fp8 -> FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+[07:01:40] verify:llama31-8b__w-int8__kv-bf16 -> FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+[07:01:55] verify:llama31-8b__w-int4gptq__kv-bf16 -> FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+[07:01:55] verify:llama31-8b__w-int4awq__kv-bf16 -> skip (no checkpoint)

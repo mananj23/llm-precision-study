@@ -49,6 +49,23 @@ CONFIGS=(
 )
 TASKS=(gsm8k mmlu ifeval longbench)   # humaneval excluded: needs a container
 
+configs_for_task() {
+  case "$1" in
+    longbench)
+      if [ "${LONGBENCH_ALL:-0}" = "1" ]; then
+        printf '%s\n' "${CONFIGS[@]}"
+      else
+        printf '%s\n' \
+          "${FAMILY}__w-bf16__kv-bf16" \
+          "${FAMILY}__w-bf16__kv-fp8" \
+          "${FAMILY}__w-fp8__kv-bf16" \
+          "${FAMILY}__w-fp8__kv-fp8"
+      fi
+      ;;
+    *) printf '%s\n' "${CONFIGS[@]}" ;;
+  esac
+}
+
 # ------------------------------------------------------------------ helpers --
 ts() { date +%H:%M:%S; }
 
@@ -181,8 +198,12 @@ EXTRA=()
 # adds to it.
 for task in "${TASKS[@]}"; do
   echo
-  echo "[$(ts)] ===== task pass: $task ====="
-  for cfg in "${CONFIGS[@]}"; do
+  mapfile -t TASK_CONFIGS < <(configs_for_task "$task")
+  echo "[$(ts)] ===== task pass: $task  (${#TASK_CONFIGS[@]} configs) ====="
+  if [ "${#TASK_CONFIGS[@]}" -ne "${#CONFIGS[@]}" ]; then
+    echo "[$(ts)]   subset: ${TASK_CONFIGS[*]}"
+  fi
+  for cfg in "${TASK_CONFIGS[@]}"; do
     if needs_checkpoint "$cfg" && ! checkpoint_exists "$cfg"; then
       note "eval:$cfg:$task" "skip (no checkpoint)"
       continue
