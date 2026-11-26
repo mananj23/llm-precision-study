@@ -749,3 +749,6 @@
 Processed prompts:   5%|▌         | 256/4750 [10:56<3:49:13,  3.06s/it, est. speed input: 7921.64 toks/s, output: 36.41 toks/s][A
 Processed prompts:   5%|▌         | 257/4750 [10:59<3:46:55,  3.03s/it, est. speed input: 7916.45 toks/s, output: 37.03 toks/s][A
 Processed prompts:   6%|▌         | 262/4750 [11:07<2:33:27,  2.05s/it, est. speed input: 7976.41 toks/s, output: 37.22 toks/s][A
+Processed prompts:   6%|▌         | 265/4750 [11:15<2:49:45,  2.27s/it, est. speed input: 7973.09 toks/s, output: 36.90 toks/s][A
+Processed prompts:   6%|▌         | 266/4750 [11:18<2:56:56,  2.37s/it, est. speed input: 7968.81 toks/s, output: 36.75 toks/s][A
+Processed prompts:   6%|▌         | 267/4750 [11:21<3:00:39,  2.42s/it, est. speed input: 7967.75 toks/s, output: 36.65 toks/s][A
