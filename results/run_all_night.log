@@ -8,11 +8,11 @@ need >= 200 GB free: each 8B model is ~16 GB in BF16 and you keep several copies
 
 --- python / libs ---
 python 3.12.3
-  vllm: 0.32.0
-  lm_eval: 0.4.13
+  vllm: NOT INSTALLED in this env
+  lm_eval: NOT INSTALLED in this env
   llmcompressor: NOT INSTALLED in this env
-  torch: 2.13.0+cu129
-  transformers: 5.19.0
+  torch: 2.8.0a0+5228986c39.nv25.06
+  transformers: 4.57.1
 
 reminder: vLLM and llm-compressor belong in SEPARATE venvs.
   .venv-vllm       -> requirements-vllm.txt       (serve + lm_eval)
@@ -26,22 +26,23 @@ HF_HOME=/home/jovyan/hf_cache
   tmux present. Run every long job inside it.
 
 === paste all of the above into notes/2026-11-26.md ===
-[19:24:30] env_check -> done
+[20:00:58] env_check -> done
 GPUs visible: 1   TP=1
 
 ================ PHASE 1  build checkpoints ================
 
-[19:24:30] build:llama31-8b__w-fp8__kv-bf16 -> skip (exists)
-[19:24:30] build:llama31-8b__w-fp8__kv-fp8 -> skip (exists)
-[19:24:30] build:llama31-8b__w-int8__kv-bf16 -> skip (exists)
-[19:24:30] build:llama31-8b__w-int4gptq__kv-bf16 -> skip (exists)
-[19:24:30] building llama31-8b__w-int4awq__kv-bf16 via scripts/quantize_int4_awq.py
+[20:00:58] build:llama31-8b__w-fp8__kv-bf16 -> skip (exists)
+[20:00:58] build:llama31-8b__w-fp8__kv-fp8 -> skip (exists)
+[20:00:58] build:llama31-8b__w-int8__kv-bf16 -> skip (exists)
+[20:00:58] build:llama31-8b__w-int4gptq__kv-bf16 -> skip (exists)
+[20:00:58] building llama31-8b__w-int4awq__kv-bf16 via scripts/quantize_int4_awq.py
 [scheme] W4A16, group size 128, symmetric, lm_head excluded
 [hardware] cc 8.9 supports 4-bit weight-only with Marlin kernels
 [plan] meta-llama/Llama-3.1-8B-Instruct -> /home/jovyan/checkpoints/llama31-8b__w-int4awq
 [plan] weights=int4awq calibration=True
 [load] meta-llama/Llama-3.1-8B-Instruct
-Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   8%|▊         | 24/291 [00:00<00:01, 235.43it/s]Loading weights:  17%|█▋        | 50/291 [00:00<00:00, 242.55it/s]Loading weights:  26%|██▋       | 77/291 [00:00<00:00, 246.29it/s]Loading weights:  36%|███▌      | 104/291 [00:00<00:00, 247.63it/s]Loading weights:  45%|████▍     | 130/291 [00:00<00:00, 251.31it/s]Loading weights:  54%|█████▎    | 156/291 [00:00<00:00, 252.88it/s]Loading weights:  63%|██████▎   | 182/291 [00:00<00:00, 237.54it/s]Loading weights:  71%|███████   | 206/291 [00:00<00:00, 234.55it/s]Loading weights:  79%|███████▉  | 230/291 [00:00<00:00, 235.87it/s]Loading weights:  88%|████████▊ | 256/291 [00:01<00:00, 241.39it/s]Loading weights:  97%|█████████▋| 281/291 [00:01<00:00, 242.36it/s]Loading weights: 100%|██████████| 291/291 [00:01<00:00, 242.72it/s]
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights: 100%|██████████| 291/291 [00:00<00:00, 3186.27it/s]
+Some parameters are on the meta device because they were offloaded to the cpu.
 /home/jovyan/llm-precision-study/scripts/quantize_int4_awq.py:60: DeprecationWarning: `llmcompressor.modifiers.awq.AWQModifier` is deprecated. Please update your imports to use 'llmcompressor.modifiers.transform.awq' or 'llmcompressor.modifiers.transform' instead.
 Old API:
     from llmcompressor.modifiers.awq import AWQModifier
@@ -69,10 +70,11 @@ This compatibility shim will be removed in a future version.
 [awq] transform-only AWQModifier detected: pairing it with QuantizationModifier (current llm-compressor layout)
 [calibration] HuggingFaceH4/ultrachat_200k n=512 seed=42
 [oneshot] running...
-2026-11-26T19:24:39.4552 | __init__ | WARNING - Disabling tokenizer parallelism due to threading conflict between FastTokenizer and Datasets. Set TOKENIZERS_PARALLELISM=false to suppress this warning.
-2026-11-26T19:24:40.8309 | reset | INFO - Compression lifecycle reset
-2026-11-26T19:24:40.8339 | from_modifiers | INFO - Creating recipe from modifiers
-2026-11-26T19:24:40.8339 | on_initialize | INFO - No AWQModifier.mappings provided, inferring from model...
+2026-11-26T20:01:06.3114 | __init__ | WARNING - Disabling tokenizer parallelism due to threading conflict between FastTokenizer and Datasets. Set TOKENIZERS_PARALLELISM=false to suppress this warning.
+Dispatching model:   0%|          | 0/423 [00:00<?, ?it/s]Dispatching model: 100%|██████████| 423/423 [00:00<00:00, 60285.10it/s]
+2026-11-26T20:01:07.7709 | reset | INFO - Compression lifecycle reset
+2026-11-26T20:01:07.7737 | from_modifiers | INFO - Creating recipe from modifiers
+2026-11-26T20:01:07.7738 | on_initialize | INFO - No AWQModifier.mappings provided, inferring from model...
 Traceback (most recent call last):
   File "/home/jovyan/llm-precision-study/scripts/quantize_int4_awq.py", line 92, in <module>
     quantize_common.run_recipe(
@@ -96,52 +98,13 @@ Traceback (most recent call last):
   File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/modifiers/quantization/quantization/base.py", line 75, in on_initialize
     raise ValueError(
 ValueError: QuantizationModifier requires that quantization fields be specified
-[19:24:41] build:llama31-8b__w-int4awq__kv-bf16 -> FAILED
+[20:01:08] build:llama31-8b__w-int4awq__kv-bf16 -> FAILED
   continuing; this configuration will be skipped in later phases
 
 ================ PHASE 2  verify checkpoints ================
 
-[19:25:32] verify:llama31-8b__w-fp8__kv-bf16 -> ok
-[19:26:21] verify:llama31-8b__w-fp8__kv-fp8 -> ok
-[19:27:11] verify:llama31-8b__w-int8__kv-bf16 -> ok
-[19:28:01] verify:llama31-8b__w-int4gptq__kv-bf16 -> ok
-[19:28:01] verify:llama31-8b__w-int4awq__kv-bf16 -> skip (no checkpoint)
-[19:28:08] pushed: checkpoint verification
-
-================ PHASE 3  quality evaluations ================
-
-
-[19:28:08] ===== task pass: gsm8k  (7 configs) =====
-[19:28:08] eval:llama31-8b__w-bf16__kv-bf16:gsm8k -> skip (done)
-[19:28:08] eval:llama31-8b__w-fp8__kv-bf16:gsm8k -> skip (done)
-[19:28:08] eval:llama31-8b__w-bf16__kv-fp8:gsm8k -> skip (done)
-[19:28:08] eval:llama31-8b__w-fp8__kv-fp8:gsm8k -> skip (done)
-[19:28:08] eval:llama31-8b__w-int8__kv-bf16:gsm8k -> skip (done)
-[19:28:08] eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k -> skip (done)
-[19:28:08] eval:llama31-8b__w-int4awq__kv-bf16:gsm8k -> skip (no checkpoint)
-[19:28:17] pushed: quality: gsm8k across all configs
-
-[19:28:17] ===== task pass: mmlu  (7 configs) =====
-[19:28:17] eval:llama31-8b__w-bf16__kv-bf16:mmlu -> skip (done)
-[19:28:17] eval:llama31-8b__w-fp8__kv-bf16:mmlu -> skip (done)
-[19:28:17] eval:llama31-8b__w-bf16__kv-fp8:mmlu -> skip (done)
-[19:28:17] eval:llama31-8b__w-fp8__kv-fp8:mmlu -> skip (done)
-[19:28:18] eval:llama31-8b__w-int8__kv-bf16:mmlu -> skip (done)
-[19:28:18] eval:llama31-8b__w-int4gptq__kv-bf16:mmlu -> skip (done)
-[19:28:18] eval:llama31-8b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
-[19:28:23] pushed: quality: mmlu across all configs
-
-[19:28:23] ===== task pass: ifeval  (7 configs) =====
-[19:28:23] eval llama31-8b__w-bf16__kv-bf16 / ifeval
-[19:32:35] eval:llama31-8b__w-bf16__kv-bf16:ifeval -> ok
-[19:32:35] eval llama31-8b__w-fp8__kv-bf16 / ifeval
-[19:35:55] eval:llama31-8b__w-fp8__kv-bf16:ifeval -> ok
-[19:35:55] eval llama31-8b__w-bf16__kv-fp8 / ifeval
-[19:38:49] eval:llama31-8b__w-bf16__kv-fp8:ifeval -> ok
-[19:38:49] eval llama31-8b__w-fp8__kv-fp8 / ifeval
-[19:41:17] eval:llama31-8b__w-fp8__kv-fp8:ifeval -> ok
-[19:41:17] eval llama31-8b__w-int8__kv-bf16 / ifeval
-[19:44:39] eval:llama31-8b__w-int8__kv-bf16:ifeval -> ok
-[19:44:39] eval llama31-8b__w-int4gptq__kv-bf16 / ifeval
-[19:48:06] eval:llama31-8b__w-int4gptq__kv-bf16:ifeval -> ok
-[19:48:06] eval:llama31-8b__w-int4awq__kv-bf16:ifeval -> skip (no checkpoint)
+[20:01:08] verify:llama31-8b__w-fp8__kv-bf16 -> FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+[20:01:09] verify:llama31-8b__w-fp8__kv-fp8 -> FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+[20:01:09] verify:llama31-8b__w-int8__kv-bf16 -> FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+[20:01:09] verify:llama31-8b__w-int4gptq__kv-bf16 -> FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+[20:01:09] verify:llama31-8b__w-int4awq__kv-bf16 -> skip (no checkpoint)

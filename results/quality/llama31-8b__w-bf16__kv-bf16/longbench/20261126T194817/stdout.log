@@ -1,0 +1,745 @@
+2026-11-26:19:48:24 INFO     [_cli.run:392] Selected Tasks: ['longbench']
+2026-11-26:19:48:24 WARNING  [evaluator:184] pretrained=meta-llama/Llama-3.1-8B-Instruct appears to be an instruct or chat variant but chat template is not applied. Recommend setting
+        `apply_chat_template` (optionally `fewshot_as_multiturn`).
+2026-11-26:19:48:26 INFO     [evaluator:214] Setting random seed to 1234 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2026-11-26:19:48:26 WARNING  [evaluator:226] generation_kwargs: {'temperature': 0} specified through cli, these settings will update set parameters in yaml tasks. Ensure 'do_sample=True' for non-greedy decoding!
+2026-11-26:19:48:26 INFO     [evaluator:239] Initializing vllm model, with arguments: {'pretrained': 'meta-llama/Llama-3.1-8B-Instruct', 'max_model_len': 20480, 'kv_cache_dtype': 'auto', 'add_bos_token': True, 'gpu_memory_utilization': 0.9, 'tensor_parallel_size': 1, 'seed': 1234}
+2026-11-26:19:48:30 WARNING  [models.vllm_causallms:108] The `device` argument is ignored by the vLLM backend. To select which GPU(s) vLLM can use, set the `CUDA_VISIBLE_DEVICES` environment variable before running lm-eval.
+(MainProcess pid=214294) INFO 11-26 19:48:30 [api_utils.py:286] non-default args: {'seed': 1234, 'max_model_len': 20480, 'gpu_memory_utilization': 0.9, 'disable_log_stats': True, 'model': 'meta-llama/Llama-3.1-8B-Instruct'}
+(MainProcess pid=214294) INFO 11-26 19:48:32 [model.py:733] Resolved architecture: LlamaForCausalLM
+(MainProcess pid=214294) INFO 11-26 19:48:32 [model.py:2152] Using max model len 20480
+(MainProcess pid=214294) INFO 11-26 19:48:32 [scheduler.py:307] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(MainProcess pid=214294) INFO 11-26 19:48:32 [kernel.py:467] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 1826.59it/s]
+(EngineCore pid=214626) INFO 11-26 19:48:33 [core.py:133] Initializing a V1 LLM engine (v0.32.0) with config: model='meta-llama/Llama-3.1-8B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.1-8B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=main, tokenizer_revision=main, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=20480, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, aux_output_config=AuxOutputConfig(enable_return_routed_experts=False, max_bytes=None), kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, per_request_spec_decode_metrics='none', kv_cache_metrics=False, kv_cache_metrics_sample=0.01, custom_histogram_buckets=None, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=1234, served_model_name=meta-llama/Llama-3.1-8B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::qwen4_exp_ple_short_conv', 'vllm::qwen4_exp_qsa_with_output', 'vllm::qwen4_exp_qsa_prepare_with_output', 'vllm::linear_attention', 'vllm::qwen_gdn_attention_core', 'vllm::qwen_gdn_attention_core_fused_norm_packed', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'cudagraph_decoder_replay': True, 'decoder_replay_cudagraph_capture_sizes': [], 'decoder_replay_trim_threshold': 768, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native']), enable_flashinfer_autotune=True, enable_rocm_segmented_attn_autotune=False, enable_cutedsl_warmup=True, enable_jit_warmup=True, moe_backend='auto', sparse_indexer_topk_backend='auto', linear_backend='auto', linear_backend_per_quant=None)
+(EngineCore pid=214626) INFO 11-26 19:48:34 [parallel_state.py:1906] world_size=1 rank=0 local_rank=0 distributed_init_method=file:///tmp/vllm_dist_6faf9edcf5434d019baf5b156add6e39 backend=nccl
+(EngineCore pid=214626) INFO 11-26 19:48:34 [parallel_state.py:2350] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, ETP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=214626) INFO 11-26 19:48:34 [gpu_worker.py:518] Using V2 Model Runner
+(EngineCore pid=214626) INFO 11-26 19:48:35 [model_runner.py:392] Loading model from scratch...
+(EngineCore pid=214626) INFO 11-26 19:48:35 [cuda.py:506] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=214626) INFO 11-26 19:48:35 [flash_attn.py:1117] Using FlashAttention version 2
+<frozen importlib._bootstrap_external>:1297: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+<frozen importlib._bootstrap_external>:1297: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+(EngineCore pid=214626) INFO 11-26 19:48:35 [base_loader.py:82] Initializing model took 0.599424 seconds
+(EngineCore pid=214626) INFO 11-26 19:48:36 [weight_utils.py:1108] Filesystem type for checkpoints: EXT4. Checkpoint size: 14.96 GiB. Available RAM: 134.93 GiB.
+(EngineCore pid=214626) INFO 11-26 19:48:36 [weight_utils.py:1131] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:01,  2.92it/s]
+Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:00<00:00,  2.59it/s]
+Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  2.52it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:01<00:00,  3.37it/s]
+Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:01<00:00,  3.05it/s]
+
+(EngineCore pid=214626) INFO 11-26 19:48:37 [default_loader.py:501] Loading weights took 1.33 seconds
+(EngineCore pid=214626) INFO 11-26 19:48:39 [model_runner.py:424] Model loading took 15.0 GiB memory and 5.025770 seconds
+(EngineCore pid=214626) INFO 11-26 19:48:39 [topk_topp_sampler.py:124] Using FlashInfer for top-p & top-k sampling.
+(EngineCore pid=214626) INFO 11-26 19:48:39 [torch_utils.py:295] Reducing Torch threads from 60 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=214626) INFO 11-26 19:48:39 [utils.py:347] Using LBNHC KV cache layout.
+(EngineCore pid=214626) INFO 11-26 19:48:40 [caching.py:342] reconstructed serializable fn from standalone compile artifacts. num_artifacts=3 num_submods=33
+(EngineCore pid=214626) INFO 11-26 19:48:40 [decorators.py:319] [backbone] Directly load AOT compilation from path /home/jovyan/.cache/vllm/torch_compile_cache/torch_aot_compile/aaf29839def79e8a2f0b2361b66dac9fed16beb659d7bd924f7fcf4f1a0645ab/rank_0_0/model
+(EngineCore pid=214626) INFO 11-26 19:48:40 [monitor.py:62] [backbone] torch.compile took 0.15 s in total
+(EngineCore pid=214626) INFO 11-26 19:48:41 [monitor.py:91] [backbone] Initial profiling/warmup run took 0.06 s
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:00<00:03, 13.69it/s]Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:00<00:03, 14.20it/s]Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:00<00:03, 14.44it/s]Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:02, 14.50it/s]Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:00<00:02, 15.16it/s]Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:00<00:02, 15.59it/s]Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:00<00:02, 16.02it/s]Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:01<00:02, 16.36it/s]Capturing CUDA graphs (PIECEWISE):  37%|███▋      | 19/51 [00:01<00:01, 17.98it/s]Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:01<00:01, 19.00it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▉     | 25/51 [00:01<00:01, 19.99it/s]Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:01<00:01, 20.59it/s]Capturing CUDA graphs (PIECEWISE):  61%|██████    | 31/51 [00:01<00:00, 21.04it/s]Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [00:01<00:00, 21.41it/s]Capturing CUDA graphs (PIECEWISE):  73%|███████▎  | 37/51 [00:01<00:00, 22.01it/s]Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:02<00:00, 22.20it/s]Capturing CUDA graphs (PIECEWISE):  84%|████████▍ | 43/51 [00:02<00:00, 22.67it/s]Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [00:02<00:00, 23.33it/s]Capturing CUDA graphs (PIECEWISE):  96%|█████████▌| 49/51 [00:02<00:00, 24.04it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 19.91it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (FULL): 100%|██████████| 2/2 [00:00<00:00, 29.76it/s]
+(EngineCore pid=214626) INFO 11-26 19:48:46 [model_runner.py:1127] Graph capturing finished in 4 secs, took 0.40 GiB
+(EngineCore pid=214626) INFO 11-26 19:48:47 [gpu_worker.py:759] Available KV cache memory: 23.51 GiB
+(EngineCore pid=214626) INFO 11-26 19:48:47 [gpu_worker.py:774] CUDA graph memory profiling is enabled (default since v0.21.0). The current --gpu-memory-utilization=0.9000 is equivalent to --gpu-memory-utilization=0.8896 without CUDA graph memory profiling. To maintain the same effective KV cache size as before, increase --gpu-memory-utilization to 0.9104. To disable, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=0.
+(EngineCore pid=214626) INFO 11-26 19:48:47 [kv_cache_utils.py:2327] GPU KV cache size: 192,560 tokens, Maximum concurrency for 20,480 tokens per request: 9.40x
+(EngineCore pid=214626) INFO 11-26 19:48:47 [kernel_warmup.py:176] JIT kernel warmup starting.
+(EngineCore pid=214626) INFO 11-26 19:48:47 [kernel_warmup.py:189] JIT kernel warmup finished in 0.00s.
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):   4%|▍         | 2/51 [00:00<00:03, 13.93it/s]Capturing CUDA graphs (PIECEWISE):   8%|▊         | 4/51 [00:00<00:03, 14.39it/s]Capturing CUDA graphs (PIECEWISE):  12%|█▏        | 6/51 [00:00<00:03, 14.54it/s]Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 8/51 [00:00<00:02, 14.69it/s]Capturing CUDA graphs (PIECEWISE):  20%|█▉        | 10/51 [00:00<00:02, 15.32it/s]Capturing CUDA graphs (PIECEWISE):  24%|██▎       | 12/51 [00:00<00:02, 15.69it/s]Capturing CUDA graphs (PIECEWISE):  27%|██▋       | 14/51 [00:00<00:02, 16.08it/s]Capturing CUDA graphs (PIECEWISE):  31%|███▏      | 16/51 [00:01<00:02, 16.31it/s]Capturing CUDA graphs (PIECEWISE):  37%|███▋      | 19/51 [00:01<00:01, 18.20it/s]Capturing CUDA graphs (PIECEWISE):  43%|████▎     | 22/51 [00:01<00:01, 19.47it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▉     | 25/51 [00:01<00:01, 20.33it/s]Capturing CUDA graphs (PIECEWISE):  55%|█████▍    | 28/51 [00:01<00:01, 20.94it/s]Capturing CUDA graphs (PIECEWISE):  61%|██████    | 31/51 [00:01<00:00, 21.51it/s]Capturing CUDA graphs (PIECEWISE):  67%|██████▋   | 34/51 [00:01<00:00, 21.82it/s]Capturing CUDA graphs (PIECEWISE):  73%|███████▎  | 37/51 [00:01<00:00, 22.35it/s]Capturing CUDA graphs (PIECEWISE):  78%|███████▊  | 40/51 [00:02<00:00, 22.75it/s]Capturing CUDA graphs (PIECEWISE):  84%|████████▍ | 43/51 [00:02<00:00, 23.27it/s]Capturing CUDA graphs (PIECEWISE):  90%|█████████ | 46/51 [00:02<00:00, 23.77it/s]Capturing CUDA graphs (PIECEWISE):  96%|█████████▌| 49/51 [00:02<00:00, 24.47it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 51/51 [00:02<00:00, 20.23it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):   9%|▊         | 3/35 [00:00<00:01, 29.59it/s]Capturing CUDA graphs (FULL):  17%|█▋        | 6/35 [00:00<00:00, 29.58it/s]Capturing CUDA graphs (FULL):  29%|██▊       | 10/35 [00:00<00:00, 30.09it/s]Capturing CUDA graphs (FULL):  40%|████      | 14/35 [00:00<00:00, 30.56it/s]Capturing CUDA graphs (FULL):  51%|█████▏    | 18/35 [00:00<00:00, 31.18it/s]Capturing CUDA graphs (FULL):  63%|██████▎   | 22/35 [00:00<00:00, 31.95it/s]Capturing CUDA graphs (FULL):  74%|███████▍  | 26/35 [00:00<00:00, 32.86it/s]Capturing CUDA graphs (FULL):  86%|████████▌ | 30/35 [00:00<00:00, 33.68it/s]Capturing CUDA graphs (FULL):  97%|█████████▋| 34/35 [00:01<00:00, 34.91it/s]Capturing CUDA graphs (FULL): 100%|██████████| 35/35 [00:01<00:00, 32.92it/s]
+(EngineCore pid=214626) INFO 11-26 19:48:52 [model_runner.py:1127] Graph capturing finished in 5 secs, took 0.26 GiB
+(EngineCore pid=214626) INFO 11-26 19:48:52 [gpu_worker.py:971] CUDA graph pool memory: 0.26 GiB (actual), 0.46 GiB (estimated), difference: 0.2 GiB (77.6%).
+(EngineCore pid=214626) INFO 11-26 19:48:52 [gpu_worker.py:1034] Free memory on device (44.1/44.52 GiB) on startup. Desired GPU memory utilization is (0.9, 40.07 GiB). Actual usage is 15.25 GiB for consumed memory (weights + non-torch), 1.31 GiB for peak activation, and 0.26 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=24801077760` (23.1 GiB) to fit into requested memory, or `--kv-cache-memory=29129697792` (27.13 GiB) to fully utilize gpu memory. Current kv cache memory in use is 23.51 GiB.
+(EngineCore pid=214626) INFO 11-26 19:48:52 [jit_monitor.py:84] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=214626) INFO 11-26 19:48:53 [core.py:395] init engine (profile, create kv cache, warmup model) took 13.69 s (compilation: 0.15 s)
+(EngineCore pid=214626) INFO 11-26 19:48:53 [kernel.py:467] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(MainProcess pid=214294) INFO 11-26 19:48:54 [hf.py:648] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+2026-11-26:19:49:34 INFO     [evaluator_utils:472] Selected tasks:
+2026-11-26:19:49:34 INFO     [evaluator_utils:488] Group: longbench
+2026-11-26:19:49:34 INFO     [evaluator_utils:488]   Group: longbench_code
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_lcc (longbench/lcc.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_repobench-p (longbench/repobench-p.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:488]   Group: longbench_fewshot
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_trec (longbench/trec.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_triviaqa (longbench/triviaqa.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_samsum (longbench/samsum.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_lsht (longbench/lsht.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:488]   Group: longbench_multi
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_hotpotqa (longbench/hotpotqa.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_2wikimqa (longbench/2wikimqa.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_musique (longbench/musique.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_dureader (longbench/dureader.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:488]   Group: longbench_single
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_narrativeqa (longbench/narrativeqa.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_qasper (longbench/qasper.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_multifieldqa_en (longbench/multifieldqa_en.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_multifieldqa_zh (longbench/multifieldqa_zh.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:488]   Group: longbench_summarization
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_gov_report (longbench/gov_report.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_qmsum (longbench/qmsum.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_multi_news (longbench/multi_news.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_vcsum (longbench/vcsum.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:488]   Group: longbench_synthetic
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_passage_count (longbench/passage_count.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_passage_retrieval_en (longbench/passage_retrieval_en.yaml)
+2026-11-26:19:49:34 INFO     [evaluator_utils:496]     Task: longbench_passage_retrieval_zh (longbench/passage_retrieval_zh.yaml)
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_lcc: Using gen_kwargs: {'max_gen_toks': 64, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_lcc from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_repobench-p: Using gen_kwargs: {'max_gen_toks': 64, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_repobench-p from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_trec: Using gen_kwargs: {'max_gen_toks': 64, 'temperature': 0, 'do_sample': False, 'until': ['\n']}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_trec from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_triviaqa: Using gen_kwargs: {'max_gen_toks': 32, 'temperature': 0, 'do_sample': False, 'until': ['\n']}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_triviaqa from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_samsum: Using gen_kwargs: {'max_gen_toks': 128, 'temperature': 0, 'do_sample': False, 'until': ['\n']}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_samsum from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_lsht: Using gen_kwargs: {'max_gen_toks': 64, 'temperature': 0, 'do_sample': False, 'until': ['\n']}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_lsht from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_hotpotqa: Using gen_kwargs: {'max_gen_toks': 32, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_hotpotqa from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_2wikimqa: Using gen_kwargs: {'max_gen_toks': 32, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_2wikimqa from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_musique: Using gen_kwargs: {'max_gen_toks': 32, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_musique from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_dureader: Using gen_kwargs: {'max_gen_toks': 128, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_dureader from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_narrativeqa: Using gen_kwargs: {'max_gen_toks': 128, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_narrativeqa from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_qasper: Using gen_kwargs: {'max_gen_toks': 128, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_qasper from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_multifieldqa_en: Using gen_kwargs: {'max_gen_toks': 64, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_multifieldqa_en from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_multifieldqa_zh: Using gen_kwargs: {'max_gen_toks': 64, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_multifieldqa_zh from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_gov_report: Using gen_kwargs: {'max_gen_toks': 512, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_gov_report from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_qmsum: Using gen_kwargs: {'max_gen_toks': 512, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_qmsum from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_multi_news: Using gen_kwargs: {'max_gen_toks': 512, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_multi_news from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_vcsum: Using gen_kwargs: {'max_gen_toks': 512, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_vcsum from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_passage_count: Using gen_kwargs: {'max_gen_toks': 32, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_passage_count from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_passage_retrieval_en: Using gen_kwargs: {'max_gen_toks': 32, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_passage_retrieval_en from None to 0
+2026-11-26:19:49:34 INFO     [evaluator:314] longbench_passage_retrieval_zh: Using gen_kwargs: {'max_gen_toks': 32, 'temperature': 0, 'do_sample': False, 'until': []}
+2026-11-26:19:49:34 WARNING  [evaluator:335] Overwriting default num_fewshot of longbench_passage_retrieval_zh from None to 0
+2026-11-26:19:49:34 INFO     [api.task:312] Building contexts for longbench_lcc on rank 0...
+  0%|          | 0/500 [00:00<?, ?it/s] 70%|██████▉   | 348/500 [00:00<00:00, 3478.30it/s]100%|██████████| 500/500 [00:00<00:00, 3494.55it/s]
+2026-11-26:19:49:34 INFO     [api.task:312] Building contexts for longbench_repobench-p on rank 0...
+  0%|          | 0/500 [00:00<?, ?it/s] 60%|█████▉    | 299/500 [00:00<00:00, 2984.07it/s]100%|██████████| 500/500 [00:00<00:00, 3005.54it/s]
+2026-11-26:19:49:34 INFO     [api.task:312] Building contexts for longbench_trec on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 3014.90it/s]
+2026-11-26:19:49:34 INFO     [api.task:312] Building contexts for longbench_triviaqa on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2695.38it/s]
+2026-11-26:19:49:34 INFO     [api.task:312] Building contexts for longbench_samsum on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]  6%|▋         | 13/200 [00:00<00:07, 26.47it/s]100%|██████████| 200/200 [00:00<00:00, 354.25it/s]
+2026-11-26:19:49:35 INFO     [api.task:312] Building contexts for longbench_lsht on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2866.23it/s]
+2026-11-26:19:49:35 INFO     [api.task:312] Building contexts for longbench_hotpotqa on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2676.76it/s]
+2026-11-26:19:49:35 INFO     [api.task:312] Building contexts for longbench_2wikimqa on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2782.31it/s]
+2026-11-26:19:49:35 INFO     [api.task:312] Building contexts for longbench_musique on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2642.43it/s]
+2026-11-26:19:49:35 INFO     [api.task:312] Building contexts for longbench_dureader on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2792.27it/s]
+2026-11-26:19:49:35 INFO     [api.task:312] Building contexts for longbench_narrativeqa on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2706.95it/s]
+2026-11-26:19:49:35 INFO     [api.task:312] Building contexts for longbench_qasper on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2718.07it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_multifieldqa_en on rank 0...
+  0%|          | 0/150 [00:00<?, ?it/s]100%|██████████| 150/150 [00:00<00:00, 2891.00it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_multifieldqa_zh on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2847.13it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_gov_report on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2901.23it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_qmsum on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2757.39it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_multi_news on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 3249.84it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_vcsum on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 3273.59it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_passage_count on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 3040.92it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_passage_retrieval_en on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2692.18it/s]
+2026-11-26:19:49:36 INFO     [api.task:312] Building contexts for longbench_passage_retrieval_zh on rank 0...
+  0%|          | 0/200 [00:00<?, ?it/s]100%|██████████| 200/200 [00:00<00:00, 2822.51it/s]
+2026-11-26:19:49:36 INFO     [evaluator:589] Running generate_until requests
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer CachedTokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+Running generate_until requests:   0%|          | 0/4750 [00:00<?, ?it/s]2026-11-26:19:50:19 WARNING  [utils:126] Context length (65449) + max_gen_toks (128) = 65577 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65449) + max_gen_toks (128) = 65577 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65446) + max_gen_toks (128) = 65574 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65442) + max_gen_toks (128) = 65570 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65442) + max_gen_toks (128) = 65570 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65440) + max_gen_toks (128) = 65568 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65440) + max_gen_toks (128) = 65568 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65438) + max_gen_toks (128) = 65566 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (65436) + max_gen_toks (128) = 65564 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64254) + max_gen_toks (128) = 64382 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64251) + max_gen_toks (128) = 64379 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64249) + max_gen_toks (128) = 64377 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64249) + max_gen_toks (128) = 64377 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64247) + max_gen_toks (128) = 64375 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64246) + max_gen_toks (128) = 64374 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64246) + max_gen_toks (128) = 64374 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64246) + max_gen_toks (128) = 64374 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64246) + max_gen_toks (128) = 64374 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (64245) + max_gen_toks (128) = 64373 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59938) + max_gen_toks (128) = 60066 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59934) + max_gen_toks (128) = 60062 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59933) + max_gen_toks (128) = 60061 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59931) + max_gen_toks (128) = 60059 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59931) + max_gen_toks (128) = 60059 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59930) + max_gen_toks (128) = 60058 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59929) + max_gen_toks (128) = 60057 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (59929) + max_gen_toks (128) = 60057 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (51448) + max_gen_toks (512) = 51960 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46800) + max_gen_toks (128) = 46928 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46794) + max_gen_toks (128) = 46922 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46792) + max_gen_toks (128) = 46920 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46792) + max_gen_toks (128) = 46920 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46790) + max_gen_toks (128) = 46918 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46790) + max_gen_toks (128) = 46918 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46789) + max_gen_toks (128) = 46917 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46788) + max_gen_toks (128) = 46916 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46788) + max_gen_toks (128) = 46916 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46787) + max_gen_toks (128) = 46915 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (46786) + max_gen_toks (128) = 46914 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (43441) + max_gen_toks (512) = 43953 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (39864) + max_gen_toks (512) = 40376 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (39147) + max_gen_toks (64) = 39211 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (39097) + max_gen_toks (64) = 39161 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38267) + max_gen_toks (128) = 38395 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38265) + max_gen_toks (128) = 38393 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38263) + max_gen_toks (128) = 38391 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38263) + max_gen_toks (128) = 38391 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38261) + max_gen_toks (128) = 38389 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38259) + max_gen_toks (128) = 38387 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38259) + max_gen_toks (128) = 38387 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (38259) + max_gen_toks (128) = 38387 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37142) + max_gen_toks (128) = 37270 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37139) + max_gen_toks (128) = 37267 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37139) + max_gen_toks (128) = 37267 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37139) + max_gen_toks (128) = 37267 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37137) + max_gen_toks (128) = 37265 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37137) + max_gen_toks (128) = 37265 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37137) + max_gen_toks (128) = 37265 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37135) + max_gen_toks (128) = 37263 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (37133) + max_gen_toks (128) = 37261 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36328) + max_gen_toks (128) = 36456 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36328) + max_gen_toks (128) = 36456 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36321) + max_gen_toks (128) = 36449 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36320) + max_gen_toks (128) = 36448 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36319) + max_gen_toks (128) = 36447 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36317) + max_gen_toks (128) = 36445 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36316) + max_gen_toks (128) = 36444 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36315) + max_gen_toks (128) = 36443 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36315) + max_gen_toks (128) = 36443 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36313) + max_gen_toks (128) = 36441 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36313) + max_gen_toks (128) = 36441 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (36177) + max_gen_toks (64) = 36241 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (34128) + max_gen_toks (64) = 34192 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (34027) + max_gen_toks (64) = 34091 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33764) + max_gen_toks (64) = 33828 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33664) + max_gen_toks (64) = 33728 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33032) + max_gen_toks (64) = 33096 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33026) + max_gen_toks (128) = 33154 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33019) + max_gen_toks (128) = 33147 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33019) + max_gen_toks (128) = 33147 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33019) + max_gen_toks (128) = 33147 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33018) + max_gen_toks (128) = 33146 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33016) + max_gen_toks (128) = 33144 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33016) + max_gen_toks (128) = 33144 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33015) + max_gen_toks (128) = 33143 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33015) + max_gen_toks (128) = 33143 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33015) + max_gen_toks (128) = 33143 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33015) + max_gen_toks (128) = 33143 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33014) + max_gen_toks (128) = 33142 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33012) + max_gen_toks (128) = 33140 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33012) + max_gen_toks (128) = 33140 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33012) + max_gen_toks (128) = 33140 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33012) + max_gen_toks (128) = 33140 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33011) + max_gen_toks (128) = 33139 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33010) + max_gen_toks (128) = 33138 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (33009) + max_gen_toks (128) = 33137 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (32878) + max_gen_toks (64) = 32942 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (32515) + max_gen_toks (64) = 32579 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (32467) + max_gen_toks (64) = 32531 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31796) + max_gen_toks (64) = 31860 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31624) + max_gen_toks (512) = 32136 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31510) + max_gen_toks (128) = 31638 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31505) + max_gen_toks (128) = 31633 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31503) + max_gen_toks (128) = 31631 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31501) + max_gen_toks (128) = 31629 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31500) + max_gen_toks (128) = 31628 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31498) + max_gen_toks (128) = 31626 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31498) + max_gen_toks (128) = 31626 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31497) + max_gen_toks (128) = 31625 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31496) + max_gen_toks (128) = 31624 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31495) + max_gen_toks (128) = 31623 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31495) + max_gen_toks (128) = 31623 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31495) + max_gen_toks (128) = 31623 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31494) + max_gen_toks (128) = 31622 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31491) + max_gen_toks (64) = 31555 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31464) + max_gen_toks (128) = 31592 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31458) + max_gen_toks (128) = 31586 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31458) + max_gen_toks (128) = 31586 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31456) + max_gen_toks (128) = 31584 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31456) + max_gen_toks (128) = 31584 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31454) + max_gen_toks (128) = 31582 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31454) + max_gen_toks (128) = 31582 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31453) + max_gen_toks (128) = 31581 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31453) + max_gen_toks (128) = 31581 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31452) + max_gen_toks (128) = 31580 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31452) + max_gen_toks (128) = 31580 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31352) + max_gen_toks (64) = 31416 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31216) + max_gen_toks (64) = 31280 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31193) + max_gen_toks (128) = 31321 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31190) + max_gen_toks (128) = 31318 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31190) + max_gen_toks (128) = 31318 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31188) + max_gen_toks (128) = 31316 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31187) + max_gen_toks (128) = 31315 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (31187) + max_gen_toks (128) = 31315 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30907) + max_gen_toks (64) = 30971 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30892) + max_gen_toks (64) = 30956 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30764) + max_gen_toks (512) = 31276 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30562) + max_gen_toks (64) = 30626 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30484) + max_gen_toks (512) = 30996 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30479) + max_gen_toks (512) = 30991 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30479) + max_gen_toks (512) = 30991 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30478) + max_gen_toks (512) = 30990 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30326) + max_gen_toks (64) = 30390 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30288) + max_gen_toks (64) = 30352 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30247) + max_gen_toks (64) = 30311 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30172) + max_gen_toks (64) = 30236 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30121) + max_gen_toks (64) = 30185 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30039) + max_gen_toks (512) = 30551 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30038) + max_gen_toks (512) = 30550 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30037) + max_gen_toks (512) = 30549 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30033) + max_gen_toks (512) = 30545 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (30033) + max_gen_toks (512) = 30545 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (29708) + max_gen_toks (64) = 29772 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (29706) + max_gen_toks (64) = 29770 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (29656) + max_gen_toks (64) = 29720 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (29256) + max_gen_toks (64) = 29320 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (29190) + max_gen_toks (64) = 29254 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (29190) + max_gen_toks (64) = 29254 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (29103) + max_gen_toks (32) = 29135 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (28777) + max_gen_toks (64) = 28841 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (28608) + max_gen_toks (64) = 28672 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (28591) + max_gen_toks (64) = 28655 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (28488) + max_gen_toks (64) = 28552 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (28279) + max_gen_toks (64) = 28343 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27883) + max_gen_toks (64) = 27947 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27790) + max_gen_toks (64) = 27854 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27682) + max_gen_toks (512) = 28194 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27652) + max_gen_toks (64) = 27716 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27624) + max_gen_toks (64) = 27688 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27601) + max_gen_toks (64) = 27665 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27319) + max_gen_toks (64) = 27383 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27196) + max_gen_toks (64) = 27260 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27077) + max_gen_toks (64) = 27141 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27069) + max_gen_toks (512) = 27581 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (27002) + max_gen_toks (64) = 27066 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26786) + max_gen_toks (512) = 27298 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26723) + max_gen_toks (64) = 26787 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26695) + max_gen_toks (64) = 26759 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26525) + max_gen_toks (64) = 26589 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26510) + max_gen_toks (64) = 26574 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26503) + max_gen_toks (64) = 26567 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26399) + max_gen_toks (64) = 26463 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26191) + max_gen_toks (512) = 26703 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26189) + max_gen_toks (512) = 26701 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26189) + max_gen_toks (512) = 26701 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26188) + max_gen_toks (512) = 26700 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26167) + max_gen_toks (64) = 26231 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (26130) + max_gen_toks (64) = 26194 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25936) + max_gen_toks (64) = 26000 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25888) + max_gen_toks (64) = 25952 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25857) + max_gen_toks (512) = 26369 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25677) + max_gen_toks (64) = 25741 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25656) + max_gen_toks (512) = 26168 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25604) + max_gen_toks (64) = 25668 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25468) + max_gen_toks (512) = 25980 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25467) + max_gen_toks (512) = 25979 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25467) + max_gen_toks (512) = 25979 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25461) + max_gen_toks (512) = 25973 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25460) + max_gen_toks (512) = 25972 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25459) + max_gen_toks (512) = 25971 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25457) + max_gen_toks (512) = 25969 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25457) + max_gen_toks (512) = 25969 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25457) + max_gen_toks (512) = 25969 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25359) + max_gen_toks (512) = 25871 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25328) + max_gen_toks (64) = 25392 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25324) + max_gen_toks (64) = 25388 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (25246) + max_gen_toks (64) = 25310 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24975) + max_gen_toks (32) = 25007 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24862) + max_gen_toks (64) = 24926 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24822) + max_gen_toks (64) = 24886 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24783) + max_gen_toks (512) = 25295 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24766) + max_gen_toks (64) = 24830 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24626) + max_gen_toks (64) = 24690 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24534) + max_gen_toks (512) = 25046 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24504) + max_gen_toks (32) = 24536 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24501) + max_gen_toks (64) = 24565 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24410) + max_gen_toks (64) = 24474 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24381) + max_gen_toks (512) = 24893 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24282) + max_gen_toks (64) = 24346 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24276) + max_gen_toks (64) = 24340 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24174) + max_gen_toks (64) = 24238 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24137) + max_gen_toks (64) = 24201 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24069) + max_gen_toks (64) = 24133 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (24001) + max_gen_toks (32) = 24033 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23945) + max_gen_toks (64) = 24009 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23904) + max_gen_toks (64) = 23968 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23863) + max_gen_toks (32) = 23895 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23711) + max_gen_toks (64) = 23775 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23694) + max_gen_toks (64) = 23758 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23631) + max_gen_toks (64) = 23695 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23538) + max_gen_toks (512) = 24050 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23510) + max_gen_toks (32) = 23542 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23508) + max_gen_toks (32) = 23540 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23414) + max_gen_toks (64) = 23478 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23409) + max_gen_toks (64) = 23473 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23356) + max_gen_toks (32) = 23388 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23272) + max_gen_toks (128) = 23400 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23268) + max_gen_toks (128) = 23396 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23267) + max_gen_toks (128) = 23395 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23266) + max_gen_toks (128) = 23394 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23266) + max_gen_toks (128) = 23394 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23265) + max_gen_toks (128) = 23393 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23265) + max_gen_toks (128) = 23393 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23265) + max_gen_toks (128) = 23393 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23265) + max_gen_toks (128) = 23393 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23265) + max_gen_toks (128) = 23393 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23241) + max_gen_toks (64) = 23305 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23215) + max_gen_toks (32) = 23247 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23196) + max_gen_toks (64) = 23260 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23192) + max_gen_toks (64) = 23256 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23158) + max_gen_toks (64) = 23222 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23115) + max_gen_toks (32) = 23147 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (23045) + max_gen_toks (64) = 23109 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22983) + max_gen_toks (32) = 23015 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22974) + max_gen_toks (64) = 23038 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22893) + max_gen_toks (512) = 23405 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22863) + max_gen_toks (32) = 22895 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22798) + max_gen_toks (64) = 22862 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22798) + max_gen_toks (32) = 22830 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22785) + max_gen_toks (64) = 22849 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22754) + max_gen_toks (64) = 22818 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22738) + max_gen_toks (64) = 22802 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22737) + max_gen_toks (128) = 22865 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22734) + max_gen_toks (64) = 22798 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22727) + max_gen_toks (32) = 22759 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22618) + max_gen_toks (64) = 22682 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22617) + max_gen_toks (64) = 22681 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22604) + max_gen_toks (32) = 22636 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22593) + max_gen_toks (64) = 22657 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22492) + max_gen_toks (32) = 22524 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22432) + max_gen_toks (512) = 22944 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22306) + max_gen_toks (512) = 22818 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22304) + max_gen_toks (512) = 22816 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22292) + max_gen_toks (64) = 22356 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22290) + max_gen_toks (512) = 22802 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22286) + max_gen_toks (64) = 22350 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22194) + max_gen_toks (32) = 22226 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22181) + max_gen_toks (64) = 22245 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22180) + max_gen_toks (64) = 22244 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22151) + max_gen_toks (64) = 22215 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22133) + max_gen_toks (64) = 22197 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22132) + max_gen_toks (32) = 22164 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22126) + max_gen_toks (32) = 22158 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22099) + max_gen_toks (512) = 22611 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (22058) + max_gen_toks (64) = 22122 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21996) + max_gen_toks (512) = 22508 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21982) + max_gen_toks (512) = 22494 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21961) + max_gen_toks (64) = 22025 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21852) + max_gen_toks (512) = 22364 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21781) + max_gen_toks (32) = 21813 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21769) + max_gen_toks (32) = 21801 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21769) + max_gen_toks (64) = 21833 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21747) + max_gen_toks (32) = 21779 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21717) + max_gen_toks (32) = 21749 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21709) + max_gen_toks (32) = 21741 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21709) + max_gen_toks (128) = 21837 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21689) + max_gen_toks (64) = 21753 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21666) + max_gen_toks (64) = 21730 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21621) + max_gen_toks (64) = 21685 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21620) + max_gen_toks (32) = 21652 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21557) + max_gen_toks (64) = 21621 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21452) + max_gen_toks (512) = 21964 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21451) + max_gen_toks (64) = 21515 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21431) + max_gen_toks (128) = 21559 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21427) + max_gen_toks (64) = 21491 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21304) + max_gen_toks (32) = 21336 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21282) + max_gen_toks (64) = 21346 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21282) + max_gen_toks (64) = 21346 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21260) + max_gen_toks (64) = 21324 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21230) + max_gen_toks (512) = 21742 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21145) + max_gen_toks (128) = 21273 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21087) + max_gen_toks (32) = 21119 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21062) + max_gen_toks (64) = 21126 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21035) + max_gen_toks (512) = 21547 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (21027) + max_gen_toks (64) = 21091 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20996) + max_gen_toks (512) = 21508 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20988) + max_gen_toks (32) = 21020 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20981) + max_gen_toks (64) = 21045 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20949) + max_gen_toks (64) = 21013 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20944) + max_gen_toks (32) = 20976 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20924) + max_gen_toks (32) = 20956 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20922) + max_gen_toks (512) = 21434 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20920) + max_gen_toks (32) = 20952 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20884) + max_gen_toks (32) = 20916 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20826) + max_gen_toks (64) = 20890 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20825) + max_gen_toks (32) = 20857 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20812) + max_gen_toks (64) = 20876 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20774) + max_gen_toks (32) = 20806 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20754) + max_gen_toks (64) = 20818 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20753) + max_gen_toks (64) = 20817 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20750) + max_gen_toks (64) = 20814 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20740) + max_gen_toks (64) = 20804 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20728) + max_gen_toks (32) = 20760 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20711) + max_gen_toks (32) = 20743 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20688) + max_gen_toks (64) = 20752 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20654) + max_gen_toks (512) = 21166 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20627) + max_gen_toks (32) = 20659 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20605) + max_gen_toks (64) = 20669 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20591) + max_gen_toks (512) = 21103 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20534) + max_gen_toks (64) = 20598 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20530) + max_gen_toks (512) = 21042 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20495) + max_gen_toks (64) = 20559 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20493) + max_gen_toks (64) = 20557 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20484) + max_gen_toks (32) = 20516 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20477) + max_gen_toks (32) = 20509 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20416) + max_gen_toks (512) = 20928 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20272) + max_gen_toks (512) = 20784 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20074) + max_gen_toks (512) = 20586 exceeds model's max length (20480). Truncating context from side='left'.
+2026-11-26:19:50:19 WARNING  [utils:126] Context length (20019) + max_gen_toks (512) = 20531 exceeds model's max length (20480). Truncating context from side='left'.
+
+Rendering prompts:   0%|          | 0/4750 [00:00<?, ?it/s][A
+Rendering prompts:   3%|▎         | 134/4750 [00:00<00:03, 1332.24it/s][A
+Rendering prompts:   6%|▌         | 268/4750 [00:00<00:03, 1307.83it/s][A
+Rendering prompts:   8%|▊         | 401/4750 [00:00<00:03, 1315.63it/s][A
+Rendering prompts:  12%|█▏        | 554/4750 [00:00<00:03, 1398.16it/s][A
+Rendering prompts:  15%|█▌        | 716/4750 [00:00<00:02, 1475.55it/s][A
+Rendering prompts:  19%|█▊        | 885/4750 [00:00<00:02, 1545.46it/s][A
+Rendering prompts:  22%|██▏       | 1056/4750 [00:00<00:02, 1596.93it/s][A
+Rendering prompts:  26%|██▌       | 1239/4750 [00:00<00:02, 1668.16it/s][A
+Rendering prompts:  30%|███       | 1432/4750 [00:00<00:01, 1749.15it/s][A
+Rendering prompts:  34%|███▍      | 1637/4750 [00:01<00:01, 1841.70it/s][A
+Rendering prompts:  39%|███▉      | 1858/4750 [00:01<00:01, 1951.97it/s][A
+Rendering prompts:  44%|████▍     | 2093/4750 [00:01<00:01, 2070.55it/s][A
+Rendering prompts:  49%|████▉     | 2349/4750 [00:01<00:01, 2216.24it/s][A
+Rendering prompts:  55%|█████▌    | 2634/4750 [00:01<00:00, 2406.42it/s][A
+Rendering prompts:  62%|██████▏   | 2967/4750 [00:01<00:00, 2684.07it/s][A
+Rendering prompts:  70%|███████   | 3347/4750 [00:01<00:00, 3017.79it/s][A
+Rendering prompts:  80%|███████▉  | 3795/4750 [00:01<00:00, 3455.78it/s][A
+Rendering prompts:  93%|█████████▎| 4409/4750 [00:01<00:00, 4259.94it/s][ARendering prompts: 100%|██████████| 4750/4750 [00:01<00:00, 2569.82it/s]
+
+Processed prompts:   0%|          | 0/4750 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   0%|          | 1/4750 [00:06<8:45:39,  6.64s/it, est. speed input: 3064.44 toks/s, output: 0.75 toks/s][A
+Processed prompts:   0%|          | 2/4750 [00:07<4:19:28,  3.28s/it, est. speed input: 5379.36 toks/s, output: 1.45 toks/s][A
+Processed prompts:   0%|          | 3/4750 [00:12<5:09:28,  3.91s/it, est. speed input: 4991.79 toks/s, output: 1.23 toks/s][A
+Processed prompts:   0%|          | 4/4750 [00:17<5:37:53,  4.27s/it, est. speed input: 4773.36 toks/s, output: 1.23 toks/s][A
+Processed prompts:   0%|          | 5/4750 [00:26<8:19:28,  6.32s/it, est. speed input: 3769.57 toks/s, output: 1.00 toks/s][A
+Processed prompts:   0%|          | 6/4750 [00:27<5:38:30,  4.28s/it, est. speed input: 4468.53 toks/s, output: 1.43 toks/s][A
+Processed prompts:   0%|          | 8/4750 [00:32<4:34:26,  3.47s/it, est. speed input: 4993.36 toks/s, output: 6.13 toks/s][A
+Processed prompts:   0%|          | 9/4750 [00:34<4:04:25,  3.09s/it, est. speed input: 5290.39 toks/s, output: 9.47 toks/s][A
+Processed prompts:   0%|          | 10/4750 [00:36<3:30:00,  2.66s/it, est. speed input: 5635.89 toks/s, output: 12.63 toks/s][A
+Processed prompts:   0%|          | 11/4750 [00:40<4:06:26,  3.12s/it, est. speed input: 5538.07 toks/s, output: 14.45 toks/s][A
+Processed prompts:   0%|          | 13/4750 [00:42<2:51:34,  2.17s/it, est. speed input: 6240.52 toks/s, output: 16.89 toks/s][A
+Processed prompts:   0%|          | 14/4750 [00:43<2:29:28,  1.89s/it, est. speed input: 6563.92 toks/s, output: 16.63 toks/s][A
+Processed prompts:   0%|          | 15/4750 [00:44<2:10:38,  1.66s/it, est. speed input: 6880.24 toks/s, output: 19.16 toks/s][A
+Processed prompts:   0%|          | 16/4750 [00:47<2:40:33,  2.03s/it, est. speed input: 6863.53 toks/s, output: 20.61 toks/s][A
+Processed prompts:   0%|          | 19/4750 [00:49<1:41:58,  1.29s/it, est. speed input: 7830.18 toks/s, output: 25.05 toks/s][A
+Processed prompts:   0%|          | 20/4750 [00:50<1:39:38,  1.26s/it, est. speed input: 8054.95 toks/s, output: 24.54 toks/s][A
+Processed prompts:   0%|          | 21/4750 [00:52<1:50:53,  1.41s/it, est. speed input: 8151.21 toks/s, output: 26.09 toks/s][A
+Processed prompts:   1%|          | 25/4750 [00:56<1:30:45,  1.15s/it, est. speed input: 9045.36 toks/s, output: 27.04 toks/s][A
+Processed prompts:   1%|          | 27/4750 [00:59<1:37:49,  1.24s/it, est. speed input: 9284.57 toks/s, output: 25.90 toks/s][A
+Processed prompts:   1%|          | 28/4750 [01:06<2:53:11,  2.20s/it, est. speed input: 8625.41 toks/s, output: 23.31 toks/s][A
+Processed prompts:   1%|          | 30/4750 [01:09<2:35:48,  1.98s/it, est. speed input: 8833.22 toks/s, output: 22.51 toks/s][A
+Processed prompts:   1%|          | 31/4750 [01:10<2:23:05,  1.82s/it, est. speed input: 8980.98 toks/s, output: 22.26 toks/s][A
+Processed prompts:   1%|          | 32/4750 [01:13<2:41:54,  2.06s/it, est. speed input: 8897.65 toks/s, output: 21.42 toks/s][A
+Processed prompts:   1%|          | 33/4750 [01:14<2:22:30,  1.81s/it, est. speed input: 9051.72 toks/s, output: 21.23 toks/s][A
+Processed prompts:   1%|          | 34/4750 [01:18<3:05:56,  2.37s/it, est. speed input: 8846.02 toks/s, output: 20.21 toks/s][A
+Processed prompts:   1%|          | 35/4750 [01:26<5:03:13,  3.86s/it, est. speed input: 8258.04 toks/s, output: 19.07 toks/s][A
+Processed prompts:   1%|          | 36/4750 [01:28<4:22:33,  3.34s/it, est. speed input: 8305.38 toks/s, output: 19.37 toks/s][A
+Processed prompts:   1%|          | 37/4750 [01:32<4:32:32,  3.47s/it, est. speed input: 8183.87 toks/s, output: 19.96 toks/s][A
+Processed prompts:   1%|          | 38/4750 [01:34<4:18:20,  3.29s/it, est. speed input: 8153.32 toks/s, output: 19.42 toks/s][A
+Processed prompts:   1%|          | 39/4750 [01:36<3:29:13,  2.66s/it, est. speed input: 8268.78 toks/s, output: 20.52 toks/s][A
+Processed prompts:   1%|          | 40/4750 [01:38<3:29:03,  2.66s/it, est. speed input: 8252.23 toks/s, output: 21.26 toks/s][A
+Processed prompts:   1%|          | 41/4750 [01:40<3:13:06,  2.46s/it, est. speed input: 8292.39 toks/s, output: 22.12 toks/s][A
+Processed prompts:   1%|          | 42/4750 [01:44<3:43:10,  2.84s/it, est. speed input: 8189.13 toks/s, output: 21.42 toks/s][A
+Processed prompts:   1%|          | 43/4750 [01:47<3:46:48,  2.89s/it, est. speed input: 8149.73 toks/s, output: 20.88 toks/s][A
+Processed prompts:   1%|          | 44/4750 [01:47<2:44:36,  2.10s/it, est. speed input: 8321.05 toks/s, output: 20.94 toks/s][A
+Processed prompts:   1%|          | 46/4750 [01:50<2:23:06,  1.83s/it, est. speed input: 8462.60 toks/s, output: 20.53 toks/s][A
+Processed prompts:   1%|          | 47/4750 [01:50<1:49:58,  1.40s/it, est. speed input: 8637.36 toks/s, output: 20.59 toks/s][A
+Processed prompts:   1%|          | 48/4750 [01:50<1:23:37,  1.07s/it, est. speed input: 8811.82 toks/s, output: 20.67 toks/s][A
+Processed prompts:   1%|          | 49/4750 [01:53<2:01:17,  1.55s/it, est. speed input: 8770.89 toks/s, output: 20.19 toks/s][A
+Processed prompts:   1%|          | 50/4750 [01:56<2:29:00,  1.90s/it, est. speed input: 8733.69 toks/s, output: 19.74 toks/s][A
+Processed prompts:   1%|          | 51/4750 [01:59<2:57:21,  2.26s/it, est. speed input: 8672.27 toks/s, output: 19.30 toks/s][A
+Processed prompts:   1%|          | 53/4750 [02:02<2:29:26,  1.91s/it, est. speed input: 8795.87 toks/s, output: 18.97 toks/s][A
+Processed prompts:   1%|          | 54/4750 [02:03<2:10:27,  1.67s/it, est. speed input: 8895.63 toks/s, output: 19.86 toks/s][A
+Processed prompts:   1%|          | 55/4750 [02:06<2:38:57,  2.03s/it, est. speed input: 8839.88 toks/s, output: 20.39 toks/s][A
+Processed prompts:   1%|          | 56/4750 [02:09<3:02:09,  2.33s/it, est. speed input: 8783.15 toks/s, output: 19.93 toks/s][A
+Processed prompts:   1%|          | 57/4750 [02:13<3:22:19,  2.59s/it, est. speed input: 8720.98 toks/s, output: 19.50 toks/s][A
+Processed prompts:   1%|          | 59/4750 [02:15<2:27:11,  1.88s/it, est. speed input: 8893.88 toks/s, output: 19.28 toks/s][A
+Processed prompts:   1%|▏         | 60/4750 [02:19<3:08:30,  2.41s/it, est. speed input: 8778.97 toks/s, output: 19.63 toks/s][A
+Processed prompts:   1%|▏         | 61/4750 [02:21<3:02:48,  2.34s/it, est. speed input: 8790.81 toks/s, output: 19.38 toks/s][A
+Processed prompts:   1%|▏         | 63/4750 [02:24<2:36:10,  2.00s/it, est. speed input: 8886.03 toks/s, output: 19.06 toks/s][A
+Processed prompts:   1%|▏         | 64/4750 [02:26<2:31:29,  1.94s/it, est. speed input: 8919.39 toks/s, output: 18.89 toks/s][A
+Processed prompts:   1%|▏         | 65/4750 [02:26<2:11:25,  1.68s/it, est. speed input: 9003.24 toks/s, output: 18.83 toks/s][A
+Processed prompts:   1%|▏         | 66/4750 [02:31<3:07:29,  2.40s/it, est. speed input: 8874.93 toks/s, output: 18.29 toks/s][A
+Processed prompts:   1%|▏         | 67/4750 [02:34<3:22:07,  2.59s/it, est. speed input: 8829.02 toks/s, output: 18.75 toks/s][A
+Processed prompts:   1%|▏         | 68/4750 [02:37<3:24:31,  2.62s/it, est. speed input: 8806.78 toks/s, output: 19.25 toks/s][A
+Processed prompts:   1%|▏         | 71/4750 [02:39<2:12:42,  1.70s/it, est. speed input: 9033.81 toks/s, output: 20.53 toks/s][A
+Processed prompts:   2%|▏         | 73/4750 [02:40<1:36:51,  1.24s/it, est. speed input: 9246.74 toks/s, output: 20.57 toks/s][A
+Processed prompts:   2%|▏         | 74/4750 [02:43<2:08:08,  1.64s/it, est. speed input: 9185.45 toks/s, output: 20.23 toks/s][A
+Processed prompts:   2%|▏         | 76/4750 [02:46<2:03:53,  1.59s/it, est. speed input: 9265.57 toks/s, output: 20.63 toks/s][A
+Processed prompts:   2%|▏         | 77/4750 [02:51<2:44:38,  2.11s/it, est. speed input: 9159.93 toks/s, output: 20.50 toks/s][A
+Processed prompts:   2%|▏         | 78/4750 [02:51<2:18:28,  1.78s/it, est. speed input: 9244.95 toks/s, output: 20.46 toks/s][A
+Processed prompts:   2%|▏         | 79/4750 [02:54<2:37:00,  2.02s/it, est. speed input: 9215.58 toks/s, output: 20.19 toks/s][A
+Processed prompts:   2%|▏         | 83/4750 [02:54<1:06:49,  1.16it/s, est. speed input: 9675.73 toks/s, output: 20.31 toks/s][A
+Processed prompts:   2%|▏         | 85/4750 [02:54<48:28,  1.60it/s, est. speed input: 9902.74 toks/s, output: 20.73 toks/s]  [A
+Processed prompts:   2%|▏         | 87/4750 [03:00<1:34:54,  1.22s/it, est. speed input: 9837.73 toks/s, output: 20.22 toks/s][A
+Processed prompts:   2%|▏         | 88/4750 [03:06<2:44:06,  2.11s/it, est. speed input: 9612.78 toks/s, output: 20.22 toks/s][A
+Processed prompts:   2%|▏         | 89/4750 [03:09<2:52:31,  2.22s/it, est. speed input: 9585.59 toks/s, output: 19.94 toks/s][A
+Processed prompts:   2%|▏         | 90/4750 [03:12<3:06:35,  2.40s/it, est. speed input: 9540.16 toks/s, output: 19.67 toks/s][A
+Processed prompts:   2%|▏         | 91/4750 [03:14<3:16:18,  2.53s/it, est. speed input: 9501.77 toks/s, output: 19.40 toks/s][A
+Processed prompts:   2%|▏         | 92/4750 [03:18<3:30:01,  2.71s/it, est. speed input: 9450.05 toks/s, output: 19.73 toks/s][A
+Processed prompts:   2%|▏         | 93/4750 [03:20<3:28:10,  2.68s/it, est. speed input: 9428.18 toks/s, output: 20.11 toks/s][A
+Processed prompts:   2%|▏         | 94/4750 [03:22<3:13:00,  2.49s/it, est. speed input: 9436.60 toks/s, output: 20.54 toks/s][A
+Processed prompts:   2%|▏         | 95/4750 [03:26<3:34:22,  2.76s/it, est. speed input: 9376.90 toks/s, output: 20.24 toks/s][A
+Processed prompts:   2%|▏         | 97/4750 [03:31<3:31:31,  2.73s/it, est. speed input: 9331.43 toks/s, output: 20.93 toks/s][A
+Processed prompts:   2%|▏         | 99/4750 [03:37<3:30:29,  2.72s/it, est. speed input: 9287.09 toks/s, output: 20.51 toks/s][A
+Processed prompts:   2%|▏         | 101/4750 [03:37<2:16:48,  1.77s/it, est. speed input: 9469.39 toks/s, output: 20.57 toks/s][A
+Processed prompts:   2%|▏         | 102/4750 [03:40<2:35:22,  2.01s/it, est. speed input: 9435.13 toks/s, output: 20.38 toks/s][A
+Processed prompts:   2%|▏         | 103/4750 [03:43<2:53:00,  2.23s/it, est. speed input: 9398.71 toks/s, output: 20.12 toks/s][A
+Processed prompts:   2%|▏         | 104/4750 [03:47<3:33:14,  2.75s/it, est. speed input: 9307.63 toks/s, output: 19.76 toks/s][A
+Processed prompts:   2%|▏         | 106/4750 [03:49<2:38:21,  2.05s/it, est. speed input: 9401.83 toks/s, output: 19.88 toks/s][A
+Processed prompts:   2%|▏         | 107/4750 [03:53<3:05:55,  2.40s/it, est. speed input: 9343.15 toks/s, output: 19.60 toks/s][A
+Processed prompts:   2%|▏         | 109/4750 [03:58<3:13:28,  2.50s/it, est. speed input: 9304.30 toks/s, output: 21.18 toks/s][A
+Processed prompts:   2%|▏         | 111/4750 [03:58<2:05:28,  1.62s/it, est. speed input: 9470.35 toks/s, output: 21.22 toks/s][A
+Processed prompts:   2%|▏         | 114/4750 [04:05<2:30:52,  1.95s/it, est. speed input: 9442.03 toks/s, output: 22.74 toks/s][A
+Processed prompts:   2%|▏         | 115/4750 [04:06<2:13:13,  1.72s/it, est. speed input: 9500.70 toks/s, output: 22.70 toks/s][A
+Processed prompts:   2%|▏         | 116/4750 [04:07<2:00:47,  1.56s/it, est. speed input: 9548.10 toks/s, output: 22.63 toks/s][A
+Processed prompts:   2%|▏         | 118/4750 [04:11<2:19:02,  1.80s/it, est. speed input: 9541.45 toks/s, output: 22.26 toks/s][A
+Processed prompts:   3%|▎         | 119/4750 [04:11<1:52:19,  1.46s/it, est. speed input: 9618.06 toks/s, output: 22.30 toks/s][A
+Processed prompts:   3%|▎         | 121/4750 [04:15<2:07:03,  1.65s/it, est. speed input: 9627.18 toks/s, output: 24.01 toks/s][A
+Processed prompts:   3%|▎         | 122/4750 [04:19<2:41:35,  2.09s/it, est. speed input: 9564.84 toks/s, output: 23.68 toks/s][A
+Processed prompts:   3%|▎         | 124/4750 [04:22<2:23:19,  1.86s/it, est. speed input: 9613.29 toks/s, output: 23.47 toks/s][A
+Processed prompts:   3%|▎         | 125/4750 [04:25<2:38:19,  2.05s/it, est. speed input: 9589.09 toks/s, output: 23.27 toks/s][A
+Processed prompts:   3%|▎         | 128/4750 [04:26<1:34:01,  1.22s/it, est. speed input: 9786.85 toks/s, output: 23.49 toks/s][A
+Processed prompts:   3%|▎         | 129/4750 [04:32<2:53:17,  2.25s/it, est. speed input: 9617.57 toks/s, output: 22.93 toks/s][A
+Processed prompts:   3%|▎         | 130/4750 [04:35<3:01:24,  2.36s/it, est. speed input: 9595.39 toks/s, output: 22.73 toks/s][A
+Processed prompts:   3%|▎         | 131/4750 [04:38<3:15:30,  2.54s/it, est. speed input: 9559.77 toks/s, output: 22.93 toks/s][A
+Processed prompts:   3%|▎         | 132/4750 [04:41<3:16:36,  2.55s/it, est. speed input: 9544.01 toks/s, output: 22.95 toks/s][A
+Processed prompts:   3%|▎         | 133/4750 [04:44<3:24:04,  2.65s/it, est. speed input: 9517.52 toks/s, output: 22.73 toks/s][A
+Processed prompts:   3%|▎         | 134/4750 [04:47<3:31:03,  2.74s/it, est. speed input: 9489.34 toks/s, output: 22.94 toks/s][A
+Processed prompts:   3%|▎         | 136/4750 [04:49<2:32:20,  1.98s/it, est. speed input: 9564.78 toks/s, output: 23.25 toks/s][A
+Processed prompts:   3%|▎         | 138/4750 [04:52<2:20:33,  1.83s/it, est. speed input: 9600.54 toks/s, output: 23.44 toks/s][A
+Processed prompts:   3%|▎         | 139/4750 [04:57<3:18:05,  2.58s/it, est. speed input: 9498.04 toks/s, output: 23.05 toks/s][A
+Processed prompts:   3%|▎         | 140/4750 [05:02<3:53:42,  3.04s/it, est. speed input: 9422.41 toks/s, output: 23.12 toks/s][A
+Processed prompts:   3%|▎         | 141/4750 [05:05<3:56:42,  3.08s/it, est. speed input: 9390.57 toks/s, output: 23.09 toks/s][A
+Processed prompts:   3%|▎         | 142/4750 [05:20<7:58:27,  6.23s/it, est. speed input: 9013.74 toks/s, output: 23.03 toks/s][A
+Processed prompts:   3%|▎         | 143/4750 [05:22<6:23:50,  5.00s/it, est. speed input: 9027.05 toks/s, output: 24.03 toks/s][A
+Processed prompts:   3%|▎         | 144/4750 [05:25<5:37:40,  4.40s/it, est. speed input: 9010.27 toks/s, output: 23.83 toks/s][A
+Processed prompts:   3%|▎         | 145/4750 [05:27<5:01:22,  3.93s/it, est. speed input: 8996.91 toks/s, output: 23.64 toks/s][A
+Processed prompts:   3%|▎         | 146/4750 [05:30<4:39:12,  3.64s/it, est. speed input: 8977.44 toks/s, output: 24.97 toks/s][A
+Processed prompts:   3%|▎         | 147/4750 [05:33<4:19:32,  3.38s/it, est. speed input: 8964.17 toks/s, output: 24.78 toks/s][A
+Processed prompts:   3%|▎         | 148/4750 [05:39<5:05:55,  3.99s/it, est. speed input: 8880.74 toks/s, output: 24.57 toks/s][A
+Processed prompts:   3%|▎         | 149/4750 [05:41<4:40:50,  3.66s/it, est. speed input: 8865.41 toks/s, output: 24.37 toks/s][A
+Processed prompts:   3%|▎         | 150/4750 [05:44<4:21:43,  3.41s/it, est. speed input: 8851.93 toks/s, output: 24.36 toks/s][A
+Processed prompts:   3%|▎         | 152/4750 [05:48<3:31:59,  2.77s/it, est. speed input: 8867.31 toks/s, output: 24.10 toks/s][A
+Processed prompts:   3%|▎         | 153/4750 [05:50<3:03:29,  2.39s/it, est. speed input: 8893.62 toks/s, output: 24.02 toks/s][A
+Processed prompts:   3%|▎         | 154/4750 [05:54<3:34:55,  2.81s/it, est. speed input: 8851.59 toks/s, output: 23.75 toks/s][A
+Processed prompts:   3%|▎         | 155/4750 [05:57<3:58:16,  3.11s/it, est. speed input: 8811.42 toks/s, output: 23.51 toks/s][A
+Processed prompts:   3%|▎         | 156/4750 [06:02<4:17:51,  3.37s/it, est. speed input: 8768.51 toks/s, output: 24.66 toks/s][A
+Processed prompts:   3%|▎         | 157/4750 [06:04<4:03:29,  3.18s/it, est. speed input: 8759.28 toks/s, output: 24.48 toks/s][A
+Processed prompts:   3%|▎         | 158/4750 [06:07<3:58:11,  3.11s/it, est. speed input: 8743.46 toks/s, output: 25.68 toks/s][A
+Processed prompts:   3%|▎         | 159/4750 [06:10<3:52:58,  3.04s/it, est. speed input: 8730.55 toks/s, output: 25.49 toks/s][A
+Processed prompts:   3%|▎         | 160/4750 [06:13<3:45:33,  2.95s/it, est. speed input: 8720.47 toks/s, output: 26.68 toks/s][A
+Processed prompts:   3%|▎         | 161/4750 [06:15<3:24:17,  2.67s/it, est. speed input: 8728.12 toks/s, output: 26.55 toks/s][A
+Processed prompts:   3%|▎         | 162/4750 [06:16<2:58:40,  2.34s/it, est. speed input: 8746.47 toks/s, output: 26.61 toks/s][A
+Processed prompts:   3%|▎         | 163/4750 [06:21<3:46:22,  2.96s/it, est. speed input: 8698.38 toks/s, output: 26.47 toks/s][A
+Processed prompts:   3%|▎         | 164/4750 [06:24<3:57:30,  3.11s/it, est. speed input: 8672.25 toks/s, output: 27.56 toks/s][A
+Processed prompts:   3%|▎         | 165/4750 [06:27<3:52:22,  3.04s/it, est. speed input: 8659.23 toks/s, output: 28.68 toks/s][A
+Processed prompts:   3%|▎         | 166/4750 [06:30<3:44:47,  2.94s/it, est. speed input: 8651.37 toks/s, output: 28.48 toks/s][A
+Processed prompts:   4%|▎         | 167/4750 [06:33<4:01:37,  3.16s/it, est. speed input: 8622.38 toks/s, output: 28.38 toks/s][A
+Processed prompts:   4%|▎         | 168/4750 [06:36<3:50:00,  3.01s/it, est. speed input: 8616.07 toks/s, output: 28.35 toks/s][A
+Processed prompts:   4%|▎         | 169/4750 [06:37<3:01:37,  2.38s/it, est. speed input: 8647.92 toks/s, output: 28.45 toks/s][A
+Processed prompts:   4%|▎         | 170/4750 [06:39<2:55:47,  2.30s/it, est. speed input: 8653.00 toks/s, output: 28.31 toks/s][A
+Processed prompts:   4%|▎         | 171/4750 [06:41<2:53:03,  2.27s/it, est. speed input: 8655.64 toks/s, output: 29.43 toks/s][A
+Processed prompts:   4%|▎         | 172/4750 [06:43<2:45:34,  2.17s/it, est. speed input: 8664.56 toks/s, output: 29.44 toks/s][A
+Processed prompts:   4%|▎         | 174/4750 [06:50<3:34:32,  2.81s/it, est. speed input: 8613.65 toks/s, output: 28.95 toks/s][A
+Processed prompts:   4%|▎         | 175/4750 [06:52<3:03:41,  2.41s/it, est. speed input: 8638.45 toks/s, output: 28.89 toks/s][A
+Processed prompts:   4%|▎         | 176/4750 [06:52<2:32:42,  2.00s/it, est. speed input: 8669.97 toks/s, output: 28.84 toks/s][A
+Processed prompts:   4%|▎         | 177/4750 [06:56<2:55:35,  2.30s/it, est. speed input: 8653.18 toks/s, output: 29.86 toks/s][A
+Processed prompts:   4%|▍         | 179/4750 [07:02<3:28:58,  2.74s/it, est. speed input: 8613.28 toks/s, output: 30.62 toks/s][A
+Processed prompts:   4%|▍         | 180/4750 [07:05<3:34:14,  2.81s/it, est. speed input: 8599.80 toks/s, output: 30.42 toks/s][A
+Processed prompts:   4%|▍         | 181/4750 [07:08<3:36:42,  2.85s/it, est. speed input: 8588.38 toks/s, output: 30.22 toks/s][A
+Processed prompts:   4%|▍         | 182/4750 [07:11<3:41:53,  2.91s/it, est. speed input: 8573.93 toks/s, output: 30.15 toks/s][A
+Processed prompts:   4%|▍         | 183/4750 [07:14<3:39:54,  2.89s/it, est. speed input: 8565.23 toks/s, output: 29.97 toks/s][A
+Processed prompts:   4%|▍         | 184/4750 [07:17<3:45:41,  2.97s/it, est. speed input: 8550.02 toks/s, output: 29.90 toks/s][A
+Processed prompts:   4%|▍         | 185/4750 [07:20<3:49:45,  3.02s/it, est. speed input: 8535.16 toks/s, output: 29.71 toks/s][A
+Processed prompts:   4%|▍         | 186/4750 [07:40<10:06:37,  7.97s/it, est. speed input: 8207.38 toks/s, output: 29.36 toks/s][A
+Processed prompts:   4%|▍         | 187/4750 [07:43<8:11:37,  6.46s/it, est. speed input: 8200.31 toks/s, output: 30.29 toks/s] [A
+Processed prompts:   4%|▍         | 188/4750 [07:49<7:47:27,  6.15s/it, est. speed input: 8148.59 toks/s, output: 31.03 toks/s][A
+Processed prompts:   4%|▍         | 189/4750 [07:54<7:28:36,  5.90s/it, est. speed input: 8099.36 toks/s, output: 31.76 toks/s][A
+Processed prompts:   4%|▍         | 190/4750 [07:57<6:14:43,  4.93s/it, est. speed input: 8096.38 toks/s, output: 32.66 toks/s][A
+Processed prompts:   4%|▍         | 192/4750 [07:58<3:38:14,  2.87s/it, est. speed input: 8164.52 toks/s, output: 34.74 toks/s][A
+Processed prompts:   4%|▍         | 193/4750 [08:04<4:39:21,  3.68s/it, est. speed input: 8102.39 toks/s, output: 35.36 toks/s][A
+Processed prompts:   4%|▍         | 194/4750 [08:07<4:22:26,  3.46s/it, est. speed input: 8097.26 toks/s, output: 35.16 toks/s][A
+Processed prompts:   4%|▍         | 195/4750 [08:10<4:18:39,  3.41s/it, est. speed input: 8083.89 toks/s, output: 35.97 toks/s][A
+Processed prompts:   4%|▍         | 196/4750 [08:13<4:09:32,  3.29s/it, est. speed input: 8076.44 toks/s, output: 35.76 toks/s][A
+Processed prompts:   4%|▍         | 197/4750 [08:16<4:13:17,  3.34s/it, est. speed input: 8060.33 toks/s, output: 36.54 toks/s][A
+Processed prompts:   4%|▍         | 198/4750 [08:19<4:00:29,  3.17s/it, est. speed input: 8056.70 toks/s, output: 36.34 toks/s][A
+Processed prompts:   4%|▍         | 199/4750 [08:22<3:52:08,  3.06s/it, est. speed input: 8052.50 toks/s, output: 36.15 toks/s][A
+Processed prompts:   4%|▍         | 200/4750 [08:25<3:46:02,  2.98s/it, est. speed input: 8048.49 toks/s, output: 36.01 toks/s][A
+Processed prompts:   4%|▍         | 201/4750 [08:28<3:45:25,  2.97s/it, est. speed input: 8041.86 toks/s, output: 35.93 toks/s][A
+Processed prompts:   4%|▍         | 202/4750 [08:31<3:47:29,  3.00s/it, est. speed input: 8033.54 toks/s, output: 35.73 toks/s][A
+Processed prompts:   4%|▍         | 203/4750 [08:36<4:31:56,  3.59s/it, est. speed input: 7995.73 toks/s, output: 35.51 toks/s][A
+Processed prompts:   4%|▍         | 204/4750 [08:38<4:15:36,  3.37s/it, est. speed input: 7990.93 toks/s, output: 35.32 toks/s][A
+Processed prompts:   4%|▍         | 205/4750 [08:45<5:17:11,  4.19s/it, est. speed input: 7937.06 toks/s, output: 35.03 toks/s][A
+Processed prompts:   4%|▍         | 206/4750 [08:47<4:48:12,  3.81s/it, est. speed input: 7931.95 toks/s, output: 34.85 toks/s][A
+Processed prompts:   4%|▍         | 207/4750 [08:58<7:15:31,  5.75s/it, est. speed input: 7817.21 toks/s, output: 35.13 toks/s][A
+Processed prompts:   4%|▍         | 209/4750 [09:01<4:43:23,  3.74s/it, est. speed input: 7850.61 toks/s, output: 36.63 toks/s][A
+Processed prompts:   4%|▍         | 210/4750 [09:01<3:50:09,  3.04s/it, est. speed input: 7874.29 toks/s, output: 37.52 toks/s][A
+Processed prompts:   4%|▍         | 211/4750 [09:06<4:18:05,  3.41s/it, est. speed input: 7847.43 toks/s, output: 37.22 toks/s][A
+Processed prompts:   4%|▍         | 212/4750 [09:09<4:05:06,  3.24s/it, est. speed input: 7844.84 toks/s, output: 37.03 toks/s][A
+Processed prompts:   5%|▍         | 214/4750 [09:14<3:46:08,  2.99s/it, est. speed input: 7842.92 toks/s, output: 36.70 toks/s][A
+Processed prompts:   5%|▍         | 215/4750 [09:15<3:09:33,  2.51s/it, est. speed input: 7866.17 toks/s, output: 36.64 toks/s][A
+Processed prompts:   5%|▍         | 216/4750 [09:18<3:21:55,  2.67s/it, est. speed input: 7858.29 toks/s, output: 36.44 toks/s][A
+Processed prompts:   5%|▍         | 217/4750 [09:22<3:49:45,  3.04s/it, est. speed input: 7837.89 toks/s, output: 36.19 toks/s][A
+Processed prompts:   5%|▍         | 219/4750 [09:26<3:16:33,  2.60s/it, est. speed input: 7853.95 toks/s, output: 35.94 toks/s][A
+Processed prompts:   5%|▍         | 220/4750 [09:30<3:28:01,  2.76s/it, est. speed input: 7845.00 toks/s, output: 35.75 toks/s][A
+Processed prompts:   5%|▍         | 221/4750 [09:30<2:48:51,  2.24s/it, est. speed input: 7871.17 toks/s, output: 35.71 toks/s][A
+Processed prompts:   5%|▍         | 222/4750 [09:36<3:50:50,  3.06s/it, est. speed input: 7832.84 toks/s, output: 36.26 toks/s][A
+Processed prompts:   5%|▍         | 224/4750 [09:41<3:37:38,  2.89s/it, est. speed input: 7831.57 toks/s, output: 36.05 toks/s][A
+Processed prompts:   5%|▍         | 225/4750 [09:44<3:34:39,  2.85s/it, est. speed input: 7830.06 toks/s, output: 35.89 toks/s][A
+Processed prompts:   5%|▍         | 226/4750 [09:47<3:36:34,  2.87s/it, est. speed input: 7825.54 toks/s, output: 35.71 toks/s][A
+Processed prompts:   5%|▍         | 227/4750 [09:50<3:43:19,  2.96s/it, est. speed input: 7817.58 toks/s, output: 35.57 toks/s][A
+Processed prompts:   5%|▍         | 229/4750 [09:55<3:34:53,  2.85s/it, est. speed input: 7814.90 toks/s, output: 35.28 toks/s][A
+Processed prompts:   5%|▍         | 230/4750 [09:58<3:34:36,  2.85s/it, est. speed input: 7811.84 toks/s, output: 35.11 toks/s][A
+Processed prompts:   5%|▍         | 232/4750 [09:59<2:22:18,  1.89s/it, est. speed input: 7867.06 toks/s, output: 35.92 toks/s][A
+Processed prompts:   5%|▍         | 234/4750 [10:03<2:30:05,  1.99s/it, est. speed input: 7877.13 toks/s, output: 36.54 toks/s][A
+Processed prompts:   5%|▍         | 237/4750 [10:05<1:45:55,  1.41s/it, est. speed input: 7950.97 toks/s, output: 38.11 toks/s][A
+Processed prompts:   5%|▌         | 238/4750 [10:06<1:41:15,  1.35s/it, est. speed input: 7970.74 toks/s, output: 38.06 toks/s][A
+Processed prompts:   5%|▌         | 239/4750 [10:09<1:54:56,  1.53s/it, est. speed input: 7974.64 toks/s, output: 37.92 toks/s][A
+Processed prompts:   5%|▌         | 240/4750 [10:10<1:45:40,  1.41s/it, est. speed input: 7995.42 toks/s, output: 37.87 toks/s][A
+Processed prompts:   5%|▌         | 241/4750 [10:12<2:07:58,  1.70s/it, est. speed input: 7994.20 toks/s, output: 37.81 toks/s][A
+Processed prompts:   5%|▌         | 243/4750 [10:17<2:21:47,  1.89s/it, est. speed input: 8004.48 toks/s, output: 37.56 toks/s][A
+Processed prompts:   5%|▌         | 244/4750 [10:20<2:40:58,  2.14s/it, est. speed input: 7998.40 toks/s, output: 37.38 toks/s][A
+Processed prompts:   5%|▌         | 245/4750 [10:24<3:30:07,  2.80s/it, est. speed input: 7969.21 toks/s, output: 37.10 toks/s][A
+Processed prompts:   5%|▌         | 247/4750 [10:30<3:26:31,  2.75s/it, est. speed input: 7966.16 toks/s, output: 36.79 toks/s][A
+Processed prompts:   5%|▌         | 248/4750 [10:34<3:49:17,  3.06s/it, est. speed input: 7946.92 toks/s, output: 36.65 toks/s][A
+Processed prompts:   5%|▌         | 249/4750 [10:37<3:45:33,  3.01s/it, est. speed input: 7943.40 toks/s, output: 36.49 toks/s][A
+Processed prompts:   5%|▌         | 250/4750 [10:40<3:47:41,  3.04s/it, est. speed input: 7936.59 toks/s, output: 36.42 toks/s][A
+Processed prompts:   5%|▌         | 252/4750 [10:45<3:36:31,  2.89s/it, est. speed input: 7933.73 toks/s, output: 36.14 toks/s][A

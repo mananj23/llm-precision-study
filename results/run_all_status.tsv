@@ -158,3 +158,14 @@
 2026-11-26T19:44:39+00:00	eval:llama31-8b__w-int8__kv-bf16:ifeval	ok
 2026-11-26T19:48:06+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:ifeval	ok
 2026-11-26T19:48:06+00:00	eval:llama31-8b__w-int4awq__kv-bf16:ifeval	skip (no checkpoint)
+2026-11-26T20:00:58+00:00	env_check	done
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-26T20:01:08+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T20:01:08+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-fp8__kv-fp8	FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
