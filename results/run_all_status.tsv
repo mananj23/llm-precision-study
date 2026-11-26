@@ -53,3 +53,10 @@
 2026-11-26T05:23:54+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
 2026-11-26T05:24:09+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
 2026-11-26T05:24:09+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-fp8__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-bf16__kv-fp8:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-fp8__kv-fp8:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-int8__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
