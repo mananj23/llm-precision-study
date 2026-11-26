@@ -145,3 +145,6 @@ ValueError: QuantizationModifier requires that quantization fields be specified
 [10:57:58] pushed: benchmarks for llama31-8b__w-fp8__kv-fp8
 [10:57:58] starting benchmark server for llama31-8b__w-int8__kv-bf16
 [12:15:02] bench:llama31-8b__w-int8__kv-bf16 -> ok
+[12:15:22] pushed: benchmarks for llama31-8b__w-int8__kv-bf16
+[12:15:23] starting benchmark server for llama31-8b__w-int4gptq__kv-bf16
+[13:30:17] bench:llama31-8b__w-int4gptq__kv-bf16 -> ok
