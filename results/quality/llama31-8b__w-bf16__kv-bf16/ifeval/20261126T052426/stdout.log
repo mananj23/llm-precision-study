@@ -1,0 +1,13 @@
+2026-11-26:05:24:33 INFO     [_cli.run:392] Selected Tasks: ['ifeval']
+2026-11-26:05:24:33 WARNING  [evaluator:184] pretrained=meta-llama/Llama-3.1-8B-Instruct appears to be an instruct or chat variant but chat template is not applied. Recommend setting
+        `apply_chat_template` (optionally `fewshot_as_multiturn`).
+2026-11-26:05:24:34 INFO     [evaluator:214] Setting random seed to 1234 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2026-11-26:05:24:34 WARNING  [evaluator:226] generation_kwargs: {'temperature': 0} specified through cli, these settings will update set parameters in yaml tasks. Ensure 'do_sample=True' for non-greedy decoding!
+2026-11-26:05:24:34 INFO     [evaluator:239] Initializing vllm model, with arguments: {'pretrained': 'meta-llama/Llama-3.1-8B-Instruct', 'max_model_len': 20480, 'kv_cache_dtype': 'auto', 'add_bos_token': True, 'gpu_memory_utilization': 0.9, 'tensor_parallel_size': 1, 'seed': 1234}
+2026-11-26:05:24:39 WARNING  [models.vllm_causallms:108] The `device` argument is ignored by the vLLM backend. To select which GPU(s) vLLM can use, set the `CUDA_VISIBLE_DEVICES` environment variable before running lm-eval.
+(MainProcess pid=80364) INFO 11-26 05:24:39 [api_utils.py:286] non-default args: {'seed': 1234, 'max_model_len': 20480, 'gpu_memory_utilization': 0.9, 'disable_log_stats': True, 'model': 'meta-llama/Llama-3.1-8B-Instruct'}
+(MainProcess pid=80364) INFO 11-26 05:24:40 [model.py:733] Resolved architecture: LlamaForCausalLM
+(MainProcess pid=80364) INFO 11-26 05:24:40 [model.py:2152] Using max model len 20480
+(MainProcess pid=80364) INFO 11-26 05:24:40 [scheduler.py:307] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(MainProcess pid=80364) INFO 11-26 05:24:40 [kernel.py:467] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 1625.65it/s]

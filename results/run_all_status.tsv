@@ -67,3 +67,4 @@
 2026-11-26T05:24:20+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	skip (done)
 2026-11-26T05:24:20+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	skip (done)
 2026-11-26T05:24:20+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T06:00:42+00:00	bench:llama31-8b__w-fp8__kv-bf16	ok

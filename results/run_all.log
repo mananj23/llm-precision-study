@@ -2117,3 +2117,4 @@ AttributeError: 'function' object has no attribute '__mro__'
 [04:40:57] bench:llama31-8b__w-bf16__kv-bf16 -> ok
 [04:41:17] pushed: benchmarks for llama31-8b__w-bf16__kv-bf16
 [04:41:17] starting benchmark server for llama31-8b__w-fp8__kv-bf16
+[06:00:42] bench:llama31-8b__w-fp8__kv-bf16 -> ok
