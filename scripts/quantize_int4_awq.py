@@ -60,7 +60,7 @@ def make_builder(symmetric: bool):
                 AWQModifier(),
                 QuantizationModifier(
                     targets=["Linear"],
-                    config_groups=groups,
+                    scheme="W4A16",
                     ignore=w4a16_config.IGNORE,
                 ),
             ]

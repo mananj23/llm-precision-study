@@ -129,3 +129,10 @@ ValueError: QuantizationModifier requires that quantization fields be specified
 [07:10:18] eval:llama31-8b__w-int8__kv-bf16:mmlu -> skip (done)
 [07:10:18] eval:llama31-8b__w-int4gptq__kv-bf16:mmlu -> skip (done)
 [07:10:18] eval:llama31-8b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
+[07:10:25] pushed: quality: mmlu across all configs
+
+================ PHASE 4  system benchmarks ================
+
+[07:10:25] bench:llama31-8b__w-bf16__kv-bf16 -> skip (done)
+[07:10:25] starting benchmark server for llama31-8b__w-fp8__kv-bf16
+[08:29:33] bench:llama31-8b__w-fp8__kv-bf16 -> ok
