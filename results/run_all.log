@@ -2121,12 +2121,9 @@ AttributeError: 'function' object has no attribute '__mro__'
 [06:01:02] pushed: benchmarks for llama31-8b__w-fp8__kv-bf16
 [06:01:02] starting benchmark server for llama31-8b__w-bf16__kv-fp8
 [07:06:27] bench:llama31-8b__w-bf16__kv-fp8 -> ok
-=====
-
---- disk ---
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/rbd3       184G   66G  118G  36% /home/jovyan
-need >= 200 GB free: each 8B model is ~16 GB in BF16 and you keep several copies
+[07:06:44] pushed: benchmarks for llama31-8b__w-bf16__kv-fp8
+[07:06:44] starting benchmark server for llama31-8b__w-fp8__kv-fp8
+200 GB free: each 8B model is ~16 GB in BF16 and you keep several copies
 
 --- python / libs ---
 python 3.12.3

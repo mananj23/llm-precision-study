@@ -1,0 +1,108 @@
+
+================ PHASE 0  environment ================
+
+--- disk ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/rbd3       184G   66G  118G  36% /home/jovyan
+need >= 200 GB free: each 8B model is ~16 GB in BF16 and you keep several copies
+
+--- python / libs ---
+python 3.12.3
+  vllm: 0.32.0
+  lm_eval: 0.4.13
+  llmcompressor: NOT INSTALLED in this env
+  torch: 2.13.0+cu129
+  transformers: 5.19.0
+
+reminder: vLLM and llm-compressor belong in SEPARATE venvs.
+  .venv-vllm       -> requirements-vllm.txt       (serve + lm_eval)
+  .venv-compressor -> requirements-compressor.txt (build checkpoints)
+
+--- huggingface ---
+HF_HOME=/home/jovyan/hf_cache
+  logged in as: mananj2303
+
+--- tmux ---
+  tmux present. Run every long job inside it.
+
+=== paste all of the above into notes/2026-11-26.md ===
+[07:07:14] env_check -> done
+GPUs visible: 1   TP=1
+
+================ PHASE 1  build checkpoints ================
+
+[07:07:14] build:llama31-8b__w-fp8__kv-bf16 -> skip (exists)
+[07:07:14] build:llama31-8b__w-fp8__kv-fp8 -> skip (exists)
+[07:07:14] build:llama31-8b__w-int8__kv-bf16 -> skip (exists)
+[07:07:14] build:llama31-8b__w-int4gptq__kv-bf16 -> skip (exists)
+[07:07:14] building llama31-8b__w-int4awq__kv-bf16 via scripts/quantize_int4_awq.py
+[scheme] W4A16, group size 128, symmetric, lm_head excluded
+[hardware] cc 8.9 supports 4-bit weight-only with Marlin kernels
+[plan] meta-llama/Llama-3.1-8B-Instruct -> /home/jovyan/checkpoints/llama31-8b__w-int4awq
+[plan] weights=int4awq calibration=True
+[load] meta-llama/Llama-3.1-8B-Instruct
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   8%|▊         | 24/291 [00:00<00:01, 238.83it/s]Loading weights:  17%|█▋        | 50/291 [00:00<00:00, 242.59it/s]Loading weights:  26%|██▋       | 77/291 [00:00<00:00, 247.25it/s]Loading weights:  36%|███▌      | 104/291 [00:00<00:00, 247.61it/s]Loading weights:  45%|████▍     | 130/291 [00:00<00:00, 249.87it/s]Loading weights:  53%|█████▎    | 155/291 [00:00<00:00, 248.83it/s]Loading weights:  62%|██████▏   | 180/291 [00:00<00:00, 234.32it/s]Loading weights:  70%|███████   | 204/291 [00:00<00:00, 230.43it/s]Loading weights:  79%|███████▉  | 230/291 [00:00<00:00, 237.47it/s]Loading weights:  88%|████████▊ | 256/291 [00:01<00:00, 241.75it/s]Loading weights:  97%|█████████▋| 281/291 [00:01<00:00, 242.19it/s]Loading weights: 100%|██████████| 291/291 [00:01<00:00, 241.90it/s]
+/home/jovyan/llm-precision-study/scripts/quantize_int4_awq.py:60: DeprecationWarning: `llmcompressor.modifiers.awq.AWQModifier` is deprecated. Please update your imports to use 'llmcompressor.modifiers.transform.awq' or 'llmcompressor.modifiers.transform' instead.
+Old API:
+    from llmcompressor.modifiers.awq import AWQModifier
+    recipe = [
+        AWQModifier(
+            ignore=["lm_head"],
+            scheme="W4A16_ASYM",
+            targets=["Linear"],
+            duo_scaling="both"
+        ),
+    ]
+New API:
+    from llmcompressor.modifiers.transform.awq import AWQModifier
+    from llmcompressor.modifiers.quantization import QuantizationModifier
+    recipe = [
+        AWQModifier(duo_scaling="both"),
+        QuantizationModifier(
+            ignore=["lm_head"],
+            scheme="W4A16_ASYM",
+            targets=["Linear"],
+        ),
+    ]
+This compatibility shim will be removed in a future version.
+  AWQModifier(),
+[awq] transform-only AWQModifier detected: pairing it with QuantizationModifier (current llm-compressor layout)
+[calibration] HuggingFaceH4/ultrachat_200k n=512 seed=42
+[oneshot] running...
+2026-11-26T07:07:23.2424 | __init__ | WARNING - Disabling tokenizer parallelism due to threading conflict between FastTokenizer and Datasets. Set TOKENIZERS_PARALLELISM=false to suppress this warning.
+2026-11-26T07:07:24.6449 | reset | INFO - Compression lifecycle reset
+2026-11-26T07:07:24.6478 | from_modifiers | INFO - Creating recipe from modifiers
+2026-11-26T07:07:24.6479 | on_initialize | INFO - No AWQModifier.mappings provided, inferring from model...
+Traceback (most recent call last):
+  File "/home/jovyan/llm-precision-study/scripts/quantize_int4_awq.py", line 92, in <module>
+    quantize_common.run_recipe(
+  File "/home/jovyan/llm-precision-study/scripts/quantize_common.py", line 105, in run_recipe
+    oneshot(**kwargs)
+  File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/entrypoints/oneshot.py", line 543, in oneshot
+    one_shot()
+  File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/entrypoints/oneshot.py", line 226, in __call__
+    self.apply_recipe_modifiers(
+  File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/entrypoints/oneshot.py", line 281, in apply_recipe_modifiers
+    session.initialize(
+  File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/core/session.py", line 121, in initialize
+    mod_data = self._lifecycle.initialize(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/core/lifecycle.py", line 104, in initialize
+    data = mod.initialize(state=self.state, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/modifiers/modifier.py", line 89, in initialize
+    self.initialized_ = self.on_initialize(state=state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/llmcompressor/modifiers/quantization/quantization/base.py", line 75, in on_initialize
+    raise ValueError(
+ValueError: QuantizationModifier requires that quantization fields be specified
+[07:07:25] build:llama31-8b__w-int4awq__kv-bf16 -> FAILED
+  continuing; this configuration will be skipped in later phases
+
+================ PHASE 2  verify checkpoints ================
+
+[07:07:41] verify:llama31-8b__w-fp8__kv-bf16 -> FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+[07:08:30] verify:llama31-8b__w-fp8__kv-fp8 -> ok
+[07:09:20] verify:llama31-8b__w-int8__kv-bf16 -> ok
+[07:10:10] verify:llama31-8b__w-int4gptq__kv-bf16 -> ok
+[07:10:10] verify:llama31-8b__w-int4awq__kv-bf16 -> skip (no checkpoint)

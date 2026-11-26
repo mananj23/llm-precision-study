@@ -47,7 +47,7 @@ CONFIGS=(
   "${FAMILY}__w-int4gptq__kv-bf16"
   "${FAMILY}__w-int4awq__kv-bf16"
 )
-TASKS=(gsm8k mmlu ifeval longbench)   # humaneval excluded: needs a container
+TASKS=(gsm8k mmlu)
 
 configs_for_task() {
   case "$1" in

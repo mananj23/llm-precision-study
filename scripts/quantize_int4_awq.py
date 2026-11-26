@@ -35,8 +35,12 @@ def awq_is_transform_only() -> bool:
     Decided by inspecting the installed class rather than by version string,
     because the version at which this changed is not something to hard-code.
     """
+    import inspect
+
     from llmcompressor.modifiers.awq import AWQModifier
 
+    if not inspect.isclass(AWQModifier):
+        return True
     names = {c.__name__ for c in AWQModifier.__mro__}
     return "QuantizationMixin" not in names
 
