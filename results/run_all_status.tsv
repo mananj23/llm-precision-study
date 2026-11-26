@@ -41,3 +41,4 @@
 2026-11-26T03:01:28+00:00	eval:llama31-8b__w-int8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_longbench.log
 2026-11-26T03:02:06+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_longbench.log
 2026-11-26T03:02:06+00:00	eval:llama31-8b__w-int4awq__kv-bf16:longbench	skip (no checkpoint)
+2026-11-26T04:40:57+00:00	bench:llama31-8b__w-bf16__kv-bf16	ok

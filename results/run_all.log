@@ -2109,3 +2109,9 @@ AttributeError: 'function' object has no attribute '__mro__'
 [03:01:28] eval llama31-8b__w-int4gptq__kv-bf16 / longbench
 [03:02:06] eval:llama31-8b__w-int4gptq__kv-bf16:longbench -> FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_longbench.log
 [03:02:06] eval:llama31-8b__w-int4awq__kv-bf16:longbench -> skip (no checkpoint)
+[03:02:12] pushed: quality: longbench across all configs
+
+================ PHASE 4  system benchmarks ================
+
+[03:02:12] starting benchmark server for llama31-8b__w-bf16__kv-bf16
+[04:40:57] bench:llama31-8b__w-bf16__kv-bf16 -> ok
