@@ -139,6 +139,40 @@ def extract_prompt(rec: dict) -> str:
     return ""
 
 
+# lm-eval writes ONE SAMPLE LINE PER (doc, filter). GSM8K ships two filters,
+# strict-match and flexible-extract, so a 1319-question task produces 2638
+# lines and every doc_id appears twice. Collapsing that blindly is how you end
+# up comparing one config's strict-match against another's flexible-extract --
+# which flipped the sign of the INT4 result by 3.3 points before this was
+# caught. The filter has to be a column, and comparisons have to fix it.
+FILTER_KEYS = ("filter", "filter_name", "filter_key")
+
+# Preference order when reducing to one row per doc. Strict first: it is the
+# conservative reading and the one usually quoted for GSM8K.
+FILTER_PREFERENCE = (
+    "strict-match",
+    "strict_match",
+    "flexible-extract",
+    "flexible_extract",
+    "none",
+)
+
+
+def extract_filter(rec: dict) -> str:
+    for k in FILTER_KEYS:
+        v = rec.get(k)
+        if isinstance(v, str) and v:
+            return v
+    return "none"
+
+
+def choose_filter(available: set[str]) -> str:
+    for f in FILTER_PREFERENCE:
+        if f in available:
+            return f
+    return sorted(available)[0]
+
+
 def extract_response(rec: dict) -> str:
     for key in ("filtered_resps", "resps"):
         val = rec.get(key)
@@ -183,6 +217,7 @@ def parse_sample_file(path: pathlib.Path, config: str, task: str, run_id: str) -
                     "doc_id": int(rec.get("doc_id", len(rows))),
                     "run_id": run_id,
                     "metric_name": metric_name,
+                    "filter_name": extract_filter(rec),
                     "correct": correct,
                     "input_len": approx_tokens(prompt),
                     "output_len": approx_tokens(resp),
@@ -236,6 +271,14 @@ def main() -> int:
     ap.add_argument("--keep", choices=["latest", "all"], default="latest",
                     help="latest: one run per (config, task). all: keep reruns, "
                          "which is what you want for estimating the noise floor.")
+    ap.add_argument("--filter", default=None,
+                    help="lm-eval filter to keep when a task has several "
+                         "(e.g. strict-match, flexible-extract). Default: the "
+                         "strict one. The SAME filter is used for every config, "
+                         "which is what makes the comparison valid.")
+    ap.add_argument("--all-filters", action="store_true",
+                    help="keep every filter's rows. Downstream analysis assumes "
+                         "one row per prompt, so this is for inspection only.")
     args = ap.parse_args()
 
     root = pathlib.Path(args.quality_root)
@@ -260,6 +303,26 @@ def main() -> int:
         if before != len(df):
             print(f"\nkept latest run per (config, task): {before} -> {len(df)} rows")
             print("(use --keep all to include reruns for the noise floor)")
+
+    # ---- one row per (config, task, doc_id) -----------------------------------
+    # Everything downstream -- the paired bootstrap, the discordance counts, the
+    # router labels -- assumes one outcome per prompt per config. With two
+    # filters per doc it would silently double-count, and comparing across
+    # configs could pair different filters against each other.
+    if "filter_name" in df.columns and df["filter_name"].nunique() > 1:
+        print("\n--- filters ---")
+        for task, sub in df.groupby("task"):
+            avail = set(sub["filter_name"].dropna().unique())
+            if len(avail) <= 1:
+                continue
+            chosen = choose_filter(avail)
+            dropped = sorted(avail - {chosen})
+            print(f"  {task}: filters {sorted(avail)} -> keeping '{chosen}'")
+            print(f"    (dropped {dropped}; rerun with --filter to pick another,")
+            print(f"     or --all-filters to keep every row)")
+            if not args.all_filters:
+                keep = (df["task"] != task) | (df["filter_name"] == (args.filter or chosen))
+                df = df[keep]
 
     # ---- integrity checks: these catch the errors that silently ruin Step 4 ---
     print("\n--- integrity ---")

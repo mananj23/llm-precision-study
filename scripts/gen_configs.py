@@ -21,9 +21,23 @@ FAMILIES = {
         "phase": 1,
         "gated": True,
     },
+    # Phase 2 replication. The point of a second family is to test whether a
+    # finding is a property of quantization or a quirk of one checkpoint, so
+    # the second family should differ in more than name: Qwen2.5-7B has a
+    # different tokenizer, different pretraining mix, and 28 layers with 4 KV
+    # heads against Llama's 32 and 8 -- which changes the KV-cache arithmetic
+    # and so the memory story as well as the quality story.
+    #
+    # It is also NOT gated, which removes the access-request step that cost a
+    # week on Llama.
+    "qwen25-7b": {
+        "base_model": "Qwen/Qwen2.5-7B-Instruct",
+        "phase": 2,
+        "gated": False,
+    },
     "mistral7b": {
         "base_model": "mistralai/Mistral-7B-Instruct-v0.3",
-        "phase": 2,
+        "phase": 3,
         "gated": True,
     },
 }
@@ -81,6 +95,29 @@ PHASE1 = [
     ("int4gptq", "bf16"),
     ("int4awq", "bf16"),
 ]
+# The replication family gets the SAME grid that produced the findings on
+# Llama, minus AWQ. A two-cell second family (bf16 and fp8 weights only) was
+# the original plan and it is not enough: the composition result needs the
+# isolating KV cell and the combined cell, or there is nothing to replicate.
+#
+#   (bf16, bf16)  baseline
+#   (fp8,  bf16)  weights perturbed alone        \
+#   (bf16, fp8)   KV cache perturbed alone        > the composition test
+#   (fp8,  fp8)   both                           /
+#   (int8, bf16)  the significant MMLU effect
+#   (int4gptq, bf16)  the GSM8K-vs-MMLU contrast
+#
+# AWQ is excluded: it has not built successfully on either family under
+# llm-compressor 0.16, and GPTQ already covers W4A16.
+REPLICATION = [
+    ("bf16", "bf16"),
+    ("fp8", "bf16"),
+    ("bf16", "fp8"),
+    ("fp8", "fp8"),
+    ("int8", "bf16"),
+    ("int4gptq", "bf16"),
+]
+
 PHASE2 = [("bf16", "bf16"), ("fp8", "bf16")]
 
 
@@ -161,7 +198,8 @@ eval_model_args:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     written = []
-    for family, matrix in (("llama31-8b", PHASE1), ("mistral7b", PHASE2)):
+    for family, matrix in (("llama31-8b", PHASE1), ("qwen25-7b", REPLICATION),
+                           ("mistral7b", PHASE2)):
         for w, kv in matrix:
             name, body = render(family, w, kv)
             (OUT / f"{name}.yaml").write_text(body)

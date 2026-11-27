@@ -1,0 +1,1617 @@
+{
+  "provenance": {
+    "n_boot": 10000,
+    "seed": 20261116,
+    "filter_checks": [
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "run_id": "20261125T211450",
+        "confirmed": true,
+        "recovered": {
+          "strict-match": 0.7051,
+          "flexible-extract": 0.7779
+        },
+        "lm_eval_printed": {
+          "flexible-extract": 0.7779,
+          "strict-match": 0.7051
+        }
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "run_id": "20261126T143602",
+        "confirmed": true,
+        "recovered": {
+          "strict-match": 0.7051,
+          "flexible-extract": 0.7779
+        },
+        "lm_eval_printed": {
+          "flexible-extract": 0.7779,
+          "strict-match": 0.7051
+        }
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "run_id": "20261125T210243",
+        "confirmed": true,
+        "recovered": {
+          "strict-match": 0.696,
+          "flexible-extract": 0.7718
+        },
+        "lm_eval_printed": {
+          "flexible-extract": 0.7718,
+          "strict-match": 0.696
+        }
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "run_id": "20261125T205929",
+        "confirmed": true,
+        "recovered": {
+          "strict-match": 0.7028,
+          "flexible-extract": 0.7756
+        },
+        "lm_eval_printed": {
+          "flexible-extract": 0.7756,
+          "strict-match": 0.7028
+        }
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "run_id": "20261125T210547",
+        "confirmed": true,
+        "recovered": {
+          "strict-match": 0.7043,
+          "flexible-extract": 0.7695
+        },
+        "lm_eval_printed": {
+          "flexible-extract": 0.7695,
+          "strict-match": 0.7043
+        }
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "run_id": "20261125T211118",
+        "confirmed": true,
+        "recovered": {
+          "strict-match": 0.7218,
+          "flexible-extract": 0.7301
+        },
+        "lm_eval_printed": {
+          "flexible-extract": 0.7301,
+          "strict-match": 0.7218
+        }
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "run_id": "20261125T210803",
+        "confirmed": true,
+        "recovered": {
+          "strict-match": 0.702,
+          "flexible-extract": 0.7771
+        },
+        "lm_eval_printed": {
+          "flexible-extract": 0.7771,
+          "strict-match": 0.702
+        }
+      }
+    ],
+    "all_filters_confirmed": true
+  },
+  "noise_floor": {
+    "available": true,
+    "run_a": "20261125T211450",
+    "run_b": "20261126T143602",
+    "n": 1319,
+    "acc_a": 70.508,
+    "acc_b": 70.508,
+    "correctness_disagreement_pct": 0.0,
+    "text_disagreement_pct": 0.0
+  },
+  "accuracy": {
+    "gsm8k_strict": {
+      "metric": "GSM8K exact_match (strict-match)",
+      "rows": [
+        {
+          "config": "llama31-8b__w-bf16__kv-bf16",
+          "label": "BF16 / BF16",
+          "n": 1319,
+          "accuracy": 70.51,
+          "delta_pp": 0.0,
+          "ci_lo_pp": 0.0,
+          "ci_hi_pp": 0.0,
+          "contains_zero": true,
+          "disagreement_pct": 0.0
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-bf16",
+          "label": "FP8 / BF16",
+          "n": 1319,
+          "accuracy": 70.28,
+          "delta_pp": -0.23,
+          "ci_lo_pp": -2.27,
+          "ci_hi_pp": 1.82,
+          "contains_zero": true,
+          "disagreement_pct": 14.33
+        },
+        {
+          "config": "llama31-8b__w-bf16__kv-fp8",
+          "label": "BF16 / FP8",
+          "n": 1319,
+          "accuracy": 69.6,
+          "delta_pp": -0.91,
+          "ci_lo_pp": -2.73,
+          "ci_hi_pp": 0.91,
+          "contains_zero": true,
+          "disagreement_pct": 11.07
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-fp8",
+          "label": "FP8 / FP8",
+          "n": 1319,
+          "accuracy": 70.43,
+          "delta_pp": -0.08,
+          "ci_lo_pp": -2.2,
+          "ci_hi_pp": 2.05,
+          "contains_zero": true,
+          "disagreement_pct": 15.24
+        },
+        {
+          "config": "llama31-8b__w-int8__kv-bf16",
+          "label": "INT8 W8A8 / BF16",
+          "n": 1319,
+          "accuracy": 70.2,
+          "delta_pp": -0.3,
+          "ci_lo_pp": -2.35,
+          "ci_hi_pp": 1.67,
+          "contains_zero": true,
+          "disagreement_pct": 13.5
+        },
+        {
+          "config": "llama31-8b__w-int4gptq__kv-bf16",
+          "label": "INT4 GPTQ / BF16",
+          "n": 1319,
+          "accuracy": 72.18,
+          "delta_pp": 1.67,
+          "ci_lo_pp": -0.83,
+          "ci_hi_pp": 4.25,
+          "contains_zero": true,
+          "disagreement_pct": 21.99
+        }
+      ]
+    },
+    "gsm8k_flexible": {
+      "metric": "GSM8K exact_match (flexible-extract)",
+      "rows": [
+        {
+          "config": "llama31-8b__w-bf16__kv-bf16",
+          "label": "BF16 / BF16",
+          "n": 1319,
+          "accuracy": 77.79,
+          "delta_pp": 0.0,
+          "ci_lo_pp": 0.0,
+          "ci_hi_pp": 0.0,
+          "contains_zero": true,
+          "disagreement_pct": 0.0
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-bf16",
+          "label": "FP8 / BF16",
+          "n": 1319,
+          "accuracy": 77.56,
+          "delta_pp": -0.23,
+          "ci_lo_pp": -1.97,
+          "ci_hi_pp": 1.44,
+          "contains_zero": true,
+          "disagreement_pct": 10.08
+        },
+        {
+          "config": "llama31-8b__w-bf16__kv-fp8",
+          "label": "BF16 / FP8",
+          "n": 1319,
+          "accuracy": 77.18,
+          "delta_pp": -0.61,
+          "ci_lo_pp": -2.12,
+          "ci_hi_pp": 0.99,
+          "contains_zero": true,
+          "disagreement_pct": 8.04
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-fp8",
+          "label": "FP8 / FP8",
+          "n": 1319,
+          "accuracy": 76.95,
+          "delta_pp": -0.83,
+          "ci_lo_pp": -2.58,
+          "ci_hi_pp": 0.91,
+          "contains_zero": true,
+          "disagreement_pct": 10.39
+        },
+        {
+          "config": "llama31-8b__w-int8__kv-bf16",
+          "label": "INT8 W8A8 / BF16",
+          "n": 1319,
+          "accuracy": 77.71,
+          "delta_pp": -0.08,
+          "ci_lo_pp": -1.67,
+          "ci_hi_pp": 1.59,
+          "contains_zero": true,
+          "disagreement_pct": 9.02
+        },
+        {
+          "config": "llama31-8b__w-int4gptq__kv-bf16",
+          "label": "INT4 GPTQ / BF16",
+          "n": 1319,
+          "accuracy": 73.01,
+          "delta_pp": -4.78,
+          "ci_lo_pp": -6.97,
+          "ci_hi_pp": -2.58,
+          "contains_zero": false,
+          "disagreement_pct": 17.21
+        }
+      ]
+    },
+    "mmlu": {
+      "metric": "MMLU acc",
+      "rows": [
+        {
+          "config": "llama31-8b__w-bf16__kv-bf16",
+          "label": "BF16 / BF16",
+          "n": 14042,
+          "accuracy": 68.25,
+          "delta_pp": 0.0,
+          "ci_lo_pp": 0.0,
+          "ci_hi_pp": 0.0,
+          "contains_zero": true,
+          "disagreement_pct": 0.0
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-bf16",
+          "label": "FP8 / BF16",
+          "n": 14042,
+          "accuracy": 68.23,
+          "delta_pp": -0.01,
+          "ci_lo_pp": -0.35,
+          "ci_hi_pp": 0.33,
+          "contains_zero": true,
+          "disagreement_pct": 4.07
+        },
+        {
+          "config": "llama31-8b__w-bf16__kv-fp8",
+          "label": "BF16 / FP8",
+          "n": 14042,
+          "accuracy": 67.96,
+          "delta_pp": -0.28,
+          "ci_lo_pp": -0.61,
+          "ci_hi_pp": 0.04,
+          "contains_zero": true,
+          "disagreement_pct": 3.77
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-fp8",
+          "label": "FP8 / FP8",
+          "n": 14042,
+          "accuracy": 67.69,
+          "delta_pp": -0.56,
+          "ci_lo_pp": -0.96,
+          "ci_hi_pp": -0.15,
+          "contains_zero": false,
+          "disagreement_pct": 5.93
+        },
+        {
+          "config": "llama31-8b__w-int8__kv-bf16",
+          "label": "INT8 W8A8 / BF16",
+          "n": 14042,
+          "accuracy": 67.7,
+          "delta_pp": -0.54,
+          "ci_lo_pp": -0.88,
+          "ci_hi_pp": -0.2,
+          "contains_zero": false,
+          "disagreement_pct": 4.39
+        },
+        {
+          "config": "llama31-8b__w-int4gptq__kv-bf16",
+          "label": "INT4 GPTQ / BF16",
+          "n": 14042,
+          "accuracy": 66.25,
+          "delta_pp": -1.99,
+          "ci_lo_pp": -2.49,
+          "ci_hi_pp": -1.49,
+          "contains_zero": false,
+          "disagreement_pct": 9.43
+        }
+      ]
+    },
+    "ifeval": {
+      "metric": "IFEval prompt_level_strict_acc",
+      "rows": [
+        {
+          "config": "llama31-8b__w-bf16__kv-bf16",
+          "label": "BF16 / BF16",
+          "n": 541,
+          "accuracy": 47.32,
+          "delta_pp": 0.0,
+          "ci_lo_pp": 0.0,
+          "ci_hi_pp": 0.0,
+          "contains_zero": true,
+          "disagreement_pct": 0.0
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-bf16",
+          "label": "FP8 / BF16",
+          "n": 541,
+          "accuracy": 45.84,
+          "delta_pp": -1.48,
+          "ci_lo_pp": -4.62,
+          "ci_hi_pp": 1.66,
+          "contains_zero": true,
+          "disagreement_pct": 13.31
+        },
+        {
+          "config": "llama31-8b__w-bf16__kv-fp8",
+          "label": "BF16 / FP8",
+          "n": 541,
+          "accuracy": 46.21,
+          "delta_pp": -1.11,
+          "ci_lo_pp": -3.88,
+          "ci_hi_pp": 1.85,
+          "contains_zero": true,
+          "disagreement_pct": 11.83
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-fp8",
+          "label": "FP8 / FP8",
+          "n": 541,
+          "accuracy": 48.06,
+          "delta_pp": 0.74,
+          "ci_lo_pp": -2.4,
+          "ci_hi_pp": 3.7,
+          "contains_zero": true,
+          "disagreement_pct": 13.31
+        },
+        {
+          "config": "llama31-8b__w-int8__kv-bf16",
+          "label": "INT8 W8A8 / BF16",
+          "n": 541,
+          "accuracy": 46.4,
+          "delta_pp": -0.92,
+          "ci_lo_pp": -4.25,
+          "ci_hi_pp": 2.4,
+          "contains_zero": true,
+          "disagreement_pct": 16.08
+        },
+        {
+          "config": "llama31-8b__w-int4gptq__kv-bf16",
+          "label": "INT4 GPTQ / BF16",
+          "n": 541,
+          "accuracy": 43.25,
+          "delta_pp": -4.07,
+          "ci_lo_pp": -7.39,
+          "ci_hi_pp": -0.74,
+          "contains_zero": false,
+          "disagreement_pct": 15.9
+        }
+      ]
+    },
+    "format_miss": {
+      "metric": "GSM8K format-miss (flexible correct, strict wrong)",
+      "rows": [
+        {
+          "config": "llama31-8b__w-bf16__kv-bf16",
+          "label": "BF16 / BF16",
+          "n": 1319,
+          "accuracy": 7.35,
+          "delta_pp": 0.0,
+          "ci_lo_pp": 0.0,
+          "ci_hi_pp": 0.0,
+          "contains_zero": true,
+          "disagreement_pct": 0.0
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-bf16",
+          "label": "FP8 / BF16",
+          "n": 1319,
+          "accuracy": 7.35,
+          "delta_pp": 0.0,
+          "ci_lo_pp": -1.36,
+          "ci_hi_pp": 1.36,
+          "contains_zero": true,
+          "disagreement_pct": 6.52
+        },
+        {
+          "config": "llama31-8b__w-bf16__kv-fp8",
+          "label": "BF16 / FP8",
+          "n": 1319,
+          "accuracy": 7.66,
+          "delta_pp": 0.3,
+          "ci_lo_pp": -0.91,
+          "ci_hi_pp": 1.52,
+          "contains_zero": true,
+          "disagreement_pct": 5.0
+        },
+        {
+          "config": "llama31-8b__w-fp8__kv-fp8",
+          "label": "FP8 / FP8",
+          "n": 1319,
+          "accuracy": 6.6,
+          "delta_pp": -0.76,
+          "ci_lo_pp": -2.2,
+          "ci_hi_pp": 0.68,
+          "contains_zero": true,
+          "disagreement_pct": 7.28
+        },
+        {
+          "config": "llama31-8b__w-int8__kv-bf16",
+          "label": "INT8 W8A8 / BF16",
+          "n": 1319,
+          "accuracy": 7.58,
+          "delta_pp": 0.23,
+          "ci_lo_pp": -1.14,
+          "ci_hi_pp": 1.59,
+          "contains_zero": true,
+          "disagreement_pct": 6.6
+        },
+        {
+          "config": "llama31-8b__w-int4gptq__kv-bf16",
+          "label": "INT4 GPTQ / BF16",
+          "n": 1319,
+          "accuracy": 0.91,
+          "delta_pp": -6.44,
+          "ci_lo_pp": -7.88,
+          "ci_hi_pp": -5.0,
+          "contains_zero": false,
+          "disagreement_pct": 7.51
+        }
+      ]
+    }
+  },
+  "filter_sensitivity": {
+    "rows": [
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "label": "BF16 / BF16",
+        "acc_strict": 70.51,
+        "delta_strict_pp": 0.0,
+        "ci_strict": [
+          0.0,
+          0.0
+        ],
+        "zero_strict": true,
+        "acc_flexible": 77.79,
+        "delta_flexible_pp": 0.0,
+        "ci_flexible": [
+          0.0,
+          0.0
+        ],
+        "zero_flexible": true,
+        "sign_flips": false
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "label": "FP8 / BF16",
+        "acc_strict": 70.28,
+        "delta_strict_pp": -0.23,
+        "ci_strict": [
+          -2.27,
+          1.82
+        ],
+        "zero_strict": true,
+        "acc_flexible": 77.56,
+        "delta_flexible_pp": -0.23,
+        "ci_flexible": [
+          -1.9,
+          1.52
+        ],
+        "zero_flexible": true,
+        "sign_flips": false
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "label": "BF16 / FP8",
+        "acc_strict": 69.6,
+        "delta_strict_pp": -0.91,
+        "ci_strict": [
+          -2.65,
+          0.83
+        ],
+        "zero_strict": true,
+        "acc_flexible": 77.18,
+        "delta_flexible_pp": -0.61,
+        "ci_flexible": [
+          -2.12,
+          0.91
+        ],
+        "zero_flexible": true,
+        "sign_flips": false
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "label": "FP8 / FP8",
+        "acc_strict": 70.43,
+        "delta_strict_pp": -0.08,
+        "ci_strict": [
+          -2.12,
+          2.05
+        ],
+        "zero_strict": true,
+        "acc_flexible": 76.95,
+        "delta_flexible_pp": -0.83,
+        "ci_flexible": [
+          -2.5,
+          0.91
+        ],
+        "zero_flexible": true,
+        "sign_flips": false
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "label": "INT8 W8A8 / BF16",
+        "acc_strict": 70.2,
+        "delta_strict_pp": -0.3,
+        "ci_strict": [
+          -2.35,
+          1.67
+        ],
+        "zero_strict": true,
+        "acc_flexible": 77.71,
+        "delta_flexible_pp": -0.08,
+        "ci_flexible": [
+          -1.74,
+          1.52
+        ],
+        "zero_flexible": true,
+        "sign_flips": false
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "label": "INT4 GPTQ / BF16",
+        "acc_strict": 72.18,
+        "delta_strict_pp": 1.67,
+        "ci_strict": [
+          -0.91,
+          4.25
+        ],
+        "zero_strict": true,
+        "acc_flexible": 73.01,
+        "delta_flexible_pp": -4.78,
+        "ci_flexible": [
+          -7.05,
+          -2.58
+        ],
+        "zero_flexible": false,
+        "sign_flips": false
+      }
+    ]
+  },
+  "composition": {
+    "gsm8k_strict": {
+      "metric": "GSM8K (strict-match)",
+      "n_baseline_correct": 930,
+      "damage_W_pct": 10.32,
+      "damage_K_pct": 8.49,
+      "damage_C_pct": 10.86,
+      "damage_independent_pct": 17.94,
+      "excess_over_independent_pp": -7.08,
+      "excess_ci_pp": [
+        -9.54,
+        -4.48
+      ],
+      "jaccard_WK": 0.224,
+      "jaccard_ci": [
+        0.158,
+        0.292
+      ],
+      "novel_damage_pct": 40.59,
+      "novel_ci_pct": [
+        31.11,
+        50.0
+      ],
+      "n_damage_W": 96,
+      "n_damage_K": 79,
+      "n_damage_C": 101,
+      "n_overlap_WK": 32,
+      "n_novel": 41
+    },
+    "mmlu": {
+      "metric": "MMLU",
+      "n_baseline_correct": 9583,
+      "damage_W_pct": 2.99,
+      "damage_K_pct": 2.97,
+      "damage_C_pct": 4.75,
+      "damage_independent_pct": 5.88,
+      "excess_over_independent_pp": -1.13,
+      "excess_ci_pp": [
+        -1.65,
+        -0.63
+      ],
+      "jaccard_WK": 0.177,
+      "jaccard_ci": [
+        0.143,
+        0.212
+      ],
+      "novel_damage_pct": 48.35,
+      "novel_ci_pct": [
+        43.79,
+        52.86
+      ],
+      "n_damage_W": 287,
+      "n_damage_K": 285,
+      "n_damage_C": 455,
+      "n_overlap_WK": 86,
+      "n_novel": 220
+    },
+    "ifeval": {
+      "metric": "IFEval",
+      "n_baseline_correct": 256,
+      "damage_W_pct": 15.62,
+      "damage_K_pct": 13.67,
+      "damage_C_pct": 13.28,
+      "damage_independent_pct": 27.16,
+      "excess_over_independent_pp": -13.88,
+      "excess_ci_pp": [
+        -19.25,
+        -8.21
+      ],
+      "jaccard_WK": 0.339,
+      "jaccard_ci": [
+        0.217,
+        0.468
+      ],
+      "novel_damage_pct": 29.41,
+      "novel_ci_pct": [
+        14.29,
+        45.45
+      ],
+      "n_damage_W": 40,
+      "n_damage_K": 35,
+      "n_damage_C": 34,
+      "n_overlap_WK": 19,
+      "n_novel": 10
+    }
+  },
+  "throughput": {
+    "cells": 216,
+    "configs": 6,
+    "shapes": [
+      "long",
+      "medium",
+      "short"
+    ],
+    "concurrencies": [
+      1,
+      8,
+      32,
+      64
+    ],
+    "seeds_per_cell": 3,
+    "kv_cache_tokens": {
+      "llama31-8b__w-bf16__kv-bf16": 191264,
+      "llama31-8b__w-bf16__kv-fp8": 389824,
+      "llama31-8b__w-fp8__kv-bf16": 248832,
+      "llama31-8b__w-fp8__kv-fp8": 491904,
+      "llama31-8b__w-int4gptq__kv-bf16": 269584,
+      "llama31-8b__w-int8__kv-bf16": 242336
+    },
+    "peak": [
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "label": "FP8 / FP8",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1909.65,
+        "tput_sd": 1.95,
+        "speedup": 1.52
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "label": "INT4 GPTQ / BF16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1761.03,
+        "tput_sd": 6.91,
+        "speedup": 1.4
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "label": "INT8 W8A8 / BF16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1752.88,
+        "tput_sd": 0.63,
+        "speedup": 1.4
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "label": "FP8 / BF16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1713.87,
+        "tput_sd": 3.6,
+        "speedup": 1.36
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "label": "BF16 / FP8",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1352.68,
+        "tput_sd": 7.86,
+        "speedup": 1.08
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "label": "BF16 / BF16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1256.48,
+        "tput_sd": 4.58,
+        "speedup": 1.0
+      }
+    ],
+    "grid": [
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "long",
+        "concurrency": 1,
+        "tput": 32.236,
+        "tput_sd": 0.016,
+        "ttft": 1784.977,
+        "tpot": 24.148,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "long",
+        "concurrency": 8,
+        "tput": 78.487,
+        "tput_sd": 0.048,
+        "ttft": 2827.375,
+        "tpot": 88.876,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "long",
+        "concurrency": 32,
+        "tput": 81.94,
+        "tput_sd": 0.042,
+        "ttft": 68747.371,
+        "tpot": 122.859,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "long",
+        "concurrency": 64,
+        "tput": 82.52,
+        "tput_sd": 0.138,
+        "ttft": 158550.192,
+        "tpot": 122.556,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "medium",
+        "concurrency": 1,
+        "tput": 42.896,
+        "tput_sd": 0.012,
+        "ttft": 364.842,
+        "tpot": 21.973,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "medium",
+        "concurrency": 8,
+        "tput": 209.497,
+        "tput_sd": 0.212,
+        "ttft": 924.543,
+        "tpot": 34.658,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "medium",
+        "concurrency": 32,
+        "tput": 340.043,
+        "tput_sd": 0.844,
+        "ttft": 1101.995,
+        "tpot": 87.958,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "medium",
+        "concurrency": 64,
+        "tput": 341.043,
+        "tput_sd": 0.906,
+        "ttft": 11048.268,
+        "tpot": 121.724,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "short",
+        "concurrency": 1,
+        "tput": 46.493,
+        "tput_sd": 0.011,
+        "ttft": 48.905,
+        "tpot": 21.29,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "short",
+        "concurrency": 8,
+        "tput": 315.624,
+        "tput_sd": 0.295,
+        "ttft": 263.618,
+        "tpot": 23.363,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "short",
+        "concurrency": 32,
+        "tput": 877.006,
+        "tput_sd": 0.935,
+        "ttft": 479.265,
+        "tpot": 32.788,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-bf16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1256.481,
+        "tput_sd": 4.577,
+        "ttft": 535.523,
+        "tpot": 46.71,
+        "kv": 191264,
+        "seeds": 3,
+        "label": "BF16 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "long",
+        "concurrency": 1,
+        "tput": 34.156,
+        "tput_sd": 0.011,
+        "ttft": 1713.668,
+        "tpot": 22.684,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "long",
+        "concurrency": 8,
+        "tput": 94.492,
+        "tput_sd": 0.123,
+        "ttft": 2468.797,
+        "tpot": 72.593,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "long",
+        "concurrency": 32,
+        "tput": 116.955,
+        "tput_sd": 0.1,
+        "ttft": 19747.272,
+        "tpot": 178.174,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "long",
+        "concurrency": 64,
+        "tput": 119.308,
+        "tput_sd": 0.105,
+        "ttft": 89638.428,
+        "tpot": 180.503,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "medium",
+        "concurrency": 1,
+        "tput": 43.622,
+        "tput_sd": 0.013,
+        "ttft": 363.266,
+        "tpot": 21.59,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "medium",
+        "concurrency": 8,
+        "tput": 227.521,
+        "tput_sd": 0.103,
+        "ttft": 894.963,
+        "tpot": 31.727,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "medium",
+        "concurrency": 32,
+        "tput": 412.545,
+        "tput_sd": 0.877,
+        "ttft": 938.652,
+        "tpot": 71.437,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "medium",
+        "concurrency": 64,
+        "tput": 476.311,
+        "tput_sd": 1.206,
+        "ttft": 1371.946,
+        "tpot": 118.197,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "short",
+        "concurrency": 1,
+        "tput": 46.725,
+        "tput_sd": 0.01,
+        "ttft": 50.786,
+        "tpot": 21.167,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "short",
+        "concurrency": 8,
+        "tput": 319.786,
+        "tput_sd": 0.143,
+        "ttft": 262.665,
+        "tpot": 23.018,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "short",
+        "concurrency": 32,
+        "tput": 913.558,
+        "tput_sd": 1.176,
+        "ttft": 470.772,
+        "tpot": 31.377,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-bf16__kv-fp8",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1352.684,
+        "tput_sd": 7.865,
+        "ttft": 512.848,
+        "tpot": 43.257,
+        "kv": 389824,
+        "seeds": 3,
+        "label": "BF16 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "long",
+        "concurrency": 1,
+        "tput": 43.468,
+        "tput_sd": 0.025,
+        "ttft": 1459.557,
+        "tpot": 17.373,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "long",
+        "concurrency": 8,
+        "tput": 93.982,
+        "tput_sd": 0.152,
+        "ttft": 2386.674,
+        "tpot": 74.785,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "long",
+        "concurrency": 32,
+        "tput": 96.203,
+        "tput_sd": 0.418,
+        "ttft": 46674.406,
+        "tpot": 145.925,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "long",
+        "concurrency": 64,
+        "tput": 96.927,
+        "tput_sd": 0.063,
+        "ttft": 129828.427,
+        "tpot": 145.355,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 1,
+        "tput": 62.395,
+        "tput_sd": 0.015,
+        "ttft": 283.169,
+        "tpot": 14.981,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 8,
+        "tput": 278.514,
+        "tput_sd": 0.442,
+        "ttft": 716.803,
+        "tpot": 25.982,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 32,
+        "tput": 422.422,
+        "tput_sd": 0.997,
+        "ttft": 875.727,
+        "tpot": 71.339,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 64,
+        "tput": 418.634,
+        "tput_sd": 0.329,
+        "ttft": 4396.16,
+        "tpot": 126.897,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "short",
+        "concurrency": 1,
+        "tput": 69.27,
+        "tput_sd": 0.012,
+        "ttft": 34.105,
+        "tpot": 14.279,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "short",
+        "concurrency": 8,
+        "tput": 471.931,
+        "tput_sd": 0.309,
+        "ttft": 189.97,
+        "tpot": 15.518,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "short",
+        "concurrency": 32,
+        "tput": 1256.296,
+        "tput_sd": 0.916,
+        "ttft": 347.235,
+        "tpot": 22.769,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-bf16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1713.868,
+        "tput_sd": 3.599,
+        "ttft": 403.261,
+        "tpot": 34.168,
+        "kv": 248832,
+        "seeds": 3,
+        "label": "FP8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "long",
+        "concurrency": 1,
+        "tput": 47.192,
+        "tput_sd": 0.015,
+        "ttft": 1398.928,
+        "tpot": 15.792,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "long",
+        "concurrency": 8,
+        "tput": 116.714,
+        "tput_sd": 0.017,
+        "ttft": 2245.751,
+        "tpot": 58.257,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "long",
+        "concurrency": 32,
+        "tput": 142.087,
+        "tput_sd": 0.211,
+        "ttft": 7510.187,
+        "tpot": 178.767,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "long",
+        "concurrency": 64,
+        "tput": 145.053,
+        "tput_sd": 0.259,
+        "ttft": 62452.554,
+        "tpot": 188.639,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "medium",
+        "concurrency": 1,
+        "tput": 63.934,
+        "tput_sd": 0.014,
+        "ttft": 281.116,
+        "tpot": 14.601,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "medium",
+        "concurrency": 8,
+        "tput": 312.94,
+        "tput_sd": 0.531,
+        "ttft": 685.177,
+        "tpot": 22.922,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "medium",
+        "concurrency": 32,
+        "tput": 528.928,
+        "tput_sd": 0.807,
+        "ttft": 740.863,
+        "tpot": 56.094,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "medium",
+        "concurrency": 64,
+        "tput": 596.812,
+        "tput_sd": 0.323,
+        "ttft": 1102.309,
+        "tpot": 94.757,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "short",
+        "concurrency": 1,
+        "tput": 69.846,
+        "tput_sd": 0.014,
+        "ttft": 35.514,
+        "tpot": 14.147,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "short",
+        "concurrency": 8,
+        "tput": 481.247,
+        "tput_sd": 0.349,
+        "ttft": 190.654,
+        "tpot": 15.172,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "short",
+        "concurrency": 32,
+        "tput": 1361.044,
+        "tput_sd": 1.156,
+        "ttft": 341.413,
+        "tpot": 20.831,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-fp8__kv-fp8",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1909.65,
+        "tput_sd": 1.952,
+        "ttft": 383.633,
+        "tpot": 30.422,
+        "kv": 491904,
+        "seeds": 3,
+        "label": "FP8 / FP8"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "long",
+        "concurrency": 1,
+        "tput": 58.482,
+        "tput_sd": 0.063,
+        "ttft": 1710.405,
+        "tpot": 10.468,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "long",
+        "concurrency": 8,
+        "tput": 91.386,
+        "tput_sd": 0.142,
+        "ttft": 3048.972,
+        "tpot": 75.751,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "long",
+        "concurrency": 32,
+        "tput": 89.532,
+        "tput_sd": 0.209,
+        "ttft": 49502.602,
+        "tpot": 170.035,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "long",
+        "concurrency": 64,
+        "tput": 88.943,
+        "tput_sd": 0.046,
+        "ttft": 142248.654,
+        "tpot": 170.043,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "medium",
+        "concurrency": 1,
+        "tput": 104.367,
+        "tput_sd": 0.016,
+        "ttft": 345.031,
+        "tpot": 8.265,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "medium",
+        "concurrency": 8,
+        "tput": 332.307,
+        "tput_sd": 1.331,
+        "ttft": 892.218,
+        "tpot": 20.684,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "medium",
+        "concurrency": 32,
+        "tput": 407.896,
+        "tput_sd": 1.754,
+        "ttft": 1055.811,
+        "tpot": 74.364,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "medium",
+        "concurrency": 64,
+        "tput": 384.313,
+        "tput_sd": 0.403,
+        "ttft": 2613.158,
+        "tpot": 149.686,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "short",
+        "concurrency": 1,
+        "tput": 127.442,
+        "tput_sd": 0.044,
+        "ttft": 40.874,
+        "tpot": 7.585,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "short",
+        "concurrency": 8,
+        "tput": 747.454,
+        "tput_sd": 0.814,
+        "ttft": 232.254,
+        "tpot": 8.926,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "short",
+        "concurrency": 32,
+        "tput": 1505.979,
+        "tput_sd": 6.801,
+        "ttft": 445.526,
+        "tpot": 17.798,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int4gptq__kv-bf16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1761.029,
+        "tput_sd": 6.907,
+        "ttft": 509.301,
+        "tpot": 32.37,
+        "kv": 269584,
+        "seeds": 3,
+        "label": "INT4 GPTQ / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "long",
+        "concurrency": 1,
+        "tput": 44.693,
+        "tput_sd": 0.008,
+        "ttft": 1371.572,
+        "tpot": 17.087,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "long",
+        "concurrency": 8,
+        "tput": 97.53,
+        "tput_sd": 0.235,
+        "ttft": 2261.477,
+        "tpot": 72.076,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "long",
+        "concurrency": 32,
+        "tput": 101.136,
+        "tput_sd": 0.332,
+        "ttft": 45467.418,
+        "tpot": 129.426,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "long",
+        "concurrency": 64,
+        "tput": 101.268,
+        "tput_sd": 0.065,
+        "ttft": 123356.761,
+        "tpot": 128.941,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 1,
+        "tput": 63.656,
+        "tput_sd": 0.01,
+        "ttft": 265.995,
+        "tpot": 14.726,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 8,
+        "tput": 287.134,
+        "tput_sd": 0.08,
+        "ttft": 667.801,
+        "tpot": 25.297,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 32,
+        "tput": 435.466,
+        "tput_sd": 0.731,
+        "ttft": 822.144,
+        "tpot": 69.125,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "medium",
+        "concurrency": 64,
+        "tput": 422.953,
+        "tput_sd": 0.32,
+        "ttft": 4718.399,
+        "tpot": 124.069,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "short",
+        "concurrency": 1,
+        "tput": 70.477,
+        "tput_sd": 0.006,
+        "ttft": 35.577,
+        "tpot": 14.017,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "short",
+        "concurrency": 8,
+        "tput": 478.906,
+        "tput_sd": 0.137,
+        "ttft": 187.281,
+        "tpot": 15.285,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "short",
+        "concurrency": 32,
+        "tput": 1257.454,
+        "tput_sd": 1.081,
+        "ttft": 330.657,
+        "tpot": 22.885,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      },
+      {
+        "config": "llama31-8b__w-int8__kv-bf16",
+        "shape": "short",
+        "concurrency": 64,
+        "tput": 1752.885,
+        "tput_sd": 0.633,
+        "ttft": 376.155,
+        "tpot": 33.491,
+        "kv": 242336,
+        "seeds": 3,
+        "label": "INT8 W8A8 / BF16"
+      }
+    ]
+  }
+}

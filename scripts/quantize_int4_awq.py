@@ -32,8 +32,18 @@ import w4a16_config
 def awq_is_transform_only() -> bool:
     """True when AWQModifier needs a separate quantizing modifier alongside it.
 
-    Decided by inspecting the installed class rather than by version string,
+    Decided by inspecting the installed object rather than by version string,
     because the version at which this changed is not something to hard-code.
+
+    In llm-compressor 0.16 AWQModifier is a FACTORY FUNCTION, not a class, so
+    it has no __mro__ and the old check raised AttributeError -- which is how
+    this build failed on the real box. A non-class AWQModifier belongs to the
+    layout where awq only computes the smoothing transform, so it has to be
+    paired with an explicit QuantizationModifier.
+
+    Pairing is also the safer default when we cannot tell: it states the
+    4-bit config explicitly, from the same w4a16_config the GPTQ recipe uses,
+    which is what keeps the AWQ-vs-GPTQ comparison unconfounded.
     """
     import inspect
 
@@ -60,7 +70,7 @@ def make_builder(symmetric: bool):
                 AWQModifier(),
                 QuantizationModifier(
                     targets=["Linear"],
-                    scheme="W4A16",
+                    config_groups=groups,
                     ignore=w4a16_config.IGNORE,
                 ),
             ]

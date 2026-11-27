@@ -351,6 +351,26 @@ def main() -> None:
                 "rate_W": rW, "rate_K": rK, "rate_C": rC,
                 "ratio": ratio, "ci": [lo_c, hi_c], "floor": FLOOR}
 
+    # ---- durable export ----------------------------------------------------
+    # The raw lm-eval sample files are gigabytes and gitignored, so they die
+    # with the machine. Everything section 4.6 needs is four columns, which
+    # compress to well under a megabyte and DO belong in the repository.
+    try:
+        import pandas as pd
+
+        tidy = pd.DataFrame({
+            "uid": uids,
+            "margin_base": margin,
+            **{f"correct_{k}": corr[k].astype(int) for k in CELLS},
+        })
+        pq = ROOT / "results" / "logs" / "mmlu_margins.parquet"
+        pq.parent.mkdir(parents=True, exist_ok=True)
+        tidy.to_parquet(pq, index=False)
+        print(f"\nwrote {pq.relative_to(ROOT)}  ({pq.stat().st_size // 1024} KB, "
+              f"{len(tidy)} rows) -- COMMIT THIS: it is what survives the box")
+    except Exception as e:  # never let the export break the analysis
+        print(f"\n[warn] could not write the margins parquet: {e}")
+
     out = ROOT / "report" / "margins.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(

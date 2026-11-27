@@ -27,7 +27,7 @@ cd "$(dirname "$0")/.."
 # so the repo root alone is not enough. Without this every config lookup
 # dies with ModuleNotFoundError: No module named 'common'.
 export PYTHONPATH="$PWD/scripts:${PYTHONPATH:-}"
-mkdir -p results
+mkdir -p results results/logs results/quality results/system results/checkpoints
 STATUS="results/run_all_status.tsv"
 touch "$STATUS"
 
@@ -47,9 +47,17 @@ CONFIGS=(
   "${FAMILY}__w-int4gptq__kv-bf16"
   "${FAMILY}__w-int4awq__kv-bf16"
 )
-TASKS=(gsm8k mmlu ifeval longbench)
+# humaneval excluded: needs a container.
+# Override without editing this file:  TASKS="gsm8k mmlu" ./scripts/run_all.sh
+read -r -a TASKS <<< "${TASKS:-gsm8k mmlu ifeval longbench}"
 
-configs_for_task() {
+# Some tasks only need a subset of the matrix. LongBench is ~21 subtasks at long
+# context, so a full seven-config sweep costs most of a day -- and the question
+# LongBench answers is specifically about the KV CACHE, which is isolated by the
+# 2x2 of {bf16, fp8} weights x {bf16, fp8} KV. INT8 and INT4 add nothing to that
+# contrast, so they are left out by default rather than paid for.
+# Override with LONGBENCH_ALL=1 to sweep every config.
+configs_for_task() {  # task -> the configs to evaluate it on
   case "$1" in
     longbench)
       if [ "${LONGBENCH_ALL:-0}" = "1" ]; then
@@ -135,10 +143,18 @@ fi
 # Build every checkpoint first. They are the long pole and they are what you
 # lose if the node dies, so get them onto disk (and to Hugging Face, if you
 # set HF_PUSH_REPO) before spending hours on evaluations.
+# vLLM and llm-compressor pin INCOMPATIBLE versions of compressed-tensors
+# (vLLM 0.34 wants ==0.17.0; llmcompressor 0.15 pulls 0.20.1), and vLLM's own
+# docs say to keep them in separate environments. So quantization runs in
+# .venv-compressor and everything else in the active (vLLM) environment.
+# Without this, installing both in one venv silently breaks whichever loses.
 COMPRESSOR_PY="$PWD/.venv-compressor/bin/python"
 if [ ! -x "$COMPRESSOR_PY" ]; then
   COMPRESSOR_PY="$(command -v python3)"
   echo "[$(ts)] WARNING: no .venv-compressor; building checkpoints with $COMPRESSOR_PY"
+  echo "           If llmcompressor is not installed there, every build fails."
+  echo "           Create it:  python3 -m venv .venv-compressor &&"
+  echo "                       .venv-compressor/bin/pip install -r requirements-compressor.txt"
 fi
 
 banner "PHASE 1  build checkpoints"
@@ -157,7 +173,7 @@ print(q['script'] if q else '')
 " 2>/dev/null)
   [ -z "$script" ] && continue
 
-  echo "[$(ts)] building $cfg via $script"
+  echo "[$(ts)] building $cfg via $script  [python: $COMPRESSOR_PY]"
   if (cd scripts && "$COMPRESSOR_PY" "$(basename "$script")" "$cfg"); then
     note "build:$cfg" "ok"
     push "built $cfg"
@@ -243,8 +259,17 @@ done
 # --------------------------------------------------------------- phase 4 ----
 # Benchmarks last. They need a server to themselves, so each configuration
 # starts one, waits for it, measures, and tears it down.
+# SKIP_BENCH=1 runs quality only. Useful for a replication grid, where the
+# scientific question is whether the ACCURACY structure reproduces on another
+# model family; the throughput grid costs ~6 h and answers a hardware question
+# that the first family already answered.
 banner "PHASE 4  system benchmarks"
+if [ "${SKIP_BENCH:-0}" = "1" ]; then
+  echo "[$(ts)] SKIP_BENCH=1 -- skipping all system benchmarks"
+  note "bench" "skip (SKIP_BENCH=1)"
+fi
 for cfg in "${CONFIGS[@]}"; do
+  if [ "${SKIP_BENCH:-0}" = "1" ]; then break; fi
   if needs_checkpoint "$cfg" && ! checkpoint_exists "$cfg"; then
     note "bench:$cfg" "skip (no checkpoint)"
     continue
