@@ -217,3 +217,5 @@
 2026-11-27T05:15:46+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
 2026-11-27T05:15:46+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
 2026-11-27T05:15:46+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-27T06:35:07+00:00	env_check	done
+2026-11-27T06:37:34+00:00	build:qwen25-7b__w-fp8__kv-bf16	ok

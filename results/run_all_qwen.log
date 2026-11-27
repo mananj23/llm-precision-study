@@ -1,0 +1,70 @@
+
+================ PHASE 0  environment ================
+
+--- disk ---
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/rbd3       184G   68G  116G  37% /home/jovyan
+need >= 200 GB free: each 8B model is ~16 GB in BF16 and you keep several copies
+
+--- python / libs ---
+python 3.12.3
+  vllm: 0.32.0
+  lm_eval: 0.4.13
+  llmcompressor: NOT INSTALLED in this env
+  torch: 2.13.0+cu129
+  transformers: 5.19.0
+
+reminder: vLLM and llm-compressor belong in SEPARATE venvs.
+  .venv-vllm       -> requirements-vllm.txt       (serve + lm_eval)
+  .venv-compressor -> requirements-compressor.txt (build checkpoints)
+
+--- huggingface ---
+HF_HOME=/home/jovyan/hf_cache
+  logged in as: mananj2303
+
+--- tmux ---
+  tmux present. Run every long job inside it.
+
+=== paste all of the above into notes/2026-11-27.md ===
+[06:35:07] env_check -> done
+GPUs visible: 1   TP=1
+
+================ PHASE 1  build checkpoints ================
+
+[06:35:07] building qwen25-7b__w-fp8__kv-bf16 via scripts/quantize_fp8.py  [python: /home/jovyan/llm-precision-study/.venv-compressor/bin/python]
+[hardware] cc 8.9 supports FP8 W8A8
+[plan] Qwen/Qwen2.5-7B-Instruct -> /home/jovyan/checkpoints/qwen25-7b__w-fp8
+[plan] weights=fp8 calibration=False
+[load] Qwen/Qwen2.5-7B-Instruct
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:52<02:38, 52.73s/it]Fetching 4 files:  50%|█████     | 2/4 [01:03<00:56, 28.33s/it]Fetching 4 files:  75%|███████▌  | 3/4 [02:02<00:41, 41.90s/it]Fetching 4 files: 100%|██████████| 4/4 [02:05<00:00, 26.55s/it]Fetching 4 files: 100%|██████████| 4/4 [02:05<00:00, 31.26s/it]
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:  10%|█         | 34/339 [00:00<00:00, 338.17it/s]Loading weights:  20%|██        | 68/339 [00:00<00:00, 337.22it/s]Loading weights:  30%|███       | 102/339 [00:00<00:00, 332.95it/s]Loading weights:  41%|████      | 138/339 [00:00<00:00, 336.21it/s]Loading weights:  51%|█████▏    | 174/339 [00:00<00:00, 335.94it/s]Loading weights:  61%|██████▏   | 208/339 [00:00<00:00, 326.39it/s]Loading weights:  74%|███████▎  | 250/339 [00:00<00:00, 354.35it/s]Loading weights:  85%|████████▍ | 287/339 [00:00<00:00, 358.20it/s]Loading weights:  95%|█████████▌| 323/339 [00:00<00:00, 348.34it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 347.82it/s]
+[oneshot] running...
+2026-11-27T06:37:25.2460 | __init__ | WARNING - Disabling tokenizer parallelism due to threading conflict between FastTokenizer and Datasets. Set TOKENIZERS_PARALLELISM=false to suppress this warning.
+2026-11-27T06:37:27.2605 | reset | INFO - Compression lifecycle reset
+2026-11-27T06:37:27.2629 | from_modifiers | INFO - Creating recipe from modifiers
+Applying quantization config:   0%|          | 0/196 [00:00<?, ?it/s]Applying quantization config: 100%|██████████| 196/196 [00:00<00:00, 10756.17it/s]
+2026-11-27T06:37:27.2934 | initialize | INFO - Compression lifecycle initialized for 1 modifiers
+2026-11-27T06:37:27.2935 | IndependentPipeline | INFO - Inferred `DataFreePipeline` for `QuantizationModifier`
+2026-11-27T06:37:27.4053 | finalize | INFO - Compression lifecycle finalized for 1 modifiers
+Compressing model:   0%|          | 0/196 [00:00<?, ?it/s]Compressing model: 100%|██████████| 196/196 [00:00<00:00, 3886.75it/s]
+/home/jovyan/llm-precision-study/.venv-compressor/lib/python3.12/site-packages/transformers/modeling_utils.py:3430: UserWarning: Attempting to save a model with offloaded modules. Ensure that unallocated cpu memory exceeds the `shard_size` (50GB default)
+  warnings.warn(
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.20s/it]Writing model shards: 100%|██████████| 1/1 [00:04<00:00,  4.20s/it]
+2026-11-27T06:37:32.3096 | resave_config | INFO - Resaved original config with patched fields to /home/jovyan/checkpoints/qwen25-7b__w-fp8/config.json
+Dispatching model:   0%|          | 0/371 [00:00<?, ?it/s]Dispatching model: 100%|██████████| 371/371 [00:00<00:00, 54871.00it/s]
+[provenance] /home/jovyan/llm-precision-study/results/checkpoints/qwen25-7b__w-fp8__kv-bf16.build.json
+{
+  "config": "qwen25-7b__w-fp8__kv-bf16",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "weights": "fp8",
+  "output_dir": "/home/jovyan/checkpoints/qwen25-7b__w-fp8",
+  "build_seconds": 142.6,
+  "size_gb": 8.72,
+  "recipe_repr": "QuantizationModifier(config_groups=None, targets=['Linear'], ignore=['lm_head'], scheme='FP8_DYNAMIC', kv_cache_scheme=None, weight_observer=None, input_observer=None, output_observer=None, observer=None, bypass_divisibility_checks=False, requires_calibration_data=False, index=None, group=None, start=None, end=None, update=None, initialized_=True, finalized_=True, started_=True, ended_=True)",
+  "calibration": null
+}
+
+[done] /home/jovyan/checkpoints/qwen25-7b__w-fp8  (8.72 GB, 2.4 min)
+[next] VERIFY IT BEFORE USING IT:
+       python scripts/verify_checkpoint.py qwen25-7b__w-fp8__kv-bf16
+[06:37:34] build:qwen25-7b__w-fp8__kv-bf16 -> ok
