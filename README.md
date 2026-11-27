@@ -2,171 +2,195 @@
 
 **What does lower numerical precision actually cost you, and what does it save?**
 
-A controlled study of weight and KV-cache quantization for 8B instruction-tuned
-models served with vLLM: quality measured per prompt with paired confidence
-intervals, serving performance measured on the same hardware, and an honest test
-of whether choosing precision per request beats choosing one setting for
-everything.
+A controlled study of weight and KV-cache quantization for Llama-3.1-8B-Instruct
+served with vLLM: quality measured **per prompt** with paired confidence
+intervals, serving performance measured on the same card, and a verified
+measurement floor so that small effects mean something.
 
-Status: **environment and analysis pipeline complete and tested; measurements
-not yet run.** Every number in this repository today comes from a synthetic
-fixture and is labelled as such.
+Status: **measurements complete.** Six precision configurations, four
+benchmarks, 216 throughput cells, all run on one NVIDIA L40S between 25 and 27
+November 2026. Every number in this repository is generated from the measurement
+data by `analysis/report_tables.py`; none is typed by hand.
+
+📄 **[report/report.pdf](report/report.pdf)** — the full write-up, 13 pages.
 
 ---
 
-## The question
+## What came out of it
 
-Quantization results are usually reported as a single accuracy number on a
-single benchmark, against a baseline that was measured with a different prompt
-format, with no interval. That makes it impossible to tell a real 1-point
-regression from noise, and impossible to know whether the setting that is best
-for arithmetic is also best for long-context summarisation.
+**The measurement floor is exactly zero.** The BF16 baseline was evaluated
+twice, 17 hours and 22 minutes apart on the same GPU. All 1,319 extracted
+answers were byte-identical; correctness disagreement **0.000%**. Every
+difference below is attributable to precision rather than to run-to-run
+variation — a claim most quantization results assert rather than demonstrate.
 
-This project asks three things:
+**A stable score hides a large change in behaviour.** FP8 weights with an FP8 KV
+cache score **70.43%** on GSM8K against the baseline's **70.51%** — one question
+in 1,319 — while **15.24%** of the answers change. The aggregate holds still
+because ~101 prompts break and ~100 are repaired. On LongBench, **46%** of
+documents score differently with every aggregate difference indistinguishable
+from zero.
 
-1. **Where does quality actually break?** Per task, per precision setting, with
-   a 95% paired bootstrap interval on the change from BF16 — not a difference of
-   two separately-estimated accuracies.
-2. **What does each setting buy?** Throughput, time-to-first-token,
-   time-per-output-token, KV-cache capacity and dollars per million output
-   tokens, measured on the same card at a fixed grid of concurrencies and
-   context lengths.
-3. **Does per-request routing beat a fixed choice?** Measured against a random
-   mix at matched cost, which is the only baseline that makes the question
-   meaningful. **A negative answer is a valid result and will be reported as
-   one.**
+**The change lands on the model's near-ties, not on its confident answers.**
+MMLU logs per-choice log-likelihoods, so a confidence margin is recoverable for
+all 14,042 documents. The least-confident **25%** of prompts carry **98.6%** of
+all FP8-weight damage. Above 1.75 nats — two-thirds of the set, 6,397 prompts —
+FP8 weights damaged **1** prompt and the FP8 KV cache damaged **none**.
+
+**Two quantizations compose additively — and the analysis that said otherwise
+was ours.** Measured on a *damage set* (baseline-correct prompts, counting only
+losses), the combination looks strongly sub-additive, resolved on three tasks.
+Measured by the symmetric 2 × 2 interaction contrast, the interaction is
+**unresolved on all four tasks**. Conditioning on baseline-correct selects
+prompts the baseline answered luckily, and regression to the mean then
+masquerades as structure. Both framings are reported, because the disagreement
+between them is the more useful result.
+
+**4-bit trades instruction-following for pattern-copying.** INT4 GPTQ almost
+never fails to reproduce the answer format its five in-context exemplars
+demonstrate — a format-miss rate of **0.91%** against the baseline's **7.35%**
+(−6.44 pp, CI [−7.88, −5.00]) — while scoring **4.07 pp worse on IFEval**
+(CI [−7.39, −0.74]), which tests compliance with instructions given in prose.
+Both resolved; every 8-bit scheme is indistinguishable from BF16 on both.
+
+**A prediction that failed.** A quantized KV cache stores every past token, so
+its error should compound with context length. At up to 20,480 tokens on
+LongBench the FP8 KV cache costs **−0.01 pp** — the smallest effect measured
+anywhere in this study.
+
+| configuration | GSM8K | MMLU | IFEval | LongBench | peak tok/s | KV tokens |
+|---|---:|---:|---:|---:|---:|---:|
+| BF16 / BF16 | 70.51% | 68.25% | 47.32% | 43.64% | 1,256 | 191,264 |
+| FP8 W8A8 / BF16 KV | 70.28% | 68.23% | 45.84% | 43.97% | 1,714 | 248,832 |
+| BF16 / FP8 KV | 69.60% | 67.96% | 46.21% | 43.63% | 1,353 | 389,824 |
+| FP8 W8A8 / FP8 KV | 70.43% | 67.69%\* | 48.06% | 43.92% | **1,910** | 491,904 |
+| INT8 W8A8 / BF16 KV | 70.20% | 67.70%\* | 46.40% | — | 1,753 | 242,336 |
+| INT4 GPTQ / BF16 KV | 72.18% | 66.25%\* | 43.25%\* | — | 1,761 | 269,584 |
+
+\* 95% paired-bootstrap interval excludes zero. Every other cell is unresolved
+against BF16 and is **not** ranked. Full intervals: [report/tables.md](report/tables.md).
+
+## What a benchmark this size can resolve
+
+For paired binary outcomes only the *discordant* prompts carry information, so
+with discordance `r` the minimum detectable effect is `1.96·sqrt(r/(n+1.96²))`.
+Using the discordance rates **measured here** rather than assumed:
+
+| Benchmark | n | measured discordance | smallest detectable effect |
+|---|---:|---:|---:|
+| IFEval | 541 | 13.3% | 3.06 pts |
+| GSM8K | 1,319 | 15.2% | 2.10 pts |
+| MMLU | 14,042 | 5.9% | 0.40 pts |
+
+This is why GSM8K resolves **none** of the five comparisons here and MMLU
+resolves three. GSM8K is the benchmark quantization papers reach for most often,
+and at full size it cannot separate these configurations.
+
+**The method is not ours.** The resolution framework is Kotawala, *Resolution
+Diagnostics for Paired LLM Evaluation* ([arXiv:2605.30315](https://arxiv.org/abs/2605.30315),
+ICML 2026); the case for paired, question-level inference is Miller, *Adding
+Error Bars to Evals* ([arXiv:2411.00640](https://arxiv.org/abs/2411.00640)).
+What this repository adds is narrow: applying it to quantization specifically,
+with discordance measured from real quantized checkpoints rather than assumed.
+Below ~300 prompts the normal approximation understates uncertainty (Bowyer et
+al., [arXiv:2503.01747](https://arxiv.org/abs/2503.01747)).
 
 ## Configurations
 
-| Setting | Weights | KV cache | Built with |
-|---|---|---|---|
-| `w-bf16__kv-bf16` | BF16 | BF16 | baseline, no build |
-| `w-fp8__kv-bf16` | FP8 W8A8 | BF16 | llm-compressor `FP8_DYNAMIC` |
-| `w-bf16__kv-fp8` | BF16 | FP8 | vLLM `--kv-cache-dtype fp8` |
-| `w-fp8__kv-fp8` | FP8 W8A8 | FP8 | both |
-| `w-int8__kv-bf16` | INT8 W8A8 | BF16 | SmoothQuant(0.8) + GPTQ |
-| `w-int4gptq__kv-bf16` | INT4 W4A16 | BF16 | GPTQ, group size 128 |
-| `w-int4awq__kv-bf16` | INT4 W4A16 | BF16 | AWQ, group size 128 |
+| Setting | Weights | KV cache | Built with | Status |
+|---|---|---|---|---|
+| `w-bf16__kv-bf16` | BF16 | BF16 | baseline, no build | ✅ measured |
+| `w-fp8__kv-bf16` | FP8 W8A8 | BF16 | llm-compressor `FP8_DYNAMIC` | ✅ measured |
+| `w-bf16__kv-fp8` | BF16 | FP8 | vLLM `--kv-cache-dtype fp8` | ✅ measured |
+| `w-fp8__kv-fp8` | FP8 W8A8 | FP8 | both | ✅ measured |
+| `w-int8__kv-bf16` | INT8 W8A8 | BF16 | SmoothQuant(0.8) + GPTQ | ✅ measured |
+| `w-int4gptq__kv-bf16` | INT4 W4A16 | BF16 | GPTQ, group size 128 | ✅ measured |
+| `w-int4awq__kv-bf16` | INT4 W4A16 | BF16 | AWQ, group size 128 | ❌ **not built** |
 
-`w-bf16__kv-fp8` exists so that the effect of the FP8 KV cache can be separated
-from the effect of FP8 weights. Without it, every FP8-KV row also has quantized
-weights and the two causes are confounded.
+`w-bf16__kv-fp8` exists so the effect of the FP8 KV cache can be separated from
+the effect of FP8 weights. The first four form a **2 × 2 factorial** in weight
+precision × KV precision, which is what makes the composition analysis possible.
 
-GPTQ-INT4 and AWQ-INT4 are the one genuinely controlled algorithm comparison
-here: same bit width, same group size, same calibration set, so a difference
-between them is a difference between the two algorithms.
+**The AWQ arm was never built.** The installed llm-compressor exposes
+`AWQModifier` as a factory function rather than a class, and the substitute path
+did not produce a valid checkpoint inside the GPU budget. The GPTQ-vs-AWQ
+algorithm comparison this repository was designed to make therefore **did not
+happen**, and INT4 results here are GPTQ only.
 
-## How much can a benchmark this size actually resolve?
+**The per-request routing experiment was not run.** `router/` contains the
+specification and code; no routing result is reported, and nothing in this
+repository should be read as evidence for or against routing.
 
-A result that costs nothing to produce and reframes the rest. For paired binary
-outcomes only the *discordant* prompts carry information, so with discordance
-`r` and effect `d` the minimum detectable effect is `1.96·sqrt(r/(n+1.96²))`.
-At an 8% discordance rate:
-
-| Benchmark | n | Smallest detectable effect | Power at 1 pt |
-|---|---|---|---|
-| HumanEval | 164 | 4.3 pts | 7% |
-| GSM8K | 1,319 | 1.5 pts | **25%** |
-| MMLU (full) | 14,042 | 0.5 pts | 99% |
-
-Detecting a 1-point regression with 80% power takes about **6,300 prompts**.
-The literature routinely reports 1–3 point effects on benchmarks of ~1,000.
-
-`python analysis/power.py` — validates its own formulas against simulation
-before printing anything.
-
-**The method is not ours.** The resolution framework is Kotawala,
-*Resolution Diagnostics for Paired LLM Evaluation* (arXiv:2605.30315,
-ICML 2026); the case for paired, question-level inference is Miller,
-*Adding Error Bars to Evals* (arXiv:2411.00640). What this repository adds is
-narrow: applying it to the **quantization** literature specifically, with
-discordance rates measured from real quantized checkpoints rather than
-assumed. Below ~300 prompts the normal approximation understates uncertainty
-(Bowyer et al., arXiv:2503.01747), so HumanEval-sized figures are lower
-bounds.
-
-## How to reproduce the table and the figures
+## Reproducing it
 
 ```bash
-make all          # collect raw output -> analysis/results.csv -> report/*.png
-make power        # what effect size the benchmarks can resolve
+./scripts/env_check.sh                 # refuses to proceed on a mismatched stack
+./scripts/run_all.sh                   # build, verify, evaluate, benchmark
+python3 analysis/report_tables.py      # every number in the report
+python3 analysis/plot_report.py        # every figure in the report
+python3 analysis/margins.py            # the confidence analysis (needs raw samples)
+python3 analysis/interaction_contrast.py
 ```
 
-Running the measurements on rented hardware: see **[RUNBOOK.md](RUNBOOK.md)**,
-and run `./scripts/session1.sh` before anything long — it verifies the whole
-pipeline with a 20-prompt evaluation and prints GO or NO-GO.
+`TASKS="gsm8k mmlu" SKIP_BENCH=1 ./scripts/run_all.sh` runs quality only.
+`FAMILY=qwen25-7b` selects the replication grid.
 
-That is the whole of it. The table is never edited by hand; if a number is
-wrong, the fix goes in `analysis/build_results.py` and the table is rebuilt.
+Without a GPU: `make test` runs the whole pipeline on a synthetic fixture.
 
-To check the pipeline without a GPU or any real data:
+## What is released
 
-```bash
-make test         # synthetic fixture -> full pipeline -> guard tests
-```
+- **Per-prompt outcomes** for every configuration on every task
+  (`results/logs/per_prompt.parquet`) — the churn, composition and confidence
+  results all follow from these and none is recoverable from a score table.
+- **All 216 throughput cells** (`results/logs/system.parquet`).
+- **Confidence margins** for all 14,042 MMLU documents
+  (`results/logs/mmlu_margins.parquet`).
+- A provenance record per run, and the full console logs **including the
+  failures**.
 
-## Method notes that matter
+## Two analysis notes that changed numbers
 
-**Intervals are paired.** Two configurations are scored on the same prompts, so
-prompt difficulty cancels in a per-prompt difference. Resampling prompts and
-recomputing that difference gives an interval roughly **7× tighter** than
-treating the two accuracies as independent. On a simulated 1-point regression
-the paired interval excludes zero and the unpaired one does not — the unpaired
-method would report "no difference" for a real effect. Reproduce with
-`python analysis/bootstrap.py`.
+**The filter column.** `scripts/collect_logs.py` wrote one row per (document,
+lm-eval filter) without recording *which* filter, giving 2,638
+indistinguishable rows per GSM8K configuration. A dedupe keeping one row per
+document can silently retain `strict-match` for one configuration and
+`flexible-extract` for another — a difference of ~7 points — which fabricates
+effects. `analysis/load.py` recovers the filters from lm-eval's filter-major
+write order and then **proves** the recovery against the accuracy table lm-eval
+itself printed for that run. All seven runs confirm to within 1e-4. The loader
+raises rather than returning unverified data.
 
-**"No detectable difference" is written as such.** Configurations whose
-intervals overlap are not ranked against each other.
-
-**Every checkpoint is verified before it is evaluated.**
-`scripts/verify_checkpoint.py` checks the files, checks the memory actually
-dropped, and runs 100 GSM8K prompts. A quantized model scoring near zero is a
-broken checkpoint — wrong chat template, missing tokenizer files, bad
-calibration — not evidence that quantization hurts.
-
-**One calibration set, frozen.** `configs/calibration.yaml` is fixed at 512
-UltraChat samples, seed 42, and is used by every calibrated method. A different
-calibration set per method would make the comparison meaningless. It is
-deliberately not drawn from any evaluation task.
-
-**Benchmarks do not share the GPU and do not share a prefix cache.**
-`run_bench.sh` refuses to start if another process is on the card. Benchmark
-servers run with `--no-enable-prefix-caching` and each repeat uses a different
-seed, because repeating a benchmark against a warm prefix cache reuses prompts
-and inflates throughput.
-
-**The router is evaluated against random mixing at matched cost**, split by
-prompt and again with an entire task held out, and the cost of any confidence
-signal it consults is charged on every request. Features that are only known
-after the model has answered are rejected by a guard, not by discipline.
+**The noise floor is a gate, not a statistic.** `analysis/interaction.py`
+refuses to interpret the novel-damage fraction without a measured floor to
+compare against.
 
 ## Layout
 
 ```
-configs/        one YAML per precision setting + frozen eval and calibration setup
-scripts/        environment check, quantize, serve, evaluate, benchmark, collect
-analysis/       paired bootstrap, results table, Pareto and long-context figures
-router/         routing dataset, baselines, training and evaluation
-tests/          synthetic fixture and guards against silent failure
-notes/          daily lab log: what was run, which commit, what surprised me
-results/        raw output (never edited) + tidy derived tables
-report/         figures and the written report
+configs/    one YAML per precision setting + frozen eval and calibration setup
+scripts/    environment check, quantize, serve, evaluate, benchmark, collect
+analysis/   paired bootstrap, filter recovery, tables, figures, margins
+router/     specification only -- not run
+tests/      synthetic fixture and guards against silent failure
+notes/      daily lab log: what was run, which commit, what surprised me
+results/    raw output (never edited) + tidy derived tables
+report/     the written report and its figures
 ```
 
 ## Hardware
 
-FP8 W8A8 needs compute capability ≥ 8.9 (Ada or Hopper). On an Ampere card it
-will still load, as weight-only W8A16 via FP8-Marlin — a *different* experiment,
-and `scripts/common.py` refuses to build the checkpoint rather than let that
-happen silently. INT8 W8A8 is not supported on Blackwell (cc ≥ 10.0). Run
-`make check` on any new machine before anything else.
+FP8 W8A8 needs compute capability ≥ 8.9 (Ada or Hopper); the L40S is 8.9. On an
+Ampere card it loads as weight-only W8A16 via FP8-Marlin — a *different*
+experiment — and `scripts/common.py` refuses to build rather than let that
+happen silently. INT8 W8A8 is not supported on Blackwell (cc ≥ 10.0).
+Run `make check` on any new machine first.
 
 ## Honest limitations
 
-See [LIMITATIONS.md](LIMITATIONS.md). The short version: this measures
-benchmark prompts, not production traffic; the routing result is an offline
-replay of logged outputs, not a live serving experiment; and everything is
-measured on one GPU model at one price on one date.
+See [LIMITATIONS.md](LIMITATIONS.md) and §6 of the report. The short version:
+one model family, one GPU, greedy decoding only, long context capped at 20,480
+tokens, the confidence analysis is MMLU-only, no AWQ arm, no routing result, and
+no correction for multiplicity across the comparison family.
 
 ## Licence
 
