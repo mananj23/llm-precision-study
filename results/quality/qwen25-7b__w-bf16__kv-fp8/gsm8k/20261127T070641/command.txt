@@ -1,0 +1,4 @@
+config   : qwen25-7b__w-bf16__kv-fp8
+task     : gsm8k -> gsm8k
+run_id   : 20261127T070641
+command  : lm-eval --model vllm --model_args pretrained=Qwen/Qwen2.5-7B-Instruct,max_model_len=20480,kv_cache_dtype=fp8,add_bos_token=True,gpu_memory_utilization=0.9,tensor_parallel_size=1,seed=1234 --tasks gsm8k --num_fewshot 5 --batch_size auto --gen_kwargs temperature=0 --log_samples --output_path results/quality/qwen25-7b__w-bf16__kv-fp8/gsm8k/20261127T070641 --seed 1234

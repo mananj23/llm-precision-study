@@ -227,3 +227,11 @@
 2026-11-27T06:57:27+00:00	verify:qwen25-7b__w-int8__kv-bf16	ok
 2026-11-27T06:58:31+00:00	verify:qwen25-7b__w-int4gptq__kv-bf16	ok
 2026-11-27T06:58:31+00:00	verify:qwen25-7b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-27T07:02:59+00:00	eval:qwen25-7b__w-bf16__kv-bf16:gsm8k	ok
+2026-11-27T07:06:41+00:00	eval:qwen25-7b__w-fp8__kv-bf16:gsm8k	ok
+2026-11-27T07:10:11+00:00	eval:qwen25-7b__w-bf16__kv-fp8:gsm8k	ok
+2026-11-27T07:12:48+00:00	eval:qwen25-7b__w-fp8__kv-fp8:gsm8k	ok
+2026-11-27T07:16:26+00:00	eval:qwen25-7b__w-int8__kv-bf16:gsm8k	ok
+2026-11-27T07:20:23+00:00	eval:qwen25-7b__w-int4gptq__kv-bf16:gsm8k	ok
+2026-11-27T07:20:23+00:00	eval:qwen25-7b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
+2026-11-27T07:24:37+00:00	eval:qwen25-7b__w-bf16__kv-bf16:gsm8k:rerun	ok

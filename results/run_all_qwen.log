@@ -1828,3 +1828,24 @@ TypeError: Object of type date is not JSON serializable
 [06:57:27] verify:qwen25-7b__w-int8__kv-bf16 -> ok
 [06:58:31] verify:qwen25-7b__w-int4gptq__kv-bf16 -> ok
 [06:58:31] verify:qwen25-7b__w-int4awq__kv-bf16 -> skip (no checkpoint)
+[06:58:34] pushed: checkpoint verification
+
+================ PHASE 3  quality evaluations ================
+
+
+[06:58:34] ===== task pass: gsm8k  (7 configs) =====
+[06:58:34] eval qwen25-7b__w-bf16__kv-bf16 / gsm8k
+[07:02:59] eval:qwen25-7b__w-bf16__kv-bf16:gsm8k -> ok
+[07:02:59] eval qwen25-7b__w-fp8__kv-bf16 / gsm8k
+[07:06:41] eval:qwen25-7b__w-fp8__kv-bf16:gsm8k -> ok
+[07:06:41] eval qwen25-7b__w-bf16__kv-fp8 / gsm8k
+[07:10:11] eval:qwen25-7b__w-bf16__kv-fp8:gsm8k -> ok
+[07:10:11] eval qwen25-7b__w-fp8__kv-fp8 / gsm8k
+[07:12:48] eval:qwen25-7b__w-fp8__kv-fp8:gsm8k -> ok
+[07:12:48] eval qwen25-7b__w-int8__kv-bf16 / gsm8k
+[07:16:26] eval:qwen25-7b__w-int8__kv-bf16:gsm8k -> ok
+[07:16:26] eval qwen25-7b__w-int4gptq__kv-bf16 / gsm8k
+[07:20:23] eval:qwen25-7b__w-int4gptq__kv-bf16:gsm8k -> ok
+[07:20:23] eval:qwen25-7b__w-int4awq__kv-bf16:gsm8k -> skip (no checkpoint)
+[07:20:23] baseline GSM8K rerun (noise floor)
+[07:24:37] eval:qwen25-7b__w-bf16__kv-bf16:gsm8k:rerun -> ok
