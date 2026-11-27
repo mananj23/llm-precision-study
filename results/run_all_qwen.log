@@ -1865,3 +1865,19 @@ TypeError: Object of type date is not JSON serializable
 [11:51:31] eval qwen25-7b__w-int4gptq__kv-bf16 / mmlu
 [12:50:34] eval:qwen25-7b__w-int4gptq__kv-bf16:mmlu -> ok
 [12:50:34] eval:qwen25-7b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
+[12:50:59] pushed: quality: mmlu across all configs
+
+[12:50:59] ===== task pass: ifeval  (7 configs) =====
+[12:50:59] eval qwen25-7b__w-bf16__kv-bf16 / ifeval
+[12:53:23] eval:qwen25-7b__w-bf16__kv-bf16:ifeval -> ok
+[12:53:23] eval qwen25-7b__w-fp8__kv-bf16 / ifeval
+[12:55:20] eval:qwen25-7b__w-fp8__kv-bf16:ifeval -> ok
+[12:55:20] eval qwen25-7b__w-bf16__kv-fp8 / ifeval
+[12:57:42] eval:qwen25-7b__w-bf16__kv-fp8:ifeval -> ok
+[12:57:42] eval qwen25-7b__w-fp8__kv-fp8 / ifeval
+[12:59:35] eval:qwen25-7b__w-fp8__kv-fp8:ifeval -> ok
+[12:59:35] eval qwen25-7b__w-int8__kv-bf16 / ifeval
+[13:01:29] eval:qwen25-7b__w-int8__kv-bf16:ifeval -> ok
+[13:01:29] eval qwen25-7b__w-int4gptq__kv-bf16 / ifeval
+[13:03:19] eval:qwen25-7b__w-int4gptq__kv-bf16:ifeval -> ok
+[13:03:19] eval:qwen25-7b__w-int4awq__kv-bf16:ifeval -> skip (no checkpoint)
