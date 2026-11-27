@@ -151,15 +151,14 @@ ValueError: QuantizationModifier requires that quantization fields be specified
 [20:01:37] eval:llama31-8b__w-bf16__kv-fp8:longbench -> FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
 [20:01:37] eval llama31-8b__w-fp8__kv-bf16 / longbench
 [20:01:39] eval:llama31-8b__w-fp8__kv-bf16:longbench -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
-[20:01:39] eval llama31-8b__w-fp8__kv-fp8 / longbench
-[20:01:41] eval:llama31-8b__w-fp8__kv-fp8:longbench -> FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
-[20:01:47] pushed: quality: longbench across all configs
-
-================ PHASE 4  system benchmarks ================
-
-[20:01:47] bench:llama31-8b__w-bf16__kv-bf16 -> skip (done)
-[20:01:47] bench:llama31-8b__w-fp8__kv-bf16 -> skip (done)
-[20:01:47] bench:llama31-8b__w-bf16__kv-fp8 -> skip (done)
+[20:01:39] eval llama31-8b__w-fp8__kv-fp8 / longbenc[21:28:08] eval:llama31-8b__w-bf16__kv-bf16:longbench -> ok
+[21:28:08] eval llama31-8b__w-bf16__kv-fp8 / longbench
+[22:48:44] eval:llama31-8b__w-bf16__kv-fp8:longbench -> ok
+[22:48:44] eval llama31-8b__w-fp8__kv-bf16 / longbench
+[00:09:50] eval:llama31-8b__w-fp8__kv-bf16:longbench -> ok
+[00:09:50] eval llama31-8b__w-fp8__kv-fp8 / longbench
+[01:12:21] eval:llama31-8b__w-fp8__kv-fp8:longbench -> ok
+kv-fp8 -> skip (done)
 [20:01:47] bench:llama31-8b__w-fp8__kv-fp8 -> skip (done)
 [20:01:47] bench:llama31-8b__w-int8__kv-bf16 -> skip (done)
 [20:01:47] bench:llama31-8b__w-int4gptq__kv-bf16 -> skip (done)
@@ -668,3 +667,255 @@ mmlu_world_religions                       1026  0.8285
   llama31-8b__w-int8__kv-bf16: 36 runs, kv_cache_tokens=242336
 
 wrote 216 rows -> /home/jovyan/llm-precision-study/results/logs/system.parquet
+[20:01:54] pushed: final collection
+
+================ SUMMARY ================
+
+2026-11-25T20:25:39+00:00	env_check	done
+2026-11-25T20:26:01+00:00	build:llama31-8b__w-fp8__kv-bf16	ok
+2026-11-25T20:26:03+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-25T20:39:38+00:00	env_check	done
+2026-11-25T20:39:38+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-25T20:39:38+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-25T20:48:04+00:00	build:llama31-8b__w-int8__kv-bf16	FAILED
+2026-11-25T20:54:27+00:00	build:llama31-8b__w-int4gptq__kv-bf16	FAILED
+2026-11-25T20:54:34+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-25T20:55:52+00:00	verify:llama31-8b__w-fp8__kv-bf16	ok
+2026-11-25T20:57:17+00:00	verify:llama31-8b__w-fp8__kv-fp8	ok
+2026-11-25T20:58:22+00:00	verify:llama31-8b__w-int8__kv-bf16	ok
+2026-11-25T20:59:27+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	ok
+2026-11-25T20:59:27+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-25T20:59:29+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k	skip (done)
+2026-11-25T21:02:43+00:00	eval:llama31-8b__w-fp8__kv-bf16:gsm8k	ok
+2026-11-25T21:05:47+00:00	eval:llama31-8b__w-bf16__kv-fp8:gsm8k	ok
+2026-11-25T21:08:03+00:00	eval:llama31-8b__w-fp8__kv-fp8:gsm8k	ok
+2026-11-25T21:11:18+00:00	eval:llama31-8b__w-int8__kv-bf16:gsm8k	ok
+2026-11-25T21:14:50+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k	ok
+2026-11-25T21:14:50+00:00	eval:llama31-8b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
+2026-11-25T21:18:27+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k:rerun	ok
+2026-11-25T22:28:55+00:00	eval:llama31-8b__w-bf16__kv-bf16:mmlu	ok
+2026-11-25T23:16:54+00:00	eval:llama31-8b__w-fp8__kv-bf16:mmlu	ok
+2026-11-26T00:21:17+00:00	eval:llama31-8b__w-bf16__kv-fp8:mmlu	ok
+2026-11-26T01:08:47+00:00	eval:llama31-8b__w-fp8__kv-fp8:mmlu	ok
+2026-11-26T01:54:09+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	ok
+2026-11-26T02:53:53+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	ok
+2026-11-26T02:53:53+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T02:54:45+00:00	eval:llama31-8b__w-bf16__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_ifeval.log
+2026-11-26T02:55:25+00:00	eval:llama31-8b__w-fp8__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_ifeval.log
+2026-11-26T02:56:06+00:00	eval:llama31-8b__w-bf16__kv-fp8:ifeval	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_ifeval.log
+2026-11-26T02:56:45+00:00	eval:llama31-8b__w-fp8__kv-fp8:ifeval	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_ifeval.log
+2026-11-26T02:57:23+00:00	eval:llama31-8b__w-int8__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_ifeval.log
+2026-11-26T02:58:01+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_ifeval.log
+2026-11-26T02:58:01+00:00	eval:llama31-8b__w-int4awq__kv-bf16:ifeval	skip (no checkpoint)
+2026-11-26T02:58:49+00:00	eval:llama31-8b__w-bf16__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_longbench.log
+2026-11-26T02:59:28+00:00	eval:llama31-8b__w-fp8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
+2026-11-26T03:00:10+00:00	eval:llama31-8b__w-bf16__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
+2026-11-26T03:00:49+00:00	eval:llama31-8b__w-fp8__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+2026-11-26T03:01:28+00:00	eval:llama31-8b__w-int8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_longbench.log
+2026-11-26T03:02:06+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_longbench.log
+2026-11-26T03:02:06+00:00	eval:llama31-8b__w-int4awq__kv-bf16:longbench	skip (no checkpoint)
+2026-11-26T04:40:57+00:00	bench:llama31-8b__w-bf16__kv-bf16	ok
+2026-11-26T05:23:01+00:00	env_check	done
+2026-11-26T05:23:01+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-26T05:23:01+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-26T05:23:01+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
+2026-11-26T05:23:01+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-26T05:23:07+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T05:23:22+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T05:23:38+00:00	verify:llama31-8b__w-fp8__kv-fp8	FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+2026-11-26T05:23:54+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+2026-11-26T05:24:09+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+2026-11-26T05:24:09+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-fp8__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-bf16__kv-fp8:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-fp8__kv-fp8:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-int8__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k	skip (done)
+2026-11-26T05:24:14+00:00	eval:llama31-8b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
+2026-11-26T05:24:20+00:00	eval:llama31-8b__w-bf16__kv-bf16:mmlu	skip (done)
+2026-11-26T05:24:20+00:00	eval:llama31-8b__w-fp8__kv-bf16:mmlu	skip (done)
+2026-11-26T05:24:20+00:00	eval:llama31-8b__w-bf16__kv-fp8:mmlu	skip (done)
+2026-11-26T05:24:20+00:00	eval:llama31-8b__w-fp8__kv-fp8:mmlu	skip (done)
+2026-11-26T05:24:20+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	skip (done)
+2026-11-26T05:24:20+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	skip (done)
+2026-11-26T05:24:20+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T06:00:42+00:00	bench:llama31-8b__w-fp8__kv-bf16	ok
+2026-11-26T07:00:48+00:00	env_check	done
+2026-11-26T07:00:48+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-26T07:00:48+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-26T07:00:48+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
+2026-11-26T07:00:48+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-26T07:00:53+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T07:01:09+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T07:01:24+00:00	verify:llama31-8b__w-fp8__kv-fp8	FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+2026-11-26T07:01:40+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+2026-11-26T07:01:55+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+2026-11-26T07:01:55+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T07:02:01+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:02:01+00:00	eval:llama31-8b__w-fp8__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:02:01+00:00	eval:llama31-8b__w-bf16__kv-fp8:gsm8k	skip (done)
+2026-11-26T07:02:01+00:00	eval:llama31-8b__w-fp8__kv-fp8:gsm8k	skip (done)
+2026-11-26T07:02:01+00:00	eval:llama31-8b__w-int8__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:02:01+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:02:01+00:00	eval:llama31-8b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
+2026-11-26T07:02:06+00:00	eval:llama31-8b__w-bf16__kv-bf16:mmlu	skip (done)
+2026-11-26T07:02:07+00:00	eval:llama31-8b__w-fp8__kv-bf16:mmlu	skip (done)
+2026-11-26T07:02:07+00:00	eval:llama31-8b__w-bf16__kv-fp8:mmlu	skip (done)
+2026-11-26T07:02:07+00:00	eval:llama31-8b__w-fp8__kv-fp8:mmlu	skip (done)
+2026-11-26T07:02:07+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	skip (done)
+2026-11-26T07:02:07+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	skip (done)
+2026-11-26T07:02:07+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T07:06:27+00:00	bench:llama31-8b__w-bf16__kv-fp8	ok
+2026-11-26T07:07:14+00:00	env_check	done
+2026-11-26T07:07:14+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-26T07:07:14+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-26T07:07:14+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
+2026-11-26T07:07:14+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-26T07:07:25+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T07:07:41+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T07:08:30+00:00	verify:llama31-8b__w-fp8__kv-fp8	ok
+2026-11-26T07:09:20+00:00	verify:llama31-8b__w-int8__kv-bf16	ok
+2026-11-26T07:10:10+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	ok
+2026-11-26T07:10:10+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T07:10:13+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:10:13+00:00	eval:llama31-8b__w-fp8__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:10:13+00:00	eval:llama31-8b__w-bf16__kv-fp8:gsm8k	skip (done)
+2026-11-26T07:10:13+00:00	eval:llama31-8b__w-fp8__kv-fp8:gsm8k	skip (done)
+2026-11-26T07:10:13+00:00	eval:llama31-8b__w-int8__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:10:13+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k	skip (done)
+2026-11-26T07:10:13+00:00	eval:llama31-8b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
+2026-11-26T07:10:18+00:00	eval:llama31-8b__w-bf16__kv-bf16:mmlu	skip (done)
+2026-11-26T07:10:18+00:00	eval:llama31-8b__w-fp8__kv-bf16:mmlu	skip (done)
+2026-11-26T07:10:18+00:00	eval:llama31-8b__w-bf16__kv-fp8:mmlu	skip (done)
+2026-11-26T07:10:18+00:00	eval:llama31-8b__w-fp8__kv-fp8:mmlu	skip (done)
+2026-11-26T07:10:18+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	skip (done)
+2026-11-26T07:10:18+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	skip (done)
+2026-11-26T07:10:18+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T07:10:25+00:00	bench:llama31-8b__w-bf16__kv-bf16	skip (done)
+2026-11-26T08:29:33+00:00	bench:llama31-8b__w-fp8__kv-bf16	ok
+2026-11-26T09:52:49+00:00	bench:llama31-8b__w-bf16__kv-fp8	ok
+2026-11-26T10:57:38+00:00	bench:llama31-8b__w-fp8__kv-fp8	ok
+2026-11-26T12:15:02+00:00	bench:llama31-8b__w-int8__kv-bf16	ok
+2026-11-26T13:30:17+00:00	bench:llama31-8b__w-int4gptq__kv-bf16	ok
+2026-11-26T13:30:41+00:00	bench:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T19:24:30+00:00	env_check	done
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
+2026-11-26T19:24:30+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-26T19:24:41+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T19:25:32+00:00	verify:llama31-8b__w-fp8__kv-bf16	ok
+2026-11-26T19:26:21+00:00	verify:llama31-8b__w-fp8__kv-fp8	ok
+2026-11-26T19:27:11+00:00	verify:llama31-8b__w-int8__kv-bf16	ok
+2026-11-26T19:28:01+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	ok
+2026-11-26T19:28:01+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T19:28:08+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k	skip (done)
+2026-11-26T19:28:08+00:00	eval:llama31-8b__w-fp8__kv-bf16:gsm8k	skip (done)
+2026-11-26T19:28:08+00:00	eval:llama31-8b__w-bf16__kv-fp8:gsm8k	skip (done)
+2026-11-26T19:28:08+00:00	eval:llama31-8b__w-fp8__kv-fp8:gsm8k	skip (done)
+2026-11-26T19:28:08+00:00	eval:llama31-8b__w-int8__kv-bf16:gsm8k	skip (done)
+2026-11-26T19:28:08+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k	skip (done)
+2026-11-26T19:28:08+00:00	eval:llama31-8b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
+2026-11-26T19:28:17+00:00	eval:llama31-8b__w-bf16__kv-bf16:mmlu	skip (done)
+2026-11-26T19:28:17+00:00	eval:llama31-8b__w-fp8__kv-bf16:mmlu	skip (done)
+2026-11-26T19:28:17+00:00	eval:llama31-8b__w-bf16__kv-fp8:mmlu	skip (done)
+2026-11-26T19:28:17+00:00	eval:llama31-8b__w-fp8__kv-fp8:mmlu	skip (done)
+2026-11-26T19:28:18+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	skip (done)
+2026-11-26T19:28:18+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	skip (done)
+2026-11-26T19:28:18+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T19:32:35+00:00	eval:llama31-8b__w-bf16__kv-bf16:ifeval	ok
+2026-11-26T19:35:55+00:00	eval:llama31-8b__w-fp8__kv-bf16:ifeval	ok
+2026-11-26T19:38:49+00:00	eval:llama31-8b__w-bf16__kv-fp8:ifeval	ok
+2026-11-26T19:41:17+00:00	eval:llama31-8b__w-fp8__kv-fp8:ifeval	ok
+2026-11-26T19:44:39+00:00	eval:llama31-8b__w-int8__kv-bf16:ifeval	ok
+2026-11-26T19:48:06+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:ifeval	ok
+2026-11-26T19:48:06+00:00	eval:llama31-8b__w-int4awq__kv-bf16:ifeval	skip (no checkpoint)
+2026-11-26T20:00:58+00:00	env_check	done
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-fp8__kv-bf16	skip (exists)
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-fp8__kv-fp8	skip (exists)
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-int8__kv-bf16	skip (exists)
+2026-11-26T20:00:58+00:00	build:llama31-8b__w-int4gptq__kv-bf16	skip (exists)
+2026-11-26T20:01:08+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T20:01:08+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-fp8__kv-fp8	FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+2026-11-26T20:01:11+00:00	eval:llama31-8b__w-bf16__kv-bf16:gsm8k	skip (done)
+2026-11-26T20:01:11+00:00	eval:llama31-8b__w-fp8__kv-bf16:gsm8k	skip (done)
+2026-11-26T20:01:11+00:00	eval:llama31-8b__w-bf16__kv-fp8:gsm8k	skip (done)
+2026-11-26T20:01:11+00:00	eval:llama31-8b__w-fp8__kv-fp8:gsm8k	skip (done)
+2026-11-26T20:01:11+00:00	eval:llama31-8b__w-int8__kv-bf16:gsm8k	skip (done)
+2026-11-26T20:01:11+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:gsm8k	skip (done)
+2026-11-26T20:01:12+00:00	eval:llama31-8b__w-int4awq__kv-bf16:gsm8k	skip (no checkpoint)
+2026-11-26T20:01:21+00:00	eval:llama31-8b__w-bf16__kv-bf16:mmlu	skip (done)
+2026-11-26T20:01:21+00:00	eval:llama31-8b__w-fp8__kv-bf16:mmlu	skip (done)
+2026-11-26T20:01:21+00:00	eval:llama31-8b__w-bf16__kv-fp8:mmlu	skip (done)
+2026-11-26T20:01:21+00:00	eval:llama31-8b__w-fp8__kv-fp8:mmlu	skip (done)
+2026-11-26T20:01:21+00:00	eval:llama31-8b__w-int8__kv-bf16:mmlu	skip (done)
+2026-11-26T20:01:22+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:mmlu	skip (done)
+2026-11-26T20:01:22+00:00	eval:llama31-8b__w-int4awq__kv-bf16:mmlu	skip (no checkpoint)
+2026-11-26T20:01:28+00:00	eval:llama31-8b__w-bf16__kv-bf16:ifeval	skip (done)
+2026-11-26T20:01:28+00:00	eval:llama31-8b__w-fp8__kv-bf16:ifeval	skip (done)
+2026-11-26T20:01:28+00:00	eval:llama31-8b__w-bf16__kv-fp8:ifeval	skip (done)
+2026-11-26T20:01:28+00:00	eval:llama31-8b__w-fp8__kv-fp8:ifeval	skip (done)
+2026-11-26T20:01:28+00:00	eval:llama31-8b__w-int8__kv-bf16:ifeval	skip (done)
+2026-11-26T20:01:28+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:ifeval	skip (done)
+2026-11-26T20:01:28+00:00	eval:llama31-8b__w-int4awq__kv-bf16:ifeval	skip (no checkpoint)
+2026-11-26T20:01:36+00:00	eval:llama31-8b__w-bf16__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_longbench.log
+2026-11-26T20:01:37+00:00	eval:llama31-8b__w-bf16__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
+2026-11-26T20:01:39+00:00	eval:llama31-8b__w-fp8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
+2026-11-26T20:01:41+00:00	eval:llama31-8b__w-fp8__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-bf16__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-fp8__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-bf16__kv-fp8	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-fp8__kv-fp8	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-int8__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-int4gptq__kv-bf16	skip (done)
+2026-11-26T20:01:47+00:00	bench:llama31-8b__w-int4awq__kv-bf16	skip (no checkpoint)
+
+FAILED steps:
+37
+2026-11-25T20:48:04+00:00	build:llama31-8b__w-int8__kv-bf16	FAILED
+2026-11-25T20:54:27+00:00	build:llama31-8b__w-int4gptq__kv-bf16	FAILED
+2026-11-25T20:54:34+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T02:54:45+00:00	eval:llama31-8b__w-bf16__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_ifeval.log
+2026-11-26T02:55:25+00:00	eval:llama31-8b__w-fp8__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_ifeval.log
+2026-11-26T02:56:06+00:00	eval:llama31-8b__w-bf16__kv-fp8:ifeval	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_ifeval.log
+2026-11-26T02:56:45+00:00	eval:llama31-8b__w-fp8__kv-fp8:ifeval	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_ifeval.log
+2026-11-26T02:57:23+00:00	eval:llama31-8b__w-int8__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_ifeval.log
+2026-11-26T02:58:01+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:ifeval	FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_ifeval.log
+2026-11-26T02:58:49+00:00	eval:llama31-8b__w-bf16__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_longbench.log
+2026-11-26T02:59:28+00:00	eval:llama31-8b__w-fp8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
+2026-11-26T03:00:10+00:00	eval:llama31-8b__w-bf16__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
+2026-11-26T03:00:49+00:00	eval:llama31-8b__w-fp8__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+2026-11-26T03:01:28+00:00	eval:llama31-8b__w-int8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int8__kv-bf16_longbench.log
+2026-11-26T03:02:06+00:00	eval:llama31-8b__w-int4gptq__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-int4gptq__kv-bf16_longbench.log
+2026-11-26T05:23:07+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T05:23:22+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T05:23:38+00:00	verify:llama31-8b__w-fp8__kv-fp8	FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+2026-11-26T05:23:54+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+2026-11-26T05:24:09+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+2026-11-26T07:00:53+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T07:01:09+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T07:01:24+00:00	verify:llama31-8b__w-fp8__kv-fp8	FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+2026-11-26T07:01:40+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+2026-11-26T07:01:55+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+2026-11-26T07:07:25+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T07:07:41+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T19:24:41+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T20:01:08+00:00	build:llama31-8b__w-int4awq__kv-bf16	FAILED
+2026-11-26T20:01:08+00:00	verify:llama31-8b__w-fp8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-fp8__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-fp8__kv-fp8	FAILED -- read results/verify_llama31-8b__w-fp8__kv-fp8.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int8__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int8__kv-bf16.log before trusting it
+2026-11-26T20:01:09+00:00	verify:llama31-8b__w-int4gptq__kv-bf16	FAILED -- read results/verify_llama31-8b__w-int4gptq__kv-bf16.log before trusting it
+2026-11-26T20:01:36+00:00	eval:llama31-8b__w-bf16__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-bf16_longbench.log
+2026-11-26T20:01:37+00:00	eval:llama31-8b__w-bf16__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-bf16__kv-fp8_longbench.log
+2026-11-26T20:01:39+00:00	eval:llama31-8b__w-fp8__kv-bf16:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-bf16_longbench.log
+2026-11-26T20:01:41+00:00	eval:llama31-8b__w-fp8__kv-fp8:longbench	FAILED -- see results/eval_llama31-8b__w-fp8__kv-fp8_longbench.log
+
+Everything is pushed. Before you delete the node:
+  1. git log --oneline | head     (confirm your commits are there)
+  2. check results/ on GitHub in a browser
+  3. only then delete the node

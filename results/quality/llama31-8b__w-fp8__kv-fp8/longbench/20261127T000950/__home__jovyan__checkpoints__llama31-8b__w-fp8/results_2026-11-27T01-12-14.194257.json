@@ -1,0 +1,1966 @@
+{
+  "results": {
+    "longbench_lcc": {
+      "name": "longbench_lcc",
+      "alias": "longbench_lcc",
+      "sample_len": 500,
+      "score,none": 0.6276,
+      "score_stderr,none": 0.01271215472512473,
+      "code_sim_score,none": 0.6276,
+      "code_sim_score_stderr,none": 0.01271215472512473
+    },
+    "longbench_repobench-p": {
+      "name": "longbench_repobench-p",
+      "alias": "longbench_repobench-p",
+      "sample_len": 500,
+      "score,none": 0.53672,
+      "score_stderr,none": 0.013463142114349916,
+      "code_sim_score,none": 0.53672,
+      "code_sim_score_stderr,none": 0.013463142114349916
+    },
+    "longbench_trec": {
+      "name": "longbench_trec",
+      "alias": "longbench_trec",
+      "sample_len": 200,
+      "score,none": 0.715,
+      "score_stderr,none": 0.03199992148231573,
+      "classification_score,none": 0.715,
+      "classification_score_stderr,none": 0.03199992148231573
+    },
+    "longbench_triviaqa": {
+      "name": "longbench_triviaqa",
+      "alias": "longbench_triviaqa",
+      "sample_len": 200,
+      "score,none": 0.9101190476190476,
+      "score_stderr,none": 0.018941284233925652,
+      "qa_f1_score,none": 0.9101190476190476,
+      "qa_f1_score_stderr,none": 0.018941284233925652
+    },
+    "longbench_samsum": {
+      "name": "longbench_samsum",
+      "alias": "longbench_samsum",
+      "sample_len": 200,
+      "score,none": 0.4421719094542371,
+      "score_stderr,none": 0.01183623648654151,
+      "rouge_score,none": 0.4421719094542371,
+      "rouge_score_stderr,none": 0.01183623648654151
+    },
+    "longbench_lsht": {
+      "name": "longbench_lsht",
+      "alias": "longbench_lsht",
+      "sample_len": 200,
+      "score,none": 0.455,
+      "score_stderr,none": 0.03530021993753284,
+      "classification_score,none": 0.455,
+      "classification_score_stderr,none": 0.03530021993753284
+    },
+    "longbench_hotpotqa": {
+      "name": "longbench_hotpotqa",
+      "alias": "longbench_hotpotqa",
+      "sample_len": 200,
+      "score,none": 0.3368246999012742,
+      "score_stderr,none": 0.026607675650442992,
+      "qa_f1_score,none": 0.3368246999012742,
+      "qa_f1_score_stderr,none": 0.026607675650442992
+    },
+    "longbench_2wikimqa": {
+      "name": "longbench_2wikimqa",
+      "alias": "longbench_2wikimqa",
+      "sample_len": 200,
+      "score,none": 0.2406898240722948,
+      "score_stderr,none": 0.022602504259109427,
+      "qa_f1_score,none": 0.2406898240722948,
+      "qa_f1_score_stderr,none": 0.022602504259109427
+    },
+    "longbench_musique": {
+      "name": "longbench_musique",
+      "alias": "longbench_musique",
+      "sample_len": 200,
+      "score,none": 0.16248293786953405,
+      "score_stderr,none": 0.020333556795841663,
+      "qa_f1_score,none": 0.16248293786953405,
+      "qa_f1_score_stderr,none": 0.020333556795841663
+    },
+    "longbench_dureader": {
+      "name": "longbench_dureader",
+      "alias": "longbench_dureader",
+      "sample_len": 200,
+      "score,none": 0.297014526177676,
+      "score_stderr,none": 0.014010224165760254,
+      "rouge_zh_score,none": 0.297014526177676,
+      "rouge_zh_score_stderr,none": 0.014010224165760254
+    },
+    "longbench_narrativeqa": {
+      "name": "longbench_narrativeqa",
+      "alias": "longbench_narrativeqa",
+      "sample_len": 200,
+      "score,none": 0.2334814277001425,
+      "score_stderr,none": 0.02220314776940122,
+      "qa_f1_score,none": 0.2334814277001425,
+      "qa_f1_score_stderr,none": 0.02220314776940122
+    },
+    "longbench_qasper": {
+      "name": "longbench_qasper",
+      "alias": "longbench_qasper",
+      "sample_len": 200,
+      "score,none": 0.29912640138382707,
+      "score_stderr,none": 0.024215670990606147,
+      "qa_f1_score,none": 0.29912640138382707,
+      "qa_f1_score_stderr,none": 0.024215670990606147
+    },
+    "longbench_multifieldqa_en": {
+      "name": "longbench_multifieldqa_en",
+      "alias": "longbench_multifieldqa_en",
+      "sample_len": 150,
+      "score,none": 0.3318445107087966,
+      "score_stderr,none": 0.02249597033263773,
+      "qa_f1_score,none": 0.3318445107087966,
+      "qa_f1_score_stderr,none": 0.02249597033263773
+    },
+    "longbench_multifieldqa_zh": {
+      "name": "longbench_multifieldqa_zh",
+      "alias": "longbench_multifieldqa_zh",
+      "sample_len": 200,
+      "score,none": 0.20571924075757192,
+      "score_stderr,none": 0.011403445160608212,
+      "qa_f1_zh_score,none": 0.20571924075757192,
+      "qa_f1_zh_score_stderr,none": 0.011403445160608212
+    },
+    "longbench_gov_report": {
+      "name": "longbench_gov_report",
+      "alias": "longbench_gov_report",
+      "sample_len": 200,
+      "score,none": 0.3474877197844416,
+      "score_stderr,none": 0.004360274899058514,
+      "rouge_score,none": 0.3474877197844416,
+      "rouge_score_stderr,none": 0.004360274899058514
+    },
+    "longbench_qmsum": {
+      "name": "longbench_qmsum",
+      "alias": "longbench_qmsum",
+      "sample_len": 200,
+      "score,none": 0.2296191687412679,
+      "score_stderr,none": 0.003963164192724386,
+      "rouge_score,none": 0.2296191687412679,
+      "rouge_score_stderr,none": 0.003963164192724386
+    },
+    "longbench_multi_news": {
+      "name": "longbench_multi_news",
+      "alias": "longbench_multi_news",
+      "sample_len": 200,
+      "score,none": 0.27324405550554515,
+      "score_stderr,none": 0.004042256545891933,
+      "rouge_score,none": 0.27324405550554515,
+      "rouge_score_stderr,none": 0.004042256545891933
+    },
+    "longbench_vcsum": {
+      "name": "longbench_vcsum",
+      "alias": "longbench_vcsum",
+      "sample_len": 200,
+      "score,none": 0.16533719200230235,
+      "score_stderr,none": 0.003995638262528436,
+      "rouge_zh_score,none": 0.16533719200230235,
+      "rouge_zh_score_stderr,none": 0.003995638262528436
+    },
+    "longbench_passage_count": {
+      "name": "longbench_passage_count",
+      "alias": "longbench_passage_count",
+      "sample_len": 200,
+      "score,none": 0.08288461538461539,
+      "score_stderr,none": 0.019336965190294417,
+      "count_score,none": 0.08288461538461539,
+      "count_score_stderr,none": 0.019336965190294417
+    },
+    "longbench_passage_retrieval_en": {
+      "name": "longbench_passage_retrieval_en",
+      "alias": "longbench_passage_retrieval_en",
+      "sample_len": 200,
+      "score,none": 0.9284166666666667,
+      "score_stderr,none": 0.012931981519002293,
+      "retrieval_score,none": 0.9284166666666667,
+      "retrieval_score_stderr,none": 0.012931981519002293
+    },
+    "longbench_passage_retrieval_zh": {
+      "name": "longbench_passage_retrieval_zh",
+      "alias": "longbench_passage_retrieval_zh",
+      "sample_len": 200,
+      "score,none": 0.9458333333333333,
+      "score_stderr,none": 0.015161861664537165,
+      "retrieval_zh_score,none": 0.9458333333333333,
+      "retrieval_zh_score_stderr,none": 0.015161861664537165
+    },
+    "longbench_code": {
+      "alias": "Code Completion",
+      "name": "longbench_code",
+      "sample_len": 1000,
+      "score,none": 0.58216,
+      "score_stderr,none": 0.009258173056098775,
+      "sample_count": {
+        "score,none": 1000
+      }
+    },
+    "longbench_fewshot": {
+      "alias": "Few-shot Learning",
+      "name": "longbench_fewshot",
+      "sample_len": 800,
+      "score,none": 0.6305727392683211,
+      "score_stderr,none": 0.013155249059568054,
+      "sample_count": {
+        "score,none": 800
+      }
+    },
+    "longbench_multi": {
+      "alias": "Multi-Document QA",
+      "name": "longbench_multi",
+      "sample_len": 800,
+      "score,none": 0.2592529970051948,
+      "score_stderr,none": 0.010690479162106135,
+      "sample_count": {
+        "score,none": 800
+      }
+    },
+    "longbench_single": {
+      "alias": "Single-Document QA",
+      "name": "longbench_single",
+      "sample_len": 750,
+      "score,none": 0.2675428951375845,
+      "score_stderr,none": 0.010354605663462836,
+      "sample_count": {
+        "score,none": 750
+      }
+    },
+    "longbench_summarization": {
+      "alias": "Summarization",
+      "name": "longbench_summarization",
+      "sample_len": 800,
+      "score,none": 0.25392203400838925,
+      "score_stderr,none": 0.002046699030170898,
+      "sample_count": {
+        "score,none": 800
+      }
+    },
+    "longbench_synthetic": {
+      "alias": "Synthetic Tasks",
+      "name": "longbench_synthetic",
+      "sample_len": 600,
+      "score,none": 0.6523782051282051,
+      "score_stderr,none": 0.009255847508545531,
+      "sample_count": {
+        "score,none": 600
+      }
+    },
+    "longbench": {
+      "alias": "longbench",
+      "name": "longbench",
+      "sample_len": 4750,
+      "score,none": 0.4174579655744083,
+      "score_stderr,none": 0.0041222672849309,
+      "sample_count": {
+        "score,none": 4750
+      }
+    }
+  },
+  "groups": {
+    "longbench_code": {
+      "alias": "Code Completion",
+      "name": "longbench_code",
+      "sample_len": 1000,
+      "score,none": 0.58216,
+      "score_stderr,none": 0.009258173056098775,
+      "sample_count": {
+        "score,none": 1000
+      }
+    },
+    "longbench_fewshot": {
+      "alias": "Few-shot Learning",
+      "name": "longbench_fewshot",
+      "sample_len": 800,
+      "score,none": 0.6305727392683211,
+      "score_stderr,none": 0.013155249059568054,
+      "sample_count": {
+        "score,none": 800
+      }
+    },
+    "longbench_multi": {
+      "alias": "Multi-Document QA",
+      "name": "longbench_multi",
+      "sample_len": 800,
+      "score,none": 0.2592529970051948,
+      "score_stderr,none": 0.010690479162106135,
+      "sample_count": {
+        "score,none": 800
+      }
+    },
+    "longbench_single": {
+      "alias": "Single-Document QA",
+      "name": "longbench_single",
+      "sample_len": 750,
+      "score,none": 0.2675428951375845,
+      "score_stderr,none": 0.010354605663462836,
+      "sample_count": {
+        "score,none": 750
+      }
+    },
+    "longbench_summarization": {
+      "alias": "Summarization",
+      "name": "longbench_summarization",
+      "sample_len": 800,
+      "score,none": 0.25392203400838925,
+      "score_stderr,none": 0.002046699030170898,
+      "sample_count": {
+        "score,none": 800
+      }
+    },
+    "longbench_synthetic": {
+      "alias": "Synthetic Tasks",
+      "name": "longbench_synthetic",
+      "sample_len": 600,
+      "score,none": 0.6523782051282051,
+      "score_stderr,none": 0.009255847508545531,
+      "sample_count": {
+        "score,none": 600
+      }
+    },
+    "longbench": {
+      "alias": "longbench",
+      "name": "longbench",
+      "sample_len": 4750,
+      "score,none": 0.4174579655744083,
+      "score_stderr,none": 0.0041222672849309,
+      "sample_count": {
+        "score,none": 4750
+      }
+    }
+  },
+  "group_subtasks": {
+    "longbench": [
+      "longbench_code",
+      "longbench_fewshot",
+      "longbench_multi",
+      "longbench_single",
+      "longbench_summarization",
+      "longbench_synthetic"
+    ],
+    "longbench_code": [
+      "longbench_lcc",
+      "longbench_repobench-p"
+    ],
+    "longbench_fewshot": [
+      "longbench_trec",
+      "longbench_triviaqa",
+      "longbench_samsum",
+      "longbench_lsht"
+    ],
+    "longbench_multi": [
+      "longbench_hotpotqa",
+      "longbench_2wikimqa",
+      "longbench_musique",
+      "longbench_dureader"
+    ],
+    "longbench_single": [
+      "longbench_narrativeqa",
+      "longbench_qasper",
+      "longbench_multifieldqa_en",
+      "longbench_multifieldqa_zh"
+    ],
+    "longbench_summarization": [
+      "longbench_gov_report",
+      "longbench_qmsum",
+      "longbench_multi_news",
+      "longbench_vcsum"
+    ],
+    "longbench_synthetic": [
+      "longbench_passage_count",
+      "longbench_passage_retrieval_en",
+      "longbench_passage_retrieval_zh"
+    ]
+  },
+  "configs": {
+    "longbench_2wikimqa": {
+      "task": "longbench_2wikimqa",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "2wikimqa",
+      "test_split": "test",
+      "doc_to_text": "Answer the question based on the given passages. Only give me the answer and do not output any other words.\n\nThe following are given passages.\n{{context}}\n\nAnswer the question based on the given passages. Only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_score(doc, results, **kwargs)\n    qa_f1 = result[\"qa_f1_score\"]\n    return {\"score\": qa_f1, \"qa_f1_score\": qa_f1}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Answer the question based on the given passages. Only give me the answer and do not output any other words.\n\nThe following are given passages.\n{{context}}\n\nAnswer the question based on the given passages. Only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 32,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/2wikimqa.yaml"
+      }
+    },
+    "longbench_dureader": {
+      "task": "longbench_dureader",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "dureader",
+      "test_split": "test",
+      "doc_to_text": "请基于给定的文章回答下述问题。\n\n文章：{{context}}\n\n请基于上述文章回答下面的问题。\n\n问题：{{question}}\n回答：",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_rouge_zh_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_rouge_zh_score(doc, results, **kwargs)\n    rouge_zh = result[\"rouge_zh_score\"]\n    return {\"score\": rouge_zh, \"rouge_zh_score\": rouge_zh}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "请基于给定的文章回答下述问题。\n\n文章：{{context}}\n\n请基于上述文章回答下面的问题。\n\n问题：{{question}}\n回答：",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge_zh_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 128,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/dureader.yaml"
+      }
+    },
+    "longbench_gov_report": {
+      "task": "longbench_gov_report",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "gov_report",
+      "test_split": "test",
+      "doc_to_text": "You are given a report by a government agency. Write a one-page summary of the report.\n\nReport:\n{{context}}\n\nNow, write a one-page summary of the report.\n\nSummary:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_rouge_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_rouge_score(doc, results, **kwargs)\n    rouge = result[\"rouge_score\"]\n    return {\"score\": rouge, \"rouge_score\": rouge}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "You are given a report by a government agency. Write a one-page summary of the report.\n\nReport:\n{{context}}\n\nNow, write a one-page summary of the report.\n\nSummary:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 512,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/gov_report.yaml"
+      }
+    },
+    "longbench_hotpotqa": {
+      "task": "longbench_hotpotqa",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "hotpotqa",
+      "test_split": "test",
+      "doc_to_text": "Answer the question based on the given passages. Only give me the answer and do not output any other words.\n\nThe following are given passages.\n{{context}}\n\nAnswer the question based on the given passages. Only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_score(doc, results, **kwargs)\n    qa_f1 = result[\"qa_f1_score\"]\n    return {\"score\": qa_f1, \"qa_f1_score\": qa_f1}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Answer the question based on the given passages. Only give me the answer and do not output any other words.\n\nThe following are given passages.\n{{context}}\n\nAnswer the question based on the given passages. Only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 32,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/hotpotqa.yaml"
+      }
+    },
+    "longbench_lcc": {
+      "task": "longbench_lcc",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "lcc",
+      "test_split": "test",
+      "doc_to_text": "Please complete the code given below. \n{{context}}Next line of code:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_code_sim_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_code_sim_score(doc, results, **kwargs)\n    code_sim = result[\"code_sim_score\"]\n    return {\"score\": code_sim, \"code_sim_score\": code_sim}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Please complete the code given below. \n{{context}}Next line of code:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "code_sim_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 64,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 6.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/lcc.yaml"
+      }
+    },
+    "longbench_lsht": {
+      "task": "longbench_lsht",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "lsht",
+      "test_split": "test",
+      "doc_to_text": "请判断给定新闻的类别，下面是一些例子。\n\n{{context}}\n{{question}}",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_classification_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_classification_score(doc, results, **kwargs)\n    classification = result[\"classification_score\"]\n    return {\"score\": classification, \"classification_score\": classification}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "请判断给定新闻的类别，下面是一些例子。\n\n{{context}}\n{{question}}",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "classification_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 64,
+        "temperature": 0,
+        "do_sample": false,
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/lsht.yaml"
+      }
+    },
+    "longbench_multi_news": {
+      "task": "longbench_multi_news",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "multi_news",
+      "test_split": "test",
+      "doc_to_text": "You are given several news passages. Write a one-page summary of all news. \n\nNews:\n{{context}}\n\nNow, write a one-page summary of all the news.\n\nSummary:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_rouge_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_rouge_score(doc, results, **kwargs)\n    rouge = result[\"rouge_score\"]\n    return {\"score\": rouge, \"rouge_score\": rouge}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "You are given several news passages. Write a one-page summary of all news. \n\nNews:\n{{context}}\n\nNow, write a one-page summary of all the news.\n\nSummary:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 512,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/multi_news.yaml"
+      }
+    },
+    "longbench_multifieldqa_en": {
+      "task": "longbench_multifieldqa_en",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "multifieldqa_en",
+      "test_split": "test",
+      "doc_to_text": "Read the following text and answer briefly.\n\n{{context}}\n\nNow, answer the following question based on the above text, only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_score(doc, results, **kwargs)\n    qa_f1 = result[\"qa_f1_score\"]\n    return {\"score\": qa_f1, \"qa_f1_score\": qa_f1}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Read the following text and answer briefly.\n\n{{context}}\n\nNow, answer the following question based on the above text, only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 64,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/multifieldqa_en.yaml"
+      }
+    },
+    "longbench_multifieldqa_zh": {
+      "task": "longbench_multifieldqa_zh",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "multifieldqa_zh",
+      "test_split": "test",
+      "doc_to_text": "阅读以下文字并用中文简短回答：\n\n{{context}}\n\n现在请基于上面的文章回答下面的问题，只告诉我答案，不要输出任何其他字词。\n\n问题：{{question}}\n回答：",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_zh_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_zh_score(doc, results, **kwargs)\n    qa_f1_zh = result[\"qa_f1_zh_score\"]\n    return {\"score\": qa_f1_zh, \"qa_f1_zh_score\": qa_f1_zh}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "阅读以下文字并用中文简短回答：\n\n{{context}}\n\n现在请基于上面的文章回答下面的问题，只告诉我答案，不要输出任何其他字词。\n\n问题：{{question}}\n回答：",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_zh_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 64,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/multifieldqa_zh.yaml"
+      }
+    },
+    "longbench_musique": {
+      "task": "longbench_musique",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "musique",
+      "test_split": "test",
+      "doc_to_text": "Answer the question based on the given passages. Only give me the answer and do not output any other words.\n\nThe following are given passages.\n{{context}}\n\nAnswer the question based on the given passages. Only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_score(doc, results, **kwargs)\n    qa_f1 = result[\"qa_f1_score\"]\n    return {\"score\": qa_f1, \"qa_f1_score\": qa_f1}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Answer the question based on the given passages. Only give me the answer and do not output any other words.\n\nThe following are given passages.\n{{context}}\n\nAnswer the question based on the given passages. Only give me the answer and do not output any other words.\n\nQuestion: {{question}}\nAnswer:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 32,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/musique.yaml"
+      }
+    },
+    "longbench_narrativeqa": {
+      "task": "longbench_narrativeqa",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "narrativeqa",
+      "test_split": "test",
+      "doc_to_text": "You are given a story, which can be either a novel or a movie script, and a question. Answer the question asconcisely as you can, using a single phrase if possible. Do not provide any explanation.\n\nStory: {{context}}\n\nNow, answer the question based on the story asconcisely as you can, using a single phrase if possible. Do not provide any explanation.\n\nQuestion: {{question}}\n\nAnswer:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_score(doc, results, **kwargs)\n    qa_f1 = result[\"qa_f1_score\"]\n    return {\"score\": qa_f1, \"qa_f1_score\": qa_f1}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "You are given a story, which can be either a novel or a movie script, and a question. Answer the question asconcisely as you can, using a single phrase if possible. Do not provide any explanation.\n\nStory: {{context}}\n\nNow, answer the question based on the story asconcisely as you can, using a single phrase if possible. Do not provide any explanation.\n\nQuestion: {{question}}\n\nAnswer:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 128,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/narrativeqa.yaml"
+      }
+    },
+    "longbench_passage_count": {
+      "task": "longbench_passage_count",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "passage_count",
+      "test_split": "test",
+      "doc_to_text": "There are some paragraphs below sourced from Wikipedia. Some of them may be duplicates. Please carefully read these paragraphs and determine how many unique paragraphs there are after removing duplicates. In other words, how many non-repeating paragraphs are there in total?\n\n{{context}}\n\nPlease enter the final count of unique paragraphs after removing duplicates. The output format should only contain the number, such as 1, 2, 3, and so on.\n\nThe final answer is:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_count_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_count_score(doc, results, **kwargs)\n    count = result[\"count_score\"]\n    return {\"score\": count, \"count_score\": count}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "There are some paragraphs below sourced from Wikipedia. Some of them may be duplicates. Please carefully read these paragraphs and determine how many unique paragraphs there are after removing duplicates. In other words, how many non-repeating paragraphs are there in total?\n\n{{context}}\n\nPlease enter the final count of unique paragraphs after removing duplicates. The output format should only contain the number, such as 1, 2, 3, and so on.\n\nThe final answer is:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "count_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 32,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/passage_count.yaml"
+      }
+    },
+    "longbench_passage_retrieval_en": {
+      "task": "longbench_passage_retrieval_en",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "passage_retrieval_en",
+      "test_split": "test",
+      "doc_to_text": "Here are 30 paragraphs from Wikipedia, along with an abstract. Please determine which paragraph the abstract is from.\n\n{{context}}\n\nThe following is an abstract.\n\n{{question}}\n\nPlease enter the number of the paragraph that the abstract is from. The answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_retrieval_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_retrieval_score(doc, results, **kwargs)\n    retrieval = result[\"retrieval_score\"]\n    return {\"score\": retrieval, \"retrieval_score\": retrieval}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Here are 30 paragraphs from Wikipedia, along with an abstract. Please determine which paragraph the abstract is from.\n\n{{context}}\n\nThe following is an abstract.\n\n{{question}}\n\nPlease enter the number of the paragraph that the abstract is from. The answer format must be like \"Paragraph 1\", \"Paragraph 2\", etc.\n\nThe answer is:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "retrieval_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 32,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/passage_retrieval_en.yaml"
+      }
+    },
+    "longbench_passage_retrieval_zh": {
+      "task": "longbench_passage_retrieval_zh",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "passage_retrieval_zh",
+      "test_split": "test",
+      "doc_to_text": "以下是若干段落文字，以及其中一个段落的摘要。请确定给定的摘要出自哪一段。\n\n{{context}}\n\n下面是一个摘要\n\n{{question}}\n\n请输入摘要所属段落的编号。答案格式必须是\"段落1\"，\"段落2\"等格式\n\n答案是：",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_retrieval_zh_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_retrieval_zh_score(doc, results, **kwargs)\n    retrieval_zh = result[\"retrieval_zh_score\"]\n    return {\"score\": retrieval_zh, \"retrieval_zh_score\": retrieval_zh}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "以下是若干段落文字，以及其中一个段落的摘要。请确定给定的摘要出自哪一段。\n\n{{context}}\n\n下面是一个摘要\n\n{{question}}\n\n请输入摘要所属段落的编号。答案格式必须是\"段落1\"，\"段落2\"等格式\n\n答案是：",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "retrieval_zh_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 32,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/passage_retrieval_zh.yaml"
+      }
+    },
+    "longbench_qasper": {
+      "task": "longbench_qasper",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "qasper",
+      "test_split": "test",
+      "doc_to_text": "You are given a scientific article and a question. Answer the question as concisely as you can, using a single phrase or sentence if possible. If the question cannot be answered based on the information in the article, write \"unanswerable\". If the question is a yes/no question, answer \"yes\", \"no\", or \"unanswerable\". Do not provide any explanation.\n\nArticle: {{context}}\n\n Answer the question based on the above article as concisely as you can, using a single phrase or sentence if possible. If the question cannot be answered based on the information in the article, write \"unanswerable\". If the question is a yes/no question, answer \"yes\", \"no\", or \"unanswerable\". Do not provide any explanation.\n\nQuestion: {{question}}\n\nAnswer:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_score(doc, results, **kwargs)\n    qa_f1 = result[\"qa_f1_score\"]\n    return {\"score\": qa_f1, \"qa_f1_score\": qa_f1}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "You are given a scientific article and a question. Answer the question as concisely as you can, using a single phrase or sentence if possible. If the question cannot be answered based on the information in the article, write \"unanswerable\". If the question is a yes/no question, answer \"yes\", \"no\", or \"unanswerable\". Do not provide any explanation.\n\nArticle: {{context}}\n\n Answer the question based on the above article as concisely as you can, using a single phrase or sentence if possible. If the question cannot be answered based on the information in the article, write \"unanswerable\". If the question is a yes/no question, answer \"yes\", \"no\", or \"unanswerable\". Do not provide any explanation.\n\nQuestion: {{question}}\n\nAnswer:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 128,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/qasper.yaml"
+      }
+    },
+    "longbench_qmsum": {
+      "task": "longbench_qmsum",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "qmsum",
+      "test_split": "test",
+      "doc_to_text": "You are given a meeting transcript and a query containing a question or instruction. Answer the query in one or more sentences.\n\nTranscript:\n{{context}}\n\nNow, answer the query based on the above meeting transcript in one or more sentences.\n\nQuery: {{question}}\nAnswer:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_rouge_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_rouge_score(doc, results, **kwargs)\n    rouge = result[\"rouge_score\"]\n    return {\"score\": rouge, \"rouge_score\": rouge}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "You are given a meeting transcript and a query containing a question or instruction. Answer the query in one or more sentences.\n\nTranscript:\n{{context}}\n\nNow, answer the query based on the above meeting transcript in one or more sentences.\n\nQuery: {{question}}\nAnswer:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 512,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/qmsum.yaml"
+      }
+    },
+    "longbench_repobench-p": {
+      "task": "longbench_repobench-p",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "repobench-p",
+      "test_split": "test",
+      "doc_to_text": "Please complete the code given below. \n{{context}}{{question}}Next line of code:",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_code_sim_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_code_sim_score(doc, results, **kwargs)\n    code_sim = result[\"code_sim_score\"]\n    return {\"score\": code_sim, \"code_sim_score\": code_sim}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Please complete the code given below. \n{{context}}{{question}}Next line of code:",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "code_sim_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 64,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 6.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/repobench-p.yaml"
+      }
+    },
+    "longbench_samsum": {
+      "task": "longbench_samsum",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "samsum",
+      "test_split": "test",
+      "doc_to_text": "Summarize the dialogue into a few short sentences. The following are some examples.\n\n{{context}}\n{{question}}",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_rouge_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_rouge_score(doc, results, **kwargs)\n    rouge = result[\"rouge_score\"]\n    return {\"score\": rouge, \"rouge_score\": rouge}\n",
+      "description": "",
+      "target_delimiter": "",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Summarize the dialogue into a few short sentences. The following are some examples.\n\n{{context}}\n{{question}}",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": ""
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 128,
+        "temperature": 0,
+        "do_sample": false,
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/samsum.yaml"
+      }
+    },
+    "longbench_trec": {
+      "task": "longbench_trec",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "trec",
+      "test_split": "test",
+      "doc_to_text": "Please determine the type of the question below. Here are some examples of questions.\n\n{{context}}\n{{question}}",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_classification_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_classification_score(doc, results, **kwargs)\n    classification = result[\"classification_score\"]\n    return {\"score\": classification, \"classification_score\": classification}\n",
+      "description": "",
+      "target_delimiter": "",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Please determine the type of the question below. Here are some examples of questions.\n\n{{context}}\n{{question}}",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": ""
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "classification_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 64,
+        "temperature": 0,
+        "do_sample": false,
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/trec.yaml"
+      }
+    },
+    "longbench_triviaqa": {
+      "task": "longbench_triviaqa",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "triviaqa",
+      "test_split": "test",
+      "doc_to_text": "Answer the question based on the given passage. Only give me the answer and do not output any other words. The following are some examples.\n\n{{context}}\n{{question}}",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_qa_f1_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_qa_f1_score(doc, results, **kwargs)\n    qa_f1 = result[\"qa_f1_score\"]\n    return {\"score\": qa_f1, \"qa_f1_score\": qa_f1}\n",
+      "description": "",
+      "target_delimiter": "",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "Answer the question based on the given passage. Only give me the answer and do not output any other words. The following are some examples.\n\n{{context}}\n{{question}}",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": ""
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "qa_f1_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 32,
+        "temperature": 0,
+        "do_sample": false,
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/triviaqa.yaml"
+      }
+    },
+    "longbench_vcsum": {
+      "task": "longbench_vcsum",
+      "dataset_path": "Xnhyacinth/LongBench",
+      "dataset_name": "vcsum",
+      "test_split": "test",
+      "doc_to_text": "下面有一段会议记录，请你阅读后，写一段总结，总结会议的内容。\n会议记录：\n{{context}}\n\n会议总结：",
+      "doc_to_target": "{{answers}}",
+      "unsafe_code": false,
+      "process_results": "def get_rouge_zh_with_score(doc: dict, results: list[str], **kwargs):\n    result = get_rouge_zh_score(doc, results, **kwargs)\n    rouge_zh = result[\"rouge_zh_score\"]\n    return {\"score\": rouge_zh, \"rouge_zh_score\": rouge_zh}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "default",
+        "split": null,
+        "process_docs": null,
+        "fewshot_indices": null,
+        "samples": null,
+        "doc_to_text": "下面有一段会议记录，请你阅读后，写一段总结，总结会议的内容。\n会议记录：\n{{context}}\n\n会议总结：",
+        "doc_to_choice": null,
+        "doc_to_target": "{{answers}}",
+        "gen_prefix": null,
+        "fewshot_delimiter": "\n\n",
+        "target_delimiter": " "
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge_zh_score",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_gen_toks": 512,
+        "temperature": 0,
+        "do_sample": false,
+        "until": []
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 5.0,
+        "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+        "max_model_len": 20480,
+        "kv_cache_dtype": "fp8",
+        "add_bos_token": true,
+        "gpu_memory_utilization": 0.9,
+        "tensor_parallel_size": 1,
+        "seed": 1234,
+        "config_source": "/home/jovyan/llm-precision-study/.venv-vllm/lib/python3.12/site-packages/lm_eval/tasks/longbench/vcsum.yaml"
+      }
+    }
+  },
+  "versions": {
+    "longbench": "0.0",
+    "longbench_2wikimqa": 5.0,
+    "longbench_code": "0.0",
+    "longbench_dureader": 5.0,
+    "longbench_fewshot": "0.0",
+    "longbench_gov_report": 5.0,
+    "longbench_hotpotqa": 5.0,
+    "longbench_lcc": 6.0,
+    "longbench_lsht": 5.0,
+    "longbench_multi": "0.0",
+    "longbench_multi_news": 5.0,
+    "longbench_multifieldqa_en": 5.0,
+    "longbench_multifieldqa_zh": 5.0,
+    "longbench_musique": 5.0,
+    "longbench_narrativeqa": 5.0,
+    "longbench_passage_count": 5.0,
+    "longbench_passage_retrieval_en": 5.0,
+    "longbench_passage_retrieval_zh": 5.0,
+    "longbench_qasper": 5.0,
+    "longbench_qmsum": 5.0,
+    "longbench_repobench-p": 6.0,
+    "longbench_samsum": 5.0,
+    "longbench_single": "0.0",
+    "longbench_summarization": "0.0",
+    "longbench_synthetic": "0.0",
+    "longbench_trec": 5.0,
+    "longbench_triviaqa": 5.0,
+    "longbench_vcsum": 5.0
+  },
+  "n-shot": {
+    "longbench_2wikimqa": 0,
+    "longbench_code": 0,
+    "longbench_dureader": 0,
+    "longbench_fewshot": 0,
+    "longbench_gov_report": 0,
+    "longbench_hotpotqa": 0,
+    "longbench_lcc": 0,
+    "longbench_lsht": 0,
+    "longbench_multi": 0,
+    "longbench_multi_news": 0,
+    "longbench_multifieldqa_en": 0,
+    "longbench_multifieldqa_zh": 0,
+    "longbench_musique": 0,
+    "longbench_narrativeqa": 0,
+    "longbench_passage_count": 0,
+    "longbench_passage_retrieval_en": 0,
+    "longbench_passage_retrieval_zh": 0,
+    "longbench_qasper": 0,
+    "longbench_qmsum": 0,
+    "longbench_repobench-p": 0,
+    "longbench_samsum": 0,
+    "longbench_single": 0,
+    "longbench_summarization": 0,
+    "longbench_synthetic": 0,
+    "longbench_trec": 0,
+    "longbench_triviaqa": 0,
+    "longbench_vcsum": 0
+  },
+  "higher_is_better": {
+    "longbench_2wikimqa": {
+      "score": true,
+      "qa_f1_score": true
+    },
+    "longbench_code": {
+      "score": true,
+      "code_sim_score": true
+    },
+    "longbench_dureader": {
+      "score": true,
+      "rouge_zh_score": true
+    },
+    "longbench_fewshot": {
+      "score": true,
+      "classification_score": true,
+      "qa_f1_score": true,
+      "rouge_score": true
+    },
+    "longbench_gov_report": {
+      "score": true,
+      "rouge_score": true
+    },
+    "longbench_hotpotqa": {
+      "score": true,
+      "qa_f1_score": true
+    },
+    "longbench_lcc": {
+      "score": true,
+      "code_sim_score": true
+    },
+    "longbench_lsht": {
+      "score": true,
+      "classification_score": true
+    },
+    "longbench_multi": {
+      "score": true,
+      "qa_f1_score": true,
+      "rouge_zh_score": true
+    },
+    "longbench_multi_news": {
+      "score": true,
+      "rouge_score": true
+    },
+    "longbench_multifieldqa_en": {
+      "score": true,
+      "qa_f1_score": true
+    },
+    "longbench_multifieldqa_zh": {
+      "score": true,
+      "qa_f1_zh_score": true
+    },
+    "longbench_musique": {
+      "score": true,
+      "qa_f1_score": true
+    },
+    "longbench_narrativeqa": {
+      "score": true,
+      "qa_f1_score": true
+    },
+    "longbench_passage_count": {
+      "score": true,
+      "count_score": true
+    },
+    "longbench_passage_retrieval_en": {
+      "score": true,
+      "retrieval_score": true
+    },
+    "longbench_passage_retrieval_zh": {
+      "score": true,
+      "retrieval_zh_score": true
+    },
+    "longbench_qasper": {
+      "score": true,
+      "qa_f1_score": true
+    },
+    "longbench_qmsum": {
+      "score": true,
+      "rouge_score": true
+    },
+    "longbench_repobench-p": {
+      "score": true,
+      "code_sim_score": true
+    },
+    "longbench_samsum": {
+      "score": true,
+      "rouge_score": true
+    },
+    "longbench_single": {
+      "score": true,
+      "qa_f1_score": true,
+      "qa_f1_zh_score": true
+    },
+    "longbench_summarization": {
+      "score": true,
+      "rouge_score": true,
+      "rouge_zh_score": true
+    },
+    "longbench_synthetic": {
+      "score": true,
+      "count_score": true,
+      "retrieval_score": true,
+      "retrieval_zh_score": true
+    },
+    "longbench_trec": {
+      "score": true,
+      "classification_score": true
+    },
+    "longbench_triviaqa": {
+      "score": true,
+      "qa_f1_score": true
+    },
+    "longbench_vcsum": {
+      "score": true,
+      "rouge_zh_score": true
+    }
+  },
+  "n-samples": {
+    "longbench_lcc": {
+      "original": 500,
+      "effective": 500
+    },
+    "longbench_repobench-p": {
+      "original": 500,
+      "effective": 500
+    },
+    "longbench_trec": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_triviaqa": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_samsum": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_lsht": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_hotpotqa": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_2wikimqa": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_musique": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_dureader": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_narrativeqa": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_qasper": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_multifieldqa_en": {
+      "original": 150,
+      "effective": 150
+    },
+    "longbench_multifieldqa_zh": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_gov_report": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_qmsum": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_multi_news": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_vcsum": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_passage_count": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_passage_retrieval_en": {
+      "original": 200,
+      "effective": 200
+    },
+    "longbench_passage_retrieval_zh": {
+      "original": 200,
+      "effective": 200
+    }
+  },
+  "config": {
+    "model": "vllm",
+    "model_args": {
+      "pretrained": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+      "max_model_len": 20480,
+      "kv_cache_dtype": "fp8",
+      "add_bos_token": true,
+      "gpu_memory_utilization": 0.9,
+      "tensor_parallel_size": 1,
+      "seed": 1234
+    },
+    "batch_size": "auto",
+    "batch_sizes": [],
+    "device": "cuda:0",
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {
+      "temperature": 0
+    },
+    "random_seed": 1234,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "4b17c0c",
+  "date": 1795738197.734591,
+  "pretty_env_info": "PyTorch version: 2.13.0+cu129\nIs debug build: False\nCUDA used to build PyTorch: 12.9\nROCM used to build PyTorch: N/A\n\nOS: Ubuntu 24.04.2 LTS (x86_64)\nGCC version: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0\nClang version: Could not collect\nCMake version: version 3.31.6\nLibc version: glibc-2.39\n\nPython version: 3.12.3 (main, Feb  4 2025, 14:48:35) [GCC 13.3.0] (64-bit runtime)\nPython platform: Linux-5.15.0-94-generic-x86_64-with-glibc2.39\nIs CUDA available: True\nCUDA runtime version: 12.9.86\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: GPU 0: NVIDIA L40S\nNvidia driver version: 550.127.08\ncuDNN version: Probably one of the following:\n/usr/lib/x86_64-linux-gnu/libcudnn.so.9.10.2\n/usr/lib/x86_64-linux-gnu/libcudnn_adv.so.9.10.2\n/usr/lib/x86_64-linux-gnu/libcudnn_cnn.so.9.10.2\n/usr/lib/x86_64-linux-gnu/libcudnn_engines_precompiled.so.9.10.2\n/usr/lib/x86_64-linux-gnu/libcudnn_engines_runtime_compiled.so.9.10.2\n/usr/lib/x86_64-linux-gnu/libcudnn_graph.so.9.10.2\n/usr/lib/x86_64-linux-gnu/libcudnn_heuristic.so.9.10.2\n/usr/lib/x86_64-linux-gnu/libcudnn_ops.so.9.10.2\nIs XPU available: False\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: False\nCaching allocator config: N/A\n\nCPU:\nArchitecture:                       x86_64\nCPU op-mode(s):                     32-bit, 64-bit\nAddress sizes:                      52 bits physical, 57 bits virtual\nByte Order:                         Little Endian\nCPU(s):                             256\nOn-line CPU(s) list:                0-255\nVendor ID:                          AuthenticAMD\nModel name:                         AMD EPYC 9555 64-Core Processor\nCPU family:                         26\nModel:                              2\nThread(s) per core:                 2\nCore(s) per socket:                 64\nSocket(s):                          2\nStepping:                           1\nBogoMIPS:                           6390.51\nFlags:                              fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 invpcid_single hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local avx_vnni avx512_bf16 clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin cppc arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid bus_lock_detect movdiri movdir64b overflow_recov succor smca fsrm avx512_vp2intersect flush_l1d\nVirtualization:                     AMD-V\nL1d cache:                          6 MiB (128 instances)\nL1i cache:                          4 MiB (128 instances)\nL2 cache:                           128 MiB (128 instances)\nL3 cache:                           512 MiB (16 instances)\nNUMA node(s):                       2\nNUMA node0 CPU(s):                  0-63,128-191\nNUMA node1 CPU(s):                  64-127,192-255\nVulnerability Gather data sampling: Not affected\nVulnerability Itlb multihit:        Not affected\nVulnerability L1tf:                 Not affected\nVulnerability Mds:                  Not affected\nVulnerability Meltdown:             Not affected\nVulnerability Mmio stale data:      Not affected\nVulnerability Retbleed:             Not affected\nVulnerability Spec rstack overflow: Not affected\nVulnerability Spec store bypass:    Mitigation; Speculative Store Bypass disabled via prctl and seccomp\nVulnerability Spectre v1:           Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:           Mitigation; Retpolines, IBPB conditional, IBRS_FW, STIBP always-on, RSB filling, PBRSB-eIBRS Not affected\nVulnerability Srbds:                Not affected\nVulnerability Tsx async abort:      Not affected\n\nVersions of relevant libraries:\n[pip3] nccl-extensions==0.2.0\n[pip3] nccl4py==0.6.0\n[pip3] numpy==2.3.5\n[pip3] nvidia-cublas-cu12==12.9.1.4\n[pip3] nvidia-cuda-cupti-cu12==12.9.79\n[pip3] nvidia-cuda-nvrtc==13.5.37\n[pip3] nvidia-cuda-nvrtc-cu12==12.9.86\n[pip3] nvidia-cuda-runtime==13.5.37\n[pip3] nvidia-cuda-runtime-cu12==12.9.79\n[pip3] nvidia-cudnn-cu12==9.20.0.48\n[pip3] nvidia-cudnn-frontend==1.33.0\n[pip3] nvidia-cufft-cu12==11.4.1.4\n[pip3] nvidia-curand-cu12==10.3.10.19\n[pip3] nvidia-cusolver-cu12==11.7.5.82\n[pip3] nvidia-cusparse-cu12==12.5.10.65\n[pip3] nvidia-cusparselt-cu12==0.8.1\n[pip3] nvidia-nccl-cu12==2.29.7\n[pip3] nvidia-nvjitlink-cu12==12.9.86\n[pip3] nvidia-nvtx-cu12==12.9.79\n[pip3] nvtx==0.2.15\n[pip3] tokenspeed-triton==3.9.10.post20261028\n[pip3] torch==2.13.0+cu129\n[pip3] torch_c_dlpack_ext==0.1.5\n[pip3] torchaudio==2.11.0+cu129\n[pip3] torchvision==0.28.0+cu129\n[pip3] triton==3.7.1\n[conda] Could not collect",
+  "transformers_version": "5.19.0",
+  "lm_eval_version": "0.4.13",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|eot_id|>",
+    "128009"
+  ],
+  "tokenizer_eos_token": [
+    "<|eot_id|>",
+    "128009"
+  ],
+  "tokenizer_bos_token": [
+    "<|begin_of_text|>",
+    "128000"
+  ],
+  "eot_token_id": 128009,
+  "max_length": 20480,
+  "task_hashes": {
+    "longbench_lcc": "8de29dc518666f5221f7f24999af05e1dc09552fb3609a67f45ce761db47f342",
+    "longbench_repobench-p": "a71fa23c6f31d30abbaea40a940968ec2f0e7918aa565f017551ea3a86bb56f5",
+    "longbench_trec": "85ca01d7a7a399d70b08265c95eb1a12265115e9417e9c7cfbdfff6e867c1347",
+    "longbench_triviaqa": "f2ee02e024e0459d65193208597621cfed491c628465ec188ad545f49756394e",
+    "longbench_samsum": "ee8a79a96a9628cf6b7928eadbe90cd16b2b4778ada670d011d802227af004ab",
+    "longbench_lsht": "cad546407dd047c9387deadae7b75349ff8bc1acaa1e33e40fd49e33ebc30b9f",
+    "longbench_hotpotqa": "1c45ae720d84aa0304dc1593a032c5feb49a122fe35f013255d373e8ea174aba",
+    "longbench_2wikimqa": "e8902ca2cbe7e9a608d5b21fc5282ee2c69882c5a5b78c6d42b92c4464ee0889",
+    "longbench_musique": "9e7891fe626a95ed3b6becf83c1f6bff30c4d8a0cedcd57288fdbd88403c5a56",
+    "longbench_dureader": "bf44ed94f33d5a094ef82d084cac54fb2f0e0032c044f50cdb42574896c63dd6",
+    "longbench_narrativeqa": "ef5285fad31e4ae1efa2116f4935056cf7937db9e5ef2dee767fb050b15978c6",
+    "longbench_qasper": "2a7e17f584796cc659a0190f75823ed1b1962e2004673595b4cd3ab354f62b06",
+    "longbench_multifieldqa_en": "dca29ef8e0efb704234b4e95f83bc1b2ea4551ada651e7ce4c40b4dcfcc921d6",
+    "longbench_multifieldqa_zh": "19d7e99296f0ac62d40b57d9c2ea275765ff3b91f68a9b19e36d6f31bd9e91aa",
+    "longbench_gov_report": "543d8a4356c2a3231c857e072be4c84b30f999ea34ef4a9386909f64b0112baa",
+    "longbench_qmsum": "6e44e4d996d41a447f4a94be695f17caa550652b1c52c0a867c1bf36d172c41e",
+    "longbench_multi_news": "8ac2d0f7bb625b18b32797dd67f3cfdf0d03de3678a4c14d74354d2abf33efd5",
+    "longbench_vcsum": "08e550164c7e0dc53790c93bc80b48d668d8586c2572cc71fa290dfed9ef98ea",
+    "longbench_passage_count": "74eadeb8dcd86c9a30e923f03fe5a10d94d8003ce4eb288f77c5f5c1391e634c",
+    "longbench_passage_retrieval_en": "71665a312c79a651857ee0a4baf1d59904d0b6f464a4f115bf974790e0bcb53d",
+    "longbench_passage_retrieval_zh": "650d9772ba462dca9cade1d2261d902d5a890dd5eced28eb09cefd136fdf6055"
+  },
+  "model_source": "vllm",
+  "model_name": "/home/jovyan/checkpoints/llama31-8b__w-fp8",
+  "model_name_sanitized": "__home__jovyan__checkpoints__llama31-8b__w-fp8",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": null,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "total_evaluation_time_seconds": "3739.8316814526916"
+}
