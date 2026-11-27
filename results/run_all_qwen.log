@@ -1849,3 +1849,19 @@ TypeError: Object of type date is not JSON serializable
 [07:20:23] eval:qwen25-7b__w-int4awq__kv-bf16:gsm8k -> skip (no checkpoint)
 [07:20:23] baseline GSM8K rerun (noise floor)
 [07:24:37] eval:qwen25-7b__w-bf16__kv-bf16:gsm8k:rerun -> ok
+[07:24:53] pushed: quality: gsm8k across all configs
+
+[07:24:53] ===== task pass: mmlu  (7 configs) =====
+[07:24:53] eval qwen25-7b__w-bf16__kv-bf16 / mmlu
+[08:28:36] eval:qwen25-7b__w-bf16__kv-bf16:mmlu -> ok
+[08:28:36] eval qwen25-7b__w-fp8__kv-bf16 / mmlu
+[09:16:18] eval:qwen25-7b__w-fp8__kv-bf16:mmlu -> ok
+[09:16:18] eval qwen25-7b__w-bf16__kv-fp8 / mmlu
+[10:19:52] eval:qwen25-7b__w-bf16__kv-fp8:mmlu -> ok
+[10:19:52] eval qwen25-7b__w-fp8__kv-fp8 / mmlu
+[11:07:30] eval:qwen25-7b__w-fp8__kv-fp8:mmlu -> ok
+[11:07:30] eval qwen25-7b__w-int8__kv-bf16 / mmlu
+[11:51:31] eval:qwen25-7b__w-int8__kv-bf16:mmlu -> ok
+[11:51:31] eval qwen25-7b__w-int4gptq__kv-bf16 / mmlu
+[12:50:34] eval:qwen25-7b__w-int4gptq__kv-bf16:mmlu -> ok
+[12:50:34] eval:qwen25-7b__w-int4awq__kv-bf16:mmlu -> skip (no checkpoint)
