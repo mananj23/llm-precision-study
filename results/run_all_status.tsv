@@ -249,3 +249,4 @@
 2026-11-27T13:01:29+00:00	eval:qwen25-7b__w-int8__kv-bf16:ifeval	ok
 2026-11-27T13:03:19+00:00	eval:qwen25-7b__w-int4gptq__kv-bf16:ifeval	ok
 2026-11-27T13:03:19+00:00	eval:qwen25-7b__w-int4awq__kv-bf16:ifeval	skip (no checkpoint)
+2026-11-27T13:03:43+00:00	bench	skip (SKIP_BENCH=1)
